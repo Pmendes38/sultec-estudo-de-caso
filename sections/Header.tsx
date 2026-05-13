@@ -36,10 +36,23 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <Button className="hidden md:inline-flex text-sm">
+          {/* Fix 6: Botão outline laranja */}
+          <button
+            className="hidden md:inline-flex"
+            style={{
+              backgroundColor: 'transparent',
+              border: '1.5px solid #FF6A00',
+              color: '#FF6A00',
+              padding: '10px 20px',
+              fontSize: '0.875rem',
+              fontWeight: 600,
+              borderRadius: '4px',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+            }}
+          >
             Solicitar orçamento →
-          </Button>
+          </button>
 
           {/* Mobile Menu Button */}
           <button

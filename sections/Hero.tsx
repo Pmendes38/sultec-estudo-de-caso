@@ -1,75 +1,143 @@
 'use client'
 
-import { Container, Button } from '@/components/ui'
-
 export function Hero() {
   return (
     <section
-      className="relative w-full min-h-screen pt-20 flex items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage:
-          'url("https://images.unsplash.com/photo-1486718448742-165732cd63d5?w=1500&h=900&fit=crop")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
+      style={{ paddingTop: '80px' }}
     >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-dark-900/70" />
+      {/* Fix 2: Background visível sem opacity */}
+      <img
+        src="https://images.unsplash.com/photo-1486718448742-165732cd63d5?w=1500&q=80"
+        alt=""
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+        }}
+      />
 
-      {/* Stats Bar */}
-      <div className="absolute top-24 left-0 right-0 border-y border-dark-600">
-        <Container>
-          <div className="grid grid-cols-1 md:grid-cols-4 py-6 gap-4">
-            <div className="text-center">
-              <p className="text-orange-500 font-bold text-lg">+12</p>
-              <p className="text-white/70 text-xs md:text-sm font-sora">
-                ANOS DE MERCADO
-              </p>
-            </div>
-            <div className="text-center">
-              <p className="text-orange-500 font-bold text-lg">+350</p>
-              <p className="text-white/70 text-xs md:text-sm font-sora">
-                PROJETOS
-              </p>
-            </div>
-            <div className="text-center">
-              <p className="text-orange-500 font-bold text-lg">NACIONAL</p>
-              <p className="text-white/70 text-xs md:text-sm font-sora">
-                ATENDIMENTO
-              </p>
-            </div>
-            <div className="text-center">
-              <p className="text-orange-500 font-bold text-lg">✓</p>
-              <p className="text-white/70 text-xs md:text-sm font-sora">
-                EQUIPE ESPECIALIZADA
-              </p>
-            </div>
-          </div>
-        </Container>
-      </div>
+      {/* Fix 2: Overlay com gradiente, sem sufocar a imagem */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'linear-gradient(to right, rgba(0,0,0,0.80), rgba(0,0,0,0.60), rgba(0,0,0,0.30))',
+      }} />
 
       {/* Content */}
-      <Container className="relative z-10">
-        <div className="flex flex-col items-center text-center space-y-6 py-24">
-          <h1 className="font-sora font-extrabold text-white text-4xl md:text-6xl lg:text-7xl uppercase leading-tight max-w-4xl">
+      <div style={{
+        position: 'relative',
+        zIndex: 10,
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: '96px 24px',
+        width: '100%',
+      }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+
+          {/* Fix 3: Título em caixa alta, dois elementos separados */}
+          <h1 style={{
+            fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
+            fontWeight: 800,
+            lineHeight: 1.05,
+            letterSpacing: '-0.02em',
+            textTransform: 'uppercase',
+            color: '#FFFFFF',
+            margin: 0,
+          }}>
             Tecnologia, Estrutura e
           </h1>
-          <h2 className="font-sora font-extrabold text-orange-500 text-4xl md:text-6xl lg:text-7xl uppercase leading-tight max-w-4xl">
+
+          <h2 style={{
+            fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
+            fontWeight: 800,
+            lineHeight: 1.05,
+            letterSpacing: '-0.02em',
+            textTransform: 'uppercase',
+            color: '#FF6A00',
+            margin: 0,
+          }}>
             Excelência Operacional.
           </h2>
-          <p className="font-sora text-white/80 text-lg md:text-xl max-w-2xl">
+
+          <p style={{
+            color: 'rgba(255,255,255,0.8)',
+            fontSize: '1.125rem',
+            maxWidth: '600px',
+            margin: '8px 0 0',
+          }}>
             Soluções inovadoras que transformam sua estrutura em resultados
           </p>
 
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-6">
-            <Button className="px-8 py-4">Falar com especialista →</Button>
-            <Button variant="outline" className="px-8 py-4">
+          {/* Fix 4: Botões com tamanho e estilo corretos */}
+          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '16px' }}>
+            <button style={{
+              backgroundColor: '#FF6A00',
+              color: '#FFFFFF',
+              padding: '14px 28px',
+              fontSize: '1rem',
+              fontWeight: 600,
+              borderRadius: '4px',
+              border: 'none',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+            }}>
+              Falar com especialista →
+            </button>
+
+            <button style={{
+              backgroundColor: 'transparent',
+              color: '#FFFFFF',
+              padding: '14px 28px',
+              fontSize: '1rem',
+              fontWeight: 600,
+              borderRadius: '4px',
+              border: '1px solid rgba(255,255,255,0.4)',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+            }}>
               Ver soluções →
-            </Button>
+            </button>
           </div>
+
+          {/* Fix 5: Stats como barra horizontal, não cards */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'stretch',
+            marginTop: '64px',
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+            paddingTop: '32px',
+          }}>
+            {[
+              { value: '+12', label: 'ANOS DE MERCADO', icon: '🛡️' },
+              { value: '+350', label: 'PROJETOS', icon: '📋' },
+              { value: 'NACIONAL', label: 'ATENDIMENTO', icon: '📍' },
+              { value: 'ESPECIALIZADA', label: 'EQUIPE', icon: '👥' },
+            ].map((stat, index) => (
+              <div key={index} style={{
+                flex: 1,
+                paddingLeft: index === 0 ? 0 : '32px',
+                paddingRight: '32px',
+                borderRight: index < 3 ? '1px solid rgba(255,255,255,0.15)' : 'none',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '4px',
+              }}>
+                <span style={{ fontSize: '1.5rem' }}>{stat.icon}</span>
+                <p style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.1rem', margin: 0 }}>
+                  {stat.value}
+                </p>
+                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', margin: 0 }}>
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+
         </div>
-      </Container>
+      </div>
     </section>
   )
 }
