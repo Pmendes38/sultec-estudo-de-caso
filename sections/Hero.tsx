@@ -23,7 +23,7 @@ export function Hero() {
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'linear-gradient(to right, rgba(0,0,0,0.70), rgba(0,0,0,0.50), rgba(0,0,0,0.20))',
+        background: 'linear-gradient(to right, rgba(0,0,0,0.50), rgba(0,0,0,0.30), rgba(0,0,0,0.10))',
       }} />
 
       {/* Content */}
@@ -39,10 +39,10 @@ export function Hero() {
 
           {/* Fix 3: Título em caixa alta, dois elementos separados */}
           <h1 style={{
-            fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
+            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
             fontWeight: 800,
-            lineHeight: 1.05,
-            letterSpacing: '-0.02em',
+            lineHeight: 1.1,
+            letterSpacing: '-0.03em',
             textTransform: 'uppercase',
             color: '#FFFFFF',
             margin: 0,
@@ -51,10 +51,10 @@ export function Hero() {
           </h1>
 
           <h2 style={{
-            fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
+            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
             fontWeight: 800,
-            lineHeight: 1.05,
-            letterSpacing: '-0.02em',
+            lineHeight: 1.1,
+            letterSpacing: '-0.03em',
             textTransform: 'uppercase',
             color: '#FF6A00',
             margin: 0,
@@ -76,13 +76,15 @@ export function Hero() {
             <button style={{
               backgroundColor: '#FF6A00',
               color: '#FFFFFF',
-              padding: '16px 40px',
-              fontSize: '1.125rem',
+              padding: '18px 48px',
+              fontSize: '1.05rem',
               fontWeight: 600,
               borderRadius: '4px',
               border: 'none',
               cursor: 'pointer',
               whiteSpace: 'nowrap',
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px',
             }}>
               Falar com especialista →
             </button>
@@ -90,31 +92,33 @@ export function Hero() {
             <button style={{
               backgroundColor: 'transparent',
               color: '#FFFFFF',
-              padding: '16px 40px',
-              fontSize: '1.125rem',
+              padding: '18px 48px',
+              fontSize: '1.05rem',
               fontWeight: 600,
               borderRadius: '4px',
-              border: '1px solid rgba(255,255,255,0.5)',
+              border: '2px solid rgba(255,255,255,0.6)',
               cursor: 'pointer',
               whiteSpace: 'nowrap',
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px',
             }}>
               Ver soluções →
             </button>
           </div>
 
-          {/* Fix 5: Stats como barra horizontal, não cards */}
+          {/* Fix 5: Stats como barra horizontal com ícones e linhas de separação */}
           <div style={{
             display: 'flex',
-            alignItems: 'stretch',
+            alignItems: 'center',
             marginTop: '80px',
             borderTop: '1px solid rgba(255,255,255,0.2)',
             paddingTop: '48px',
           }}>
             {[
-              { value: '+12', label: 'ANOS DE MERCADO', icon: '🛡️' },
+              { value: '+12 ANOS', label: 'DE MERCADO', icon: '🛡️' },
               { value: '+350', label: 'PROJETOS', icon: '📋' },
-              { value: 'NACIONAL', label: 'ATENDIMENTO', icon: '📍' },
-              { value: 'ESPECIALIZADA', label: 'EQUIPE', icon: '👥' },
+              { value: 'ATENDIMENTO', label: 'NACIONAL', icon: '📍' },
+              { value: 'EQUIPE', label: 'ESPECIALIZADA', icon: '👥' },
             ].map((stat, index) => (
               <div key={index} style={{
                 flex: 1,
@@ -122,16 +126,18 @@ export function Hero() {
                 paddingRight: '40px',
                 borderRight: index < 3 ? '1px solid rgba(255,255,255,0.2)' : 'none',
                 display: 'flex',
-                flexDirection: 'column',
-                gap: '8px',
+                alignItems: 'center',
+                gap: '16px',
               }}>
-                <span style={{ fontSize: '2rem' }}>{stat.icon}</span>
-                <p style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.3rem', margin: 0 }}>
-                  {stat.value}
-                </p>
-                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', margin: 0, fontWeight: 500 }}>
-                  {stat.label}
-                </p>
+                <span style={{ fontSize: '2.5rem', lineHeight: 1 }}>{stat.icon}</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <p style={{ color: '#FF6A00', fontWeight: 700, fontSize: '1.25rem', margin: 0, textTransform: 'uppercase' }}>
+                    {stat.value}
+                  </p>
+                  <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', margin: 0, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                    {stat.label}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

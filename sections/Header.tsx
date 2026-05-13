@@ -17,9 +17,9 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-dark-900/80 backdrop-blur-md border-b border-dark-600">
       <Container>
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-28">
           {/* Logo */}
-          <div className="flex items-center gap-2 font-bold text-4xl">
+          <div className="flex items-center gap-2 font-bold text-5xl">
             <span className="text-orange-500">SULTEC</span>
           </div>
 
@@ -43,12 +43,14 @@ export function Header() {
               backgroundColor: 'transparent',
               border: '2px solid #FF6A00',
               color: '#FF6A00',
-              padding: '12px 28px',
-              fontSize: '1rem',
+              padding: '14px 32px',
+              fontSize: '1.05rem',
               fontWeight: 600,
               borderRadius: '4px',
               cursor: 'pointer',
               whiteSpace: 'nowrap',
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px',
             }}
           >
             Solicitar orçamento →
