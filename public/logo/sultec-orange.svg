@@ -1,0 +1,24 @@
+<svg viewBox="0 0 920 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <!-- Orange logo text "SULTEC" -->
+  <text x="50" y="120" font-family="Arial, sans-serif" font-size="100" font-weight="bold" fill="#FF6A00" letter-spacing="5">SULTEC</text>
+  
+  <!-- Decorative tech lines -->
+  <g stroke="#FF6A00" stroke-width="3" fill="none" stroke-linecap="round">
+    <!-- Top curve -->
+    <path d="M 320 80 Q 360 40 400 60" />
+    <!-- Middle curve -->
+    <path d="M 310 100 Q 360 90 410 100" />
+    <!-- Bottom curve -->
+    <path d="M 320 120 Q 360 140 400 140" />
+    
+    <!-- Connection dots -->
+    <circle cx="400" cy="60" r="4" fill="#FF6A00" />
+    <circle cx="410" cy="100" r="4" fill="#FF6A00" />
+    <circle cx="400" cy="140" r="4" fill="#FF6A00" />
+    <circle cx="440" cy="40" r="4" fill="#FF6A00" />
+    <circle cx="450" cy="110" r="4" fill="#FF6A00" />
+  </g>
+  
+  <!-- Optional: Tagline (commented out for main logo) -->
+  <!-- <text x="50" y="155" font-family="Arial, sans-serif" font-size="16" fill="#FF6A00" letter-spacing="3">SOLUÇÕES TECNOLÓGICAS</text> -->
+</svg>
