@@ -19,11 +19,11 @@ export function Hero() {
         }}
       />
 
-      {/* Fix 2: Overlay com gradiente, sem sufocar a imagem */}
+      {/* Fix 2: Overlay com gradiente suave para visibilidade da imagem */}
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'linear-gradient(to right, rgba(0,0,0,0.80), rgba(0,0,0,0.60), rgba(0,0,0,0.30))',
+        background: 'linear-gradient(to right, rgba(0,0,0,0.70), rgba(0,0,0,0.50), rgba(0,0,0,0.20))',
       }} />
 
       {/* Content */}
@@ -32,10 +32,10 @@ export function Hero() {
         zIndex: 10,
         maxWidth: '1280px',
         margin: '0 auto',
-        padding: '96px 24px',
+        padding: '120px 40px',
         width: '100%',
       }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
 
           {/* Fix 3: Título em caixa alta, dois elementos separados */}
           <h1 style={{
@@ -72,12 +72,12 @@ export function Hero() {
           </p>
 
           {/* Fix 4: Botões com tamanho e estilo corretos */}
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '16px' }}>
+          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginTop: '24px' }}>
             <button style={{
               backgroundColor: '#FF6A00',
               color: '#FFFFFF',
-              padding: '14px 28px',
-              fontSize: '1rem',
+              padding: '16px 40px',
+              fontSize: '1.125rem',
               fontWeight: 600,
               borderRadius: '4px',
               border: 'none',
@@ -90,11 +90,11 @@ export function Hero() {
             <button style={{
               backgroundColor: 'transparent',
               color: '#FFFFFF',
-              padding: '14px 28px',
-              fontSize: '1rem',
+              padding: '16px 40px',
+              fontSize: '1.125rem',
               fontWeight: 600,
               borderRadius: '4px',
-              border: '1px solid rgba(255,255,255,0.4)',
+              border: '1px solid rgba(255,255,255,0.5)',
               cursor: 'pointer',
               whiteSpace: 'nowrap',
             }}>
@@ -106,9 +106,9 @@ export function Hero() {
           <div style={{
             display: 'flex',
             alignItems: 'stretch',
-            marginTop: '64px',
-            borderTop: '1px solid rgba(255,255,255,0.1)',
-            paddingTop: '32px',
+            marginTop: '80px',
+            borderTop: '1px solid rgba(255,255,255,0.2)',
+            paddingTop: '48px',
           }}>
             {[
               { value: '+12', label: 'ANOS DE MERCADO', icon: '🛡️' },
@@ -118,18 +118,18 @@ export function Hero() {
             ].map((stat, index) => (
               <div key={index} style={{
                 flex: 1,
-                paddingLeft: index === 0 ? 0 : '32px',
-                paddingRight: '32px',
-                borderRight: index < 3 ? '1px solid rgba(255,255,255,0.15)' : 'none',
+                paddingLeft: index === 0 ? 0 : '40px',
+                paddingRight: '40px',
+                borderRight: index < 3 ? '1px solid rgba(255,255,255,0.2)' : 'none',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '4px',
+                gap: '8px',
               }}>
-                <span style={{ fontSize: '1.5rem' }}>{stat.icon}</span>
-                <p style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.1rem', margin: 0 }}>
+                <span style={{ fontSize: '2rem' }}>{stat.icon}</span>
+                <p style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.3rem', margin: 0 }}>
                   {stat.value}
                 </p>
-                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', margin: 0 }}>
+                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', margin: 0, fontWeight: 500 }}>
                   {stat.label}
                 </p>
               </div>

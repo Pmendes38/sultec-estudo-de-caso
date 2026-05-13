@@ -17,34 +17,34 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-dark-900/80 backdrop-blur-md border-b border-dark-600">
       <Container>
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
-          <div className="flex items-center gap-2 font-bold text-2xl">
+          <div className="flex items-center gap-2 font-bold text-4xl">
             <span className="text-orange-500">SULTEC</span>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-12">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-white font-sora font-medium text-sm hover:text-orange-500 transition-colors"
+                className="text-white font-sora font-medium text-base hover:text-orange-500 transition-colors"
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          {/* Fix 6: Botão outline laranja */}
+          {/* Fix 6: Botão outline laranja com tamanho maior */}
           <button
             className="hidden md:inline-flex"
             style={{
               backgroundColor: 'transparent',
-              border: '1.5px solid #FF6A00',
+              border: '2px solid #FF6A00',
               color: '#FF6A00',
-              padding: '10px 20px',
-              fontSize: '0.875rem',
+              padding: '12px 28px',
+              fontSize: '1rem',
               fontWeight: 600,
               borderRadius: '4px',
               cursor: 'pointer',
