@@ -10,11 +10,10 @@ export const Header: React.FC = () => {
 
   const navItems = [
     { label: 'Início', href: '#inicio' },
-    { label: 'Empresa', href: '#empresa' },
+    { label: 'Sobre', href: '#sobre' },
     { label: 'Serviços', href: '#servicos' },
-    { label: 'Projetos', href: '#projetos' },
+    { label: 'Portfólio', href: '#portfolio' },
     { label: 'Diferenciais', href: '#diferenciais' },
-    { label: 'Uniformes', href: '#uniformes' },
     { label: 'Contato', href: '#contato' },
   ]
 

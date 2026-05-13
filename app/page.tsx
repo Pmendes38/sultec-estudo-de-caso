@@ -9,7 +9,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Image
-              src="/logo-sultec.png"
+              src="/logo/logo.svg"
               alt="Sultec"
               width={170}
               height={60}
@@ -30,9 +30,6 @@ export default function Home() {
             <a href="#portfolio" className="hover:text-orange-500 transition">
               Portfólio
             </a>
-            <a href="#uniformes" className="hover:text-orange-500 transition">
-              Uniformes
-            </a>
             <a href="#contato" className="hover:text-orange-500 transition">
               Contato
             </a>
@@ -51,7 +48,7 @@ export default function Home() {
       >
         <div className="absolute inset-0">
           <Image
-            src="/hero-bg.jpg"
+            src="/images/bg-home.jpg"
             alt=""
             fill
             className="object-cover opacity-25"
@@ -98,6 +95,26 @@ export default function Home() {
                   <p className="text-orange-500 font-bold">{item}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEO */}
+      <section id="video" className="py-20 border-t border-white/10 bg-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="aspect-video rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] flex items-center justify-center px-6 text-center">
+            <div>
+              <p className="text-orange-500 uppercase tracking-[0.25em] text-sm">
+                Vídeo institucional
+              </p>
+              <h2 className="text-3xl lg:text-4xl font-bold mt-4">
+                Espaço reservado para o vídeo que você vai adicionar.
+              </h2>
+              <p className="text-white/60 mt-4 max-w-2xl mx-auto">
+                Quando o arquivo for enviado para `public/video-intro.mp4`, ele pode
+                ser inserido aqui sem alterar a estrutura da página.
+              </p>
             </div>
           </div>
         </div>
@@ -174,33 +191,46 @@ export default function Home() {
 
           <div className="grid lg:grid-cols-3 gap-8 mt-16">
             {[
-              "Soluções Tecnológicas",
-              "Serviços Técnicos",
-              "Projetos Corporativos",
-              "Infraestrutura",
-              "Manutenção",
-              "Suporte Especializado",
+              {
+                title: "Cabeamento estruturado (solução completa)",
+                image: "/images/cabeamento-estruturado.jpg",
+              },
+              {
+                title: "Infraestrutura de redes",
+                image: "/images/infraestrutura-de-redes.jpg",
+              },
+              {
+                title: "Montagem e instalação de Data Centers (CPDs)",
+                image: "/images/data-centers.jpg",
+              },
             ].map((service, index) => (
               <div
                 key={index}
-                className="group border border-white/10 rounded-2xl p-8 bg-white/[0.02] hover:border-orange-500 transition"
+                className="group overflow-hidden border border-white/10 rounded-2xl bg-white/[0.02] hover:border-orange-500 transition"
               >
-                <div className="w-14 h-14 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500 text-2xl">
-                  ●
+                <div className="relative h-56">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
 
-                <h3 className="text-2xl font-semibold mt-8">
-                  {service}
-                </h3>
+                <div className="p-8">
+                  <h3 className="text-2xl font-semibold">
+                    {service.title}
+                  </h3>
 
-                <p className="text-white/60 mt-5 leading-relaxed">
-                  Soluções profissionais com foco em desempenho,
-                  segurança e eficiência operacional.
-                </p>
+                  <p className="text-white/60 mt-5 leading-relaxed">
+                    Soluções profissionais com foco em desempenho,
+                    segurança e eficiência operacional.
+                  </p>
 
-                <button className="mt-8 text-orange-500 font-medium">
-                  Saiba mais →
-                </button>
+                  <button className="mt-8 text-orange-500 font-medium">
+                    Saiba mais →
+                  </button>
+                </div>
               </div>
             ))}
           </div>
@@ -230,15 +260,28 @@ export default function Home() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 mt-16">
-            {[1, 2, 3].map((item) => (
+            {[
+              {
+                title: "Cabeamento estruturado",
+                image: "/images/cabeamento-estruturado.jpg",
+              },
+              {
+                title: "Infraestrutura de redes",
+                image: "/images/infraestrutura-de-redes-2.jpg",
+              },
+              {
+                title: "Data Centers",
+                image: "/images/data-centers.jpg",
+              },
+            ].map((item) => (
               <div
-                key={item}
+                key={item.title}
                 className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"
               >
                 <div className="relative h-[260px]">
                   <Image
-                    src={`/portfolio-${item}.jpg`}
-                    alt=""
+                    src={item.image}
+                    alt={item.title}
                     fill
                     className="object-cover"
                   />
@@ -246,7 +289,7 @@ export default function Home() {
 
                 <div className="p-8">
                   <h3 className="text-2xl font-semibold">
-                    Projeto Corporativo
+                    {item.title}
                   </h3>
 
                   <p className="text-white/60 mt-4 leading-relaxed">
@@ -275,68 +318,28 @@ export default function Home() {
 
           <div className="grid lg:grid-cols-5 gap-6 mt-16">
             {[
-              "Qualidade",
-              "Tecnologia",
-              "Equipe Especializada",
-              "Agilidade",
-              "Excelência",
+              { title: "Qualidade", icon: "/icons/quadrado-icon.svg" },
+              { title: "Tecnologia", icon: "/icons/local-icon.svg" },
+              { title: "Equipe Especializada", icon: "/icons/pessoas-icon.svg" },
+              { title: "Agilidade", icon: "/icons/suporte-icon.svg" },
+              { title: "Excelência", icon: "/icons/seguranca-icon.svg" },
             ].map((item, index) => (
               <div
                 key={index}
                 className="border border-white/10 rounded-2xl p-7 text-center bg-white/[0.02]"
               >
-                <div className="w-14 h-14 mx-auto rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500">
-                  ●
+                <div className="w-14 h-14 mx-auto rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center p-3">
+                  <Image src={item.icon} alt={item.title} width={28} height={28} />
                 </div>
 
-                <h3 className="font-semibold mt-6">{item}</h3>
+                <h3 className="font-semibold mt-6">{item.title}</h3>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* UNIFORMES */}
-      <section
-        id="uniformes"
-        className="py-32 border-t border-white/10 bg-[#050505]"
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-2xl">
-            <span className="text-orange-500 uppercase tracking-[0.2em] text-sm">
-              Uniformes Corporativos
-            </span>
-
-            <h2 className="text-4xl font-bold mt-5">
-              Identidade que representa profissionalismo.
-            </h2>
-          </div>
-
-          <div className="grid lg:grid-cols-4 gap-8 mt-16">
-            {[1, 2, 3, 4].map((item) => (
-              <div
-                key={item}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden"
-              >
-                <div className="relative h-[340px]">
-                  <Image
-                    src={`/uniforme-${item}.png`}
-                    alt=""
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-
-                <div className="p-6">
-                  <h3 className="font-semibold text-lg">
-                    Uniforme Corporativo
-                  </h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* UNIFORMES: seção removida conforme solicitado */}
 
       {/* CTA */}
       <section
@@ -376,7 +379,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 gap-12">
           <div>
             <Image
-              src="/logo-sultec.png"
+              src="/logo/logo.svg"
               alt="Sultec"
               width={170}
               height={60}
@@ -403,10 +406,9 @@ export default function Home() {
             <h3 className="font-semibold text-lg">Serviços</h3>
 
             <ul className="space-y-3 mt-6 text-white/60">
-              <li>Soluções Tecnológicas</li>
-              <li>Infraestrutura</li>
-              <li>Manutenção</li>
-              <li>Suporte Especializado</li>
+              <li>Cabeamento estruturado (solução completa)</li>
+              <li>Infraestrutura de redes</li>
+              <li>Montagem e instalação de Data Centers (CPDs)</li>
             </ul>
           </div>
 
