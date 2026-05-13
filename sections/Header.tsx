@@ -1,98 +1,94 @@
-"use client"
-import React, { useState } from 'react'
-import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+'use client'
+
+import { useState } from 'react'
+import Image from 'next/image'
 import { Container, Button } from '@/components/ui'
 
-export const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navItems = [
-    { label: 'Início', href: '#inicio' },
+    { label: 'Início', href: '#' },
     { label: 'Sobre', href: '#sobre' },
     { label: 'Serviços', href: '#servicos' },
     { label: 'Portfólio', href: '#portfolio' },
     { label: 'Diferenciais', href: '#diferenciais' },
-    { label: 'Contato', href: '#contato' },
   ]
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-dark-900/70 backdrop-blur-xl border-b border-orange-500/10 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-dark-900/80 backdrop-blur-md border-b border-dark-600">
       <Container>
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-3"
-          >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white font-bold text-lg">
-              S
-            </div>
-            <span className="font-bold text-lg text-white hidden sm:inline">SULTEC</span>
-          </motion.div>
+          <div className="flex items-center">
+            <Image
+              src="/logo/sultec-orange.svg"
+              alt="SULTEC"
+              width={150}
+              height={50}
+              className="h-12 w-auto"
+            />
+          </div>
 
-          {/* Desktop Menu */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
-              <motion.a
-                key={item.href}
-                href={item.href}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-sm text-white/70 hover:text-orange-500 transition-colors duration-300 font-medium"
-              >
-                {item.label}
-              </motion.a>
-            ))}
-          </nav>
-
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="hidden sm:block"
-          >
-            <Button size="md" className="rounded-xl">
-              Solicitar Orçamento
-            </Button>
-          </motion.div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden text-white"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <motion.nav
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="lg:hidden pb-4 space-y-3"
-          >
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <a
-                key={item.href}
+                key={item.label}
                 href={item.href}
-                className="block text-white/70 hover:text-orange-500 transition-colors py-2 text-sm font-medium"
-                onClick={() => setIsMenuOpen(false)}
+                className="text-white font-sora font-medium text-sm hover:text-orange-500 transition-colors"
               >
                 {item.label}
               </a>
             ))}
-            <Button size="md" className="w-full mt-4 rounded-xl">
-              Solicitar Orçamento
+          </nav>
+
+          {/* CTA Button */}
+          <Button className="hidden md:inline-flex text-sm">
+            Solicitar orçamento →
+          </Button>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden text-white"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={
+                  mobileMenuOpen
+                    ? 'M6 18L18 6M6 6l12 12'
+                    : 'M4 6h16M4 12h16M4 18h16'
+                }
+              />
+            </svg>
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <nav className="md:hidden pb-4 flex flex-col gap-4">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-white font-sora font-medium hover:text-orange-500 transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+            <Button className="w-full justify-center text-sm">
+              Solicitar orçamento →
             </Button>
-          </motion.nav>
+          </nav>
         )}
       </Container>
     </header>
