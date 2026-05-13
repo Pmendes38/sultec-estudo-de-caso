@@ -1,124 +1,77 @@
-"use client"
-import React from 'react'
-import { motion } from 'framer-motion'
-import { ChevronRight } from 'lucide-react'
-import {
-  Wrench,
-  Cpu,
-  Building2,
-  Shield,
-  Zap,
-  Headphones,
-} from 'lucide-react'
-import { Container, Card, CardContent, Button } from '@/components/ui'
-import { services } from '@/data/content'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+'use client'
 
-const iconMap: Record<string, React.ReactNode> = {
-  Wrench: <Wrench size={40} />,
-  Cpu: <Cpu size={40} />,
-  Building2: <Building2 size={40} />,
-  Shield: <Shield size={40} />,
-  Zap: <Zap size={40} />,
-  Headphones: <Headphones size={40} />,
-}
+import { Container, Card, Button } from '@/components/ui'
 
-export const Services: React.FC = () => {
-  const scrollAnimation = useScrollAnimation()
+const services = [
+  {
+    id: 1,
+    title: 'Soluções Tecnológicas',
+    description: 'Implementação de tecnologias inovadoras para otimizar processos.',
+  },
+  {
+    id: 2,
+    title: 'Serviços Técnicos',
+    description: 'Suporte técnico especializado e manutenção preventiva.',
+  },
+  {
+    id: 3,
+    title: 'Projetos Corporativos',
+    description: 'Desenvolvimento de projetos customizados para sua empresa.',
+  },
+  {
+    id: 4,
+    title: 'Infraestrutura',
+    description: 'Planejamento e implementação de infraestrutura robusta.',
+  },
+  {
+    id: 5,
+    title: 'Manutenção',
+    description: 'Manutenção contínua e otimização de sistemas.',
+  },
+  {
+    id: 6,
+    title: 'Suporte Especializado',
+    description: 'Suporte 24/7 com especialistas qualificados.',
+  },
+]
 
+export function Services() {
   return (
-    <section
-      id="servicos"
-      className="py-28 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900 relative overflow-hidden"
-    >
-      {/* Background Glow */}
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl" />
-
-      <Container className="relative z-10">
+    <section id="servicos" className="py-20 bg-dark-900">
+      <Container>
         {/* Header */}
-        <motion.div
-          className="max-w-3xl mb-20"
-          {...scrollAnimation.fadeUp}
-        >
-          <motion.span
-            className="text-orange-500 font-semibold uppercase tracking-widest text-sm"
-            {...scrollAnimation.fadeUp}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Serviços
-          </motion.span>
+        <div className="text-center mb-16">
+          <p className="text-orange-500 font-sora font-bold text-sm uppercase tracking-wide">
+            Nossos Serviços
+          </p>
+          <h2 className="text-white font-sora font-extrabold text-3xl md:text-4xl uppercase mt-4">
+            Soluções Completas Para Cada Necessidade.
+          </h2>
+        </div>
 
-          <motion.h2
-            className="text-5xl lg:text-6xl font-black mt-4 mb-6 text-white"
-            {...scrollAnimation.fadeUp}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Soluções completas para empresas modernas.
-          </motion.h2>
-
-          <motion.p
-            className="text-white/70 text-lg leading-relaxed font-light"
-            {...scrollAnimation.fadeUp}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            Estrutura técnica, soluções inteligentes e atendimento profissional para diferentes demandas corporativas.
-          </motion.p>
-        </motion.div>
-
-        {/* Services Grid */}
-        <motion.div
-          className="grid lg:grid-cols-3 gap-8"
-          {...scrollAnimation.staggerContainer}
-        >
-          {services.map((service, index) => (
-            <motion.div
-              key={service.id}
-              {...scrollAnimation.staggerItem}
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Card
-                variant="dark"
-                className="h-full hover:border-orange-500/40 transition-all duration-300 group"
-              >
-                <CardContent className="p-10">
-                  {/* Icon */}
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-500/5 text-orange-500 flex items-center justify-center mb-8 group-hover:from-orange-500/30 group-hover:to-orange-500/10 transition-all">
-                    {iconMap[service.icon]}
+        {/* Services Grid - 3x2 */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service) => (
+            <Card key={service.id}>
+              <div className="flex flex-col h-full justify-between">
+                <div>
+                  <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-white font-bold">{service.id}</span>
                   </div>
-
-                  {/* Title */}
-                  <h3 className="text-2xl font-bold mb-4 text-white">
+                  <h3 className="text-white font-sora font-bold text-lg mb-3">
                     {service.title}
                   </h3>
-
-                  {/* Description */}
-                  <p className="text-white/65 leading-relaxed mb-8 font-light">
+                  <p className="text-white/70 font-sora text-sm">
                     {service.description}
                   </p>
-
-                  {/* CTA */}
-                  <button className="flex items-center gap-2 text-orange-500 font-semibold hover:gap-3 transition-all group-hover:text-orange-400">
-                    Saiba mais
-                    <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </CardContent>
-              </Card>
-            </motion.div>
+                </div>
+                <a href="#" className="text-orange-500 font-sora font-bold text-sm hover:text-orange-600 mt-4 inline-block">
+                  Saiba mais →
+                </a>
+              </div>
+            </Card>
           ))}
-        </motion.div>
-
-        {/* CTA Button */}
-        <motion.div
-          className="text-center mt-16"
-          {...scrollAnimation.fadeUp}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <Button size="lg" variant="outline" className="rounded-2xl">
-            Ver todos os serviços
-            <ChevronRight size={20} />
-          </Button>
-        </motion.div>
+        </div>
       </Container>
     </section>
   )

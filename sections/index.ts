@@ -4,6 +4,7 @@ export { About } from './About'
 export { Services } from './Services'
 export { Portfolio } from './Portfolio'
 export { Differentials } from './Differentials'
-export { Testimonials } from './Testimonials'
+export { Clients } from './Clients'
 export { CTA } from './CTA'
 export { Footer } from './Footer'
+

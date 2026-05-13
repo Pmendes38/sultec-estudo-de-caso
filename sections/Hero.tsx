@@ -1,173 +1,73 @@
-"use client"
-import React from 'react'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { Cpu, ArrowRight } from 'lucide-react'
-import { Container, Button, Badge, Card, CardContent } from '@/components/ui'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+'use client'
 
-export const Hero: React.FC = () => {
-  const scrollAnimation = useScrollAnimation()
+import { Container, Button } from '@/components/ui'
 
+export function Hero() {
   return (
     <section
-      id="inicio"
-      className="relative min-h-screen flex items-center pt-32 pb-20 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-700 overflow-hidden"
+      className="relative w-full min-h-screen pt-20 flex items-center justify-center overflow-hidden"
+      style={{
+        backgroundImage:
+          'url("https://images.unsplash.com/photo-1486718448742-165732cd63d5?w=1500&h=900&fit=crop")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
-      {/* Background Glow Effects */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl opacity-50" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl opacity-30" />
-      <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_center,_#ff6a00_0,_transparent_70%)]" />
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-dark-900/70" />
 
+      {/* Stats Bar */}
+      <div className="absolute top-24 left-0 right-0 border-y border-dark-600">
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-4 py-6 gap-4">
+            <div className="text-center">
+              <p className="text-orange-500 font-bold text-lg">+12</p>
+              <p className="text-white/70 text-xs md:text-sm font-sora">
+                ANOS DE MERCADO
+              </p>
+            </div>
+            <div className="text-center">
+              <p className="text-orange-500 font-bold text-lg">+350</p>
+              <p className="text-white/70 text-xs md:text-sm font-sora">
+                PROJETOS
+              </p>
+            </div>
+            <div className="text-center">
+              <p className="text-orange-500 font-bold text-lg">NACIONAL</p>
+              <p className="text-white/70 text-xs md:text-sm font-sora">
+                ATENDIMENTO
+              </p>
+            </div>
+            <div className="text-center">
+              <p className="text-orange-500 font-bold text-lg">✓</p>
+              <p className="text-white/70 text-xs md:text-sm font-sora">
+                EQUIPE ESPECIALIZADA
+              </p>
+            </div>
+          </div>
+        </Container>
+      </div>
+
+      {/* Content */}
       <Container className="relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-          >
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="mb-8"
-            >
-              <Badge icon={<Cpu size={16} />} label="Soluções Tecnológicas Profissionais" />
-            </motion.div>
+        <div className="flex flex-col items-center text-center space-y-6 py-24">
+          <h1 className="font-sora font-extrabold text-white text-4xl md:text-6xl lg:text-7xl uppercase leading-tight max-w-4xl">
+            Tecnologia, Estrutura e
+          </h1>
+          <h2 className="font-sora font-extrabold text-orange-500 text-4xl md:text-6xl lg:text-7xl uppercase leading-tight max-w-4xl">
+            Excelência Operacional.
+          </h2>
+          <p className="font-sora text-white/80 text-lg md:text-xl max-w-2xl">
+            Soluções inovadoras que transformam sua estrutura em resultados
+          </p>
 
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl lg:text-7xl font-black leading-tight mb-6 text-white"
-            >
-              Tecnologia, estrutura e{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-                excelência operacional
-              </span>
-            </motion.h1>
-
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-lg lg:text-xl text-white/70 leading-relaxed max-w-xl mb-10 font-light"
-            >
-              A Sultec entrega soluções técnicas e tecnológicas com alto padrão de qualidade, unindo inovação, eficiência operacional e credibilidade para empresas que exigem profissionalismo.
-            </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Button size="lg" className="rounded-2xl">
-                Solicitar Orçamento
-                <ArrowRight size={20} />
-              </Button>
-
-              <Button
-                variant="outline"
-                size="lg"
-                className="rounded-2xl"
-              >
-                Conhecer Serviços
-                <ArrowRight size={20} />
-              </Button>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="grid grid-cols-2 gap-8 mt-16 pt-16 border-t border-white/10"
-            >
-              <div>
-                <h3 className="text-3xl lg:text-4xl font-black text-orange-500">+120</h3>
-                <p className="text-white/50 mt-2 text-sm">Projetos Executados</p>
-              </div>
-              <div>
-                <h3 className="text-3xl lg:text-4xl font-black text-orange-500">98%</h3>
-                <p className="text-white/50 mt-2 text-sm">Satisfação de Clientes</p>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Visual */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
-          >
-            {/* Glow Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-transparent rounded-3xl blur-3xl" />
-
-            {/* Card */}
-            <Card variant="premium" className="relative overflow-hidden rounded-3xl border-2 border-orange-500/30 shadow-glow-orange-lg">
-              <motion.div
-                animate={{
-                  y: [0, -20, 0],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-              >
-                <img
-                  src="https://placehold.co/600x700/111111/ffffff?text=SULTEC+TECH"
-                  alt="Sultec Tecnologia"
-                  className="w-full h-auto object-cover rounded-3xl"
-                />
-              </motion.div>
-
-              {/* Overlay Badge */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="bg-dark-900/80 backdrop-blur-xl border border-orange-500/30 rounded-2xl p-4"
-                >
-                  <p className="text-white/90 font-semibold text-sm">
-                    ✨ Premium Industrial Technology
-                  </p>
-                </motion.div>
-              </div>
-            </Card>
-
-            {/* Floating Elements */}
-            <motion.div
-              animate={{
-                rotate: 360,
-              }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="absolute -top-10 -right-10 w-32 h-32 border border-orange-500/10 rounded-full"
-            />
-            <motion.div
-              animate={{
-                rotate: -360,
-              }}
-              transition={{
-                duration: 25,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="absolute -bottom-10 -left-10 w-40 h-40 border border-orange-500/5 rounded-full"
-            />
-          </motion.div>
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 pt-6">
+            <Button className="px-8 py-4">Falar com especialista →</Button>
+            <Button variant="outline" className="px-8 py-4">
+              Ver soluções →
+            </Button>
+          </div>
         </div>
       </Container>
     </section>
