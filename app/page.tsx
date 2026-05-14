@@ -14,8 +14,8 @@ export default function Home() {
       <About />
       <Services />
       <Portfolio />
-      <CTA />
       <Clients />
+      <CTA />
     </main>
   )
 }

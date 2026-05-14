@@ -40,27 +40,13 @@ export function Clients() {
   const t = testimonials[active]
 
   return (
-    <section id="diferenciais" className="relative bg-[#070808] pt-20 lg:pt-28 pb-32 overflow-hidden">
+    <section
+      id="diferenciais"
+      className="relative bg-[#070808] pt-20 lg:pt-24 overflow-hidden"
+    >
+      <div className="relative max-w-[1500px] mx-auto px-8 lg:px-14">
 
-      {/* Decorative S asset — bottom left */}
-      <div className="absolute -bottom-10 left-0 w-[300px] lg:w-[380px] h-[300px] lg:h-[380px] pointer-events-none opacity-90">
-        <Image
-          src="/sultec/patterns/asset-logo-sultec.png"
-          alt=""
-          fill
-          className="object-contain object-bottom-left"
-        />
-      </div>
-
-      {/* Diagonal orange accent line — going through the section */}
-      <div className="absolute bottom-[110px] left-0 right-0 pointer-events-none">
-        <svg className="w-full h-12" viewBox="0 0 1440 50" preserveAspectRatio="none">
-          <path d="M0 25 L500 25 L580 5 L1440 5" stroke="#F35901" strokeWidth="2" fill="none" />
-        </svg>
-      </div>
-
-      <div className="relative z-10 max-w-[1500px] mx-auto px-8 lg:px-14">
-
+        {/* TOP CONTENT — heading/testimonial + logos */}
         <div className="grid lg:grid-cols-[460px_1fr] gap-12 xl:gap-20 items-start">
 
           {/* Left: Heading + Testimonial card */}
@@ -81,8 +67,10 @@ export function Clients() {
             </div>
 
             {/* Testimonial card */}
-            <div className="bg-[#0d0e10] border border-[#1c1d1e] rounded-[14px] p-7 flex flex-col gap-5">
-              <span className="text-[#F35901] text-[42px] leading-[0.5] font-roboto font-bold">&ldquo;</span>
+            <div className="bg-[#0d0e10] border border-[#1c1d1e] rounded-[14px] p-7 flex flex-col gap-5 max-w-[420px]">
+              <span className="text-[#F35901] text-[42px] leading-[0.5] font-roboto font-bold">
+                &ldquo;
+              </span>
 
               <p className="font-sora text-[#ABADAB] text-[15px] leading-[1.55] tracking-[-0.02em] min-h-[100px]">
                 {t.quote}
@@ -91,10 +79,14 @@ export function Clients() {
               <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-11 h-11 rounded-full bg-[#252526] flex-shrink-0 overflow-hidden flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold font-sora">{t.author.charAt(0)}</span>
+                    <span className="text-white text-sm font-semibold font-sora">
+                      {t.author.charAt(0)}
+                    </span>
                   </div>
                   <div>
-                    <p className="font-sora text-white text-[14px] font-normal leading-tight">{t.author}</p>
+                    <p className="font-sora text-white text-[14px] font-normal leading-tight">
+                      {t.author}
+                    </p>
                     <p className="font-sora text-[#ABADAB] text-[12px] mt-0.5">{t.role}</p>
                   </div>
                 </div>
@@ -107,7 +99,9 @@ export function Clients() {
                       onClick={() => setActive(i)}
                       aria-label={`Depoimento ${i + 1}`}
                       className={`h-2 rounded-full transition-all ${
-                        i === active ? 'w-6 bg-[#F35901]' : 'w-2 bg-white/25 hover:bg-white/45'
+                        i === active
+                          ? 'w-6 bg-[#F35901]'
+                          : 'w-2 bg-white/25 hover:bg-white/45'
                       }`}
                     />
                   ))}
@@ -118,11 +112,11 @@ export function Clients() {
 
           {/* Right: Logos grid */}
           <div className="flex flex-col justify-start pt-4 lg:pt-12">
-            <div className="grid grid-cols-3 gap-x-8 gap-y-12 items-center justify-items-center">
+            <div className="grid grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10 items-center justify-items-center">
               {clients.map((client) => (
                 <div
                   key={client.name}
-                  className="relative w-full h-16 lg:h-20 opacity-90 hover:opacity-100 transition-opacity"
+                  className="relative w-full max-w-[140px] h-14 lg:h-16 opacity-95 hover:opacity-100 transition-opacity"
                 >
                   <Image
                     src={client.logo}
@@ -134,6 +128,39 @@ export function Clients() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* TRANSITION AREA — diagonal line + S asset */}
+        <div className="relative mt-14 lg:mt-20 h-[180px] lg:h-[220px]">
+
+          {/* Orange diagonal step-line — goes left-bottom to right-top */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            viewBox="0 0 1500 220"
+            preserveAspectRatio="none"
+          >
+            {/* Left horizontal segment (lower) */}
+            <line x1="0" y1="120" x2="380" y2="120" stroke="#F35901" strokeWidth="2.5" />
+            {/* Diagonal (rises right) */}
+            <line x1="380" y1="120" x2="540" y2="40" stroke="#F35901" strokeWidth="2.5" />
+            {/* Right horizontal segment (upper) */}
+            <line x1="540" y1="40" x2="1500" y2="40" stroke="#F35901" strokeWidth="2.5" />
+          </svg>
+
+          {/* S asset — bottom-left, large, partly extending below */}
+          <div
+            className="absolute -bottom-2 -left-4 lg:-left-2 w-[260px] lg:w-[340px] h-[280px] lg:h-[360px] pointer-events-none"
+            style={{ zIndex: 5 }}
+          >
+            <Image
+              src="/sultec/patterns/asset-logo-sultec.png"
+              alt=""
+              fill
+              className="object-contain object-bottom-left"
+              priority={false}
+            />
+          </div>
+
         </div>
       </div>
     </section>
