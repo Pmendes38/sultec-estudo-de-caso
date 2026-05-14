@@ -46,12 +46,16 @@ export function About() {
 
             {/* LEFT */}
             <div className="flex flex-col gap-7">
-              {/* Heading */}
+              {/* Heading — Titulo 2: Roboto Bold 96/89 LS -7% */}
               <h2
-                className="font-roboto-condensed font-bold text-white leading-[1.0]"
-                style={{ fontSize: 'clamp(2rem, 4.2vw, 3.4rem)', letterSpacing: '-0.02em' }}
+                className="font-roboto font-bold text-white"
+                style={{
+                  fontSize: 'clamp(2.25rem, 6vw, 96px)',
+                  lineHeight: '0.927',
+                  letterSpacing: '-0.07em',
+                }}
               >
-                Conectividade que{' '}
+                Conectividade que<br />
                 <span className="text-[#F35901]">move</span>{' '}
                 o seu negócio.
               </h2>

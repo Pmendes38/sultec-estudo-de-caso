@@ -55,11 +55,13 @@ export function Clients() {
               <p className="font-sora text-[#F35901] text-[15px] tracking-[-0.04em] uppercase">
                 Clientes e Parceiros
               </p>
+              {/* Titulo 5: Roboto Regular 48/50 LS -5% */}
               <h2
-                className="font-roboto-condensed font-bold text-white uppercase leading-[1.0]"
+                className="font-roboto font-normal text-white uppercase"
                 style={{
-                  fontSize: 'clamp(1.75rem, 3.2vw, 2.75rem)',
-                  letterSpacing: '-0.02em',
+                  fontSize: 'clamp(1.75rem, 3.5vw, 48px)',
+                  lineHeight: '1.042',
+                  letterSpacing: '-0.05em',
                 }}
               >
                 Empresas Que Confiam<br />Na Sultec.

@@ -34,12 +34,13 @@ export function Hero() {
       <div className="relative z-10 w-full max-w-[1500px] mx-auto px-8 lg:px-14 py-20 lg:py-24">
         <div className="flex flex-col gap-7 max-w-[760px]">
 
-          {/* Heading */}
+          {/* Heading — Titulo 1: Roboto Condensed Bold 88/100 LS 0 */}
           <h1
-            className="font-roboto-condensed font-bold uppercase leading-[0.95] text-white"
+            className="font-roboto-condensed font-bold uppercase text-white"
             style={{
-              fontSize: 'clamp(2.5rem, 5.2vw, 5rem)',
-              letterSpacing: '-0.02em',
+              fontSize: 'clamp(2.5rem, 6vw, 88px)',
+              lineHeight: '100px',
+              letterSpacing: '0',
             }}
           >
             Tecnologia, estrutura e<br />

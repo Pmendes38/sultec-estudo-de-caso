@@ -76,10 +76,11 @@ export function CTA() {
             {/* Center: Heading + subtitle */}
             <div className="flex flex-col gap-5 max-w-[560px] flex-1 lg:pl-[80px]">
               <h2
-                className="font-roboto-condensed font-bold text-white uppercase leading-[1.1]"
+                className="font-roboto-condensed font-normal text-white uppercase"
                 style={{
-                  fontSize: 'clamp(2rem, 4vw, 3.4rem)',
-                  letterSpacing: '-0.01em',
+                  fontSize: '64px',
+                  lineHeight: '78px',
+                  letterSpacing: '0.02em',
                 }}
               >
                 Vamos Conversar Sobre<br />
