@@ -6,7 +6,7 @@ export function CTA() {
   return (
     <section
       id="contato"
-      className="relative bg-[#070808] pt-0 pb-20 lg:pb-28"
+      className="relative bg-[#070808] pt-0 pb-20 lg:pb-28 overflow-visible"
     >
       {/* Main CTA body — relative container for overlays */}
       <div className="relative min-h-[480px] lg:min-h-[540px]">
@@ -20,15 +20,15 @@ export function CTA() {
           }}
         />
 
-        {/* PATTERN LINES — circuit lines on top of the glow (vector-4.png) */}
+        {/* PATTERN LINES — circuit lines on top of the glow */}
         <div
-          className="absolute left-0 top-0 bottom-0 w-1/2 lg:w-[55%] pointer-events-none z-10 opacity-70 mix-blend-screen"
+          className="absolute left-0 top-0 bottom-0 w-1/2 lg:w-[55%] pointer-events-none z-10"
         >
           <Image
-            src="/sultec/patterns/vector-4.png"
+            src="/sultec/patterns/pattern-lines.png"
             alt=""
             fill
-            className="object-cover object-left"
+            className="object-cover object-left opacity-90"
             priority={false}
           />
         </div>
@@ -48,13 +48,14 @@ export function CTA() {
           }}
         />
 
-        {/* S asset — bigger, vertically centered to align with the heading */}
-        <div className="absolute top-1/2 -translate-y-1/2 left-2 lg:left-8 w-[300px] lg:w-[440px] h-[320px] lg:h-[460px] pointer-events-none z-20">
+        {/* S asset — large, centered horizontally in the glow area, aligned
+            vertically with the testimonial card (extends UP into Clients) */}
+        <div className="absolute -top-[260px] lg:-top-[300px] left-1/2 lg:left-[8%] -translate-x-1/2 lg:translate-x-0 w-[420px] lg:w-[560px] h-[480px] lg:h-[620px] pointer-events-none z-20">
           <Image
             src="/sultec/patterns/asset-logo-sultec.png"
             alt=""
             fill
-            className="object-contain object-left"
+            className="object-contain"
             priority={false}
           />
         </div>
