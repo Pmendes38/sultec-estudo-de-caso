@@ -74,7 +74,7 @@ export function CTA() {
             <div className="hidden lg:block lg:w-[24%] flex-shrink-0" />
 
             {/* Center: Heading + subtitle */}
-            <div className="flex flex-col gap-5 max-w-[560px] flex-1">
+            <div className="flex flex-col gap-5 max-w-[560px] flex-1 lg:pl-[30px]">
               <h2
                 className="font-roboto-condensed font-bold text-white uppercase leading-[1.1]"
                 style={{
