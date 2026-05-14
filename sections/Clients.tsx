@@ -1,54 +1,141 @@
 'use client'
 
-import { Container } from '@/components/ui'
+import { useState } from 'react'
+import Image from 'next/image'
+
+const clients = [
+  { name: 'JBS', logo: '/sultec/clientes/jbs.png' },
+  { name: 'Sicoob', logo: '/sultec/clientes/sicoob.png' },
+  { name: 'Aurora', logo: '/sultec/clientes/aurora.png' },
+  { name: 'HRO', logo: '/sultec/clientes/hro.png' },
+  { name: 'DRV Máquinas', logo: '/sultec/clientes/drv.png' },
+  { name: 'Uno', logo: '/sultec/clientes/uno.png' },
+]
+
+const testimonials = [
+  {
+    quote: 'A Sultec é nossa parceira estratégica em diversos projetos. Excelência, comprometimento e entrega de verdade.',
+    author: 'Carlos Mendes',
+    role: 'Gerente de TI – Industria',
+  },
+  {
+    quote: 'Excelência técnica, prazo cumprido e suporte que faz a diferença. Recomendo a Sultec sem reservas.',
+    author: 'Mariana Rocha',
+    role: 'Diretora de Operações',
+  },
+  {
+    quote: 'Fundamental para nossa expansão de infraestrutura. Equipe altamente qualificada e parceira.',
+    author: 'Roberto Lima',
+    role: 'CTO',
+  },
+  {
+    quote: 'Transformaram nossos data centers com qualidade impecável. Padrão de mercado.',
+    author: 'Ana Souza',
+    role: 'Gerente de Tecnologia',
+  },
+]
 
 export function Clients() {
-  const logos = [
-    { name: 'Ambev', url: 'https://via.placeholder.com/150x50/111111/ffffff?text=Ambev' },
-    { name: 'Nestlé', url: 'https://via.placeholder.com/150x50/111111/ffffff?text=Nestlé' },
-    { name: 'Bradesco', url: 'https://via.placeholder.com/150x50/111111/ffffff?text=Bradesco' },
-    { name: 'Grupo GPS', url: 'https://via.placeholder.com/150x50/111111/ffffff?text=GPS' },
-    { name: 'Vale', url: 'https://via.placeholder.com/150x50/111111/ffffff?text=Vale' },
-    { name: 'WEG', url: 'https://via.placeholder.com/150x50/111111/ffffff?text=WEG' },
-  ]
+  const [active, setActive] = useState(0)
+  const t = testimonials[active]
 
   return (
-    <section id="clientes" className="py-20 bg-dark-900">
-      <Container>
-        {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-orange-500 font-sora font-bold text-sm uppercase tracking-wide">
-            Clientes e Parceiros
-          </p>
-          <h2 className="text-white font-sora font-extrabold text-3xl md:text-4xl uppercase mt-4">
-            Empresas Que Confiam Na Sultec.
-          </h2>
-        </div>
+    <section id="diferenciais" className="relative bg-[#070808] pt-20 lg:pt-28 pb-32 overflow-hidden">
 
-        {/* Logos Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12 items-center">
-          {logos.map((logo, index) => (
-            <div
-              key={index}
-              className="bg-dark-800 border border-dark-600 rounded-lg p-6 flex items-center justify-center h-24 hover:border-orange-500/50 transition-all"
-            >
-              <p className="text-white/70 font-sora font-bold text-center text-sm">
-                {logo.name}
+      {/* Decorative S asset — bottom left */}
+      <div className="absolute -bottom-10 left-0 w-[300px] lg:w-[380px] h-[300px] lg:h-[380px] pointer-events-none opacity-90">
+        <Image
+          src="/sultec/patterns/asset-logo-sultec.png"
+          alt=""
+          fill
+          className="object-contain object-bottom-left"
+        />
+      </div>
+
+      {/* Diagonal orange accent line — going through the section */}
+      <div className="absolute bottom-[110px] left-0 right-0 pointer-events-none">
+        <svg className="w-full h-12" viewBox="0 0 1440 50" preserveAspectRatio="none">
+          <path d="M0 25 L500 25 L580 5 L1440 5" stroke="#F35901" strokeWidth="2" fill="none" />
+        </svg>
+      </div>
+
+      <div className="relative z-10 max-w-[1500px] mx-auto px-8 lg:px-14">
+
+        <div className="grid lg:grid-cols-[460px_1fr] gap-12 xl:gap-20 items-start">
+
+          {/* Left: Heading + Testimonial card */}
+          <div className="flex flex-col gap-7">
+            <div className="flex flex-col gap-3">
+              <p className="font-sora text-[#F35901] text-[15px] tracking-[-0.04em] uppercase">
+                Clientes e Parceiros
               </p>
+              <h2
+                className="font-roboto-condensed font-bold text-white uppercase leading-[1.0]"
+                style={{
+                  fontSize: 'clamp(1.75rem, 3.2vw, 2.75rem)',
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                Empresas Que Confiam<br />Na Sultec.
+              </h2>
             </div>
-          ))}
-        </div>
 
-        {/* Testimonial */}
-        <div className="bg-dark-800 border border-dark-600 rounded-lg p-8 md:p-12 text-center max-w-2xl mx-auto">
-          <p className="text-orange-500 text-4xl mb-4">"</p>
-          <p className="text-white/80 font-sora text-lg md:text-xl leading-relaxed mb-6">
-            A Sultec transformou completamente nossa operação. Com soluções inovadoras e um time especializado, conseguimos aumentar nossa eficiência em 40%.
-          </p>
-          <p className="text-white font-sora font-bold">João Silva</p>
-          <p className="text-white/70 font-sora text-sm">Diretor de Operações, Empresa XYZ</p>
+            {/* Testimonial card */}
+            <div className="bg-[#0d0e10] border border-[#1c1d1e] rounded-[14px] p-7 flex flex-col gap-5">
+              <span className="text-[#F35901] text-[42px] leading-[0.5] font-roboto font-bold">&ldquo;</span>
+
+              <p className="font-sora text-[#ABADAB] text-[15px] leading-[1.55] tracking-[-0.02em] min-h-[100px]">
+                {t.quote}
+              </p>
+
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-full bg-[#252526] flex-shrink-0 overflow-hidden flex items-center justify-center">
+                    <span className="text-white text-sm font-semibold font-sora">{t.author.charAt(0)}</span>
+                  </div>
+                  <div>
+                    <p className="font-sora text-white text-[14px] font-normal leading-tight">{t.author}</p>
+                    <p className="font-sora text-[#ABADAB] text-[12px] mt-0.5">{t.role}</p>
+                  </div>
+                </div>
+
+                {/* Pagination dots */}
+                <div className="flex gap-1.5">
+                  {testimonials.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActive(i)}
+                      aria-label={`Depoimento ${i + 1}`}
+                      className={`h-2 rounded-full transition-all ${
+                        i === active ? 'w-6 bg-[#F35901]' : 'w-2 bg-white/25 hover:bg-white/45'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Logos grid */}
+          <div className="flex flex-col justify-start pt-4 lg:pt-12">
+            <div className="grid grid-cols-3 gap-x-8 gap-y-12 items-center justify-items-center">
+              {clients.map((client) => (
+                <div
+                  key={client.name}
+                  className="relative w-full h-16 lg:h-20 opacity-90 hover:opacity-100 transition-opacity"
+                >
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </Container>
+      </div>
     </section>
   )
 }

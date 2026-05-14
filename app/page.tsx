@@ -3,21 +3,19 @@ import {
   About,
   Services,
   Portfolio,
-  Differentials,
-  Clients,
   CTA,
+  Clients,
 } from '@/sections'
 
 export default function Home() {
   return (
-    <main className="bg-dark-900 text-white overflow-x-hidden">
+    <main className="bg-[#070808] text-white overflow-x-hidden">
       <Hero />
       <About />
       <Services />
       <Portfolio />
-      <Differentials />
-      <Clients />
       <CTA />
+      <Clients />
     </main>
   )
 }

@@ -1,78 +1,113 @@
 'use client'
 
-import { Container, Card, Button } from '@/components/ui'
+import Image from 'next/image'
 
 const services = [
   {
     id: 1,
     title: 'Soluções Tecnológicas',
-    description: 'Implementação de tecnologias inovadoras para otimizar processos.',
+    desc: 'Tecnologia de ponta aplicada para impulsionar resultados.',
+    img: '/sultec/cards/solucoes-tecnologicas.jpg',
   },
   {
     id: 2,
     title: 'Serviços Técnicos',
-    description: 'Suporte técnico especializado e manutenção preventiva.',
+    desc: 'Execução técnica com qualidade, segurança e conformidade.',
+    img: '/sultec/cards/servicos-tecnicos.jpg',
   },
   {
     id: 3,
     title: 'Projetos Corporativos',
-    description: 'Desenvolvimento de projetos customizados para sua empresa.',
+    desc: 'Projetos personalizados para empresas de todos os portes.',
+    img: '/sultec/cards/projetos-corporativos.jpg',
   },
   {
     id: 4,
     title: 'Infraestrutura',
-    description: 'Planejamento e implementação de infraestrutura robusta.',
+    desc: 'Soluções robustas em rede, cabeamento e instalações.',
+    img: '/sultec/cards/infraestrutura.jpg',
   },
   {
     id: 5,
     title: 'Manutenção',
-    description: 'Manutenção contínua e otimização de sistemas.',
+    desc: 'Planos de manutenção preventiva e corretiva especializados.',
+    img: '/sultec/cards/manutencao.jpg',
   },
   {
     id: 6,
     title: 'Suporte Especializado',
-    description: 'Suporte 24/7 com especialistas qualificados.',
+    desc: 'Atendimento ágil com equipe técnica altamente qualificada.',
+    img: '/sultec/cards/suporte-especializado.jpg',
   },
 ]
 
+function ServiceCard({ service }: { service: typeof services[0] }) {
+  return (
+    <div className="group relative rounded-[10px] overflow-hidden border-[3px] border-[#252526] aspect-[727/431] cursor-pointer hover:border-[#F35901]/60 transition-all duration-300">
+      <Image
+        src={service.img}
+        alt={service.title}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+        className="object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+
+      {/* Bottom gradient bar — black at the bottom fading up */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-[136px]"
+        style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.92) 30%, rgba(0,0,0,0.7) 70%, transparent 100%)' }}
+      />
+
+      {/* Text content + button */}
+      <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between gap-4">
+        <div className="flex flex-col gap-1.5 flex-1 min-w-0">
+          <h3 className="font-sora font-semibold text-white text-[18px] leading-[1.2] tracking-[-0.02em]">
+            {service.title}
+          </h3>
+          <p className="font-sora text-[#ABADAB] text-[13px] leading-[1.4] tracking-[-0.01em]">
+            {service.desc}
+          </p>
+        </div>
+
+        {/* + Button */}
+        <div className="flex-shrink-0 w-[52px] h-[52px] border-[3px] border-[#F35901] rounded-[5px] flex items-center justify-center group-hover:bg-[#F35901]/20 transition-colors">
+          <span className="text-white text-[28px] font-light leading-none -mt-1">+</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function Services() {
   return (
-    <section id="servicos" className="py-20 bg-dark-900">
-      <Container>
+    <section id="servicos" className="bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
+      <div className="max-w-[1500px] mx-auto px-8 lg:px-14">
+
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-orange-500 font-sora font-bold text-sm uppercase tracking-wide">
+        <div className="flex flex-col gap-3 mb-12">
+          <p className="font-sora text-[#F35901] text-[15px] tracking-[-0.04em] uppercase">
             Nossos Serviços
           </p>
-          <h2 className="text-white font-sora font-extrabold text-3xl md:text-4xl uppercase mt-4">
-            Soluções Completas Para Cada Necessidade.
+          <h2
+            className="font-roboto-condensed font-bold text-white uppercase leading-[1.0]"
+            style={{
+              fontSize: 'clamp(1.75rem, 3.2vw, 2.75rem)',
+              letterSpacing: '-0.02em',
+              maxWidth: '600px',
+            }}
+          >
+            Soluções Completas Para Cada Necessidade
           </h2>
         </div>
 
-        {/* Services Grid - 3x2 */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <Card key={service.id}>
-              <div className="flex flex-col h-full justify-between">
-                <div>
-                  <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mb-4">
-                    <span className="text-white font-bold">{service.id}</span>
-                  </div>
-                  <h3 className="text-white font-sora font-bold text-lg mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-white/70 font-sora text-sm">
-                    {service.description}
-                  </p>
-                </div>
-                <a href="#" className="text-orange-500 font-sora font-bold text-sm hover:text-orange-600 mt-4 inline-block">
-                  Saiba mais →
-                </a>
-              </div>
-            </Card>
+        {/* Grid 3x2 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {services.map((s) => (
+            <ServiceCard key={s.id} service={s} />
           ))}
         </div>
-      </Container>
+
+      </div>
     </section>
   )
 }

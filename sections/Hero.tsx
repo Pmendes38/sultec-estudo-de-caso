@@ -1,147 +1,110 @@
 'use client'
 
+import Image from 'next/image'
+
+const stats = [
+  { icon: '/sultec/icons/seguranca.svg', value: '+12 ANOS', label: 'DE MERCADO' },
+  { icon: '/sultec/icons/projetos.svg', value: '+350', label: 'PROJETOS' },
+  { icon: '/sultec/icons/local.svg', value: 'ATENDIMENTO', label: 'NACIONAL' },
+  { icon: '/sultec/icons/pessoas.svg', value: 'EQUIPE', label: 'ESPECIALIZADA' },
+]
+
 export function Hero() {
   return (
     <section
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ paddingTop: '80px' }}
+      id="inicio"
+      className="relative w-full overflow-hidden bg-[#070808] border-b border-[#F35901]/30"
+      style={{ paddingTop: '100px' }}
     >
-      {/* Fix 2: Background visível sem opacity */}
-      <img
-        src="https://images.unsplash.com/photo-1486718448742-165732cd63d5?w=1500&q=80"
-        alt=""
-        style={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-        }}
-      />
-
-      {/* Fix 2: Overlay com gradiente suave para visibilidade da imagem */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'linear-gradient(to right, rgba(0,0,0,0.50), rgba(0,0,0,0.30), rgba(0,0,0,0.10))',
-      }} />
+      {/* Background image - takes the full hero, fades to dark on the left */}
+      <div className="absolute inset-0">
+        <Image
+          src="/sultec/bg-home.jpg"
+          alt=""
+          fill
+          priority
+          quality={92}
+          className="object-cover object-right"
+        />
+        {/* Left-side gradient — strong dark to transparent */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070808] from-30% via-[#070808]/85 via-55% to-transparent to-90%" />
+      </div>
 
       {/* Content */}
-      <div style={{
-        position: 'relative',
-        zIndex: 10,
-        maxWidth: '1280px',
-        margin: '0 auto',
-        padding: '120px 40px',
-        width: '100%',
-      }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      <div className="relative z-10 w-full max-w-[1500px] mx-auto px-8 lg:px-14 py-20 lg:py-24">
+        <div className="flex flex-col gap-7 max-w-[760px]">
 
-          {/* Fix 3: Título em caixa alta, dois elementos separados */}
-          <h1 style={{
-            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-            fontWeight: 800,
-            lineHeight: 1.1,
-            letterSpacing: '-0.03em',
-            textTransform: 'uppercase',
-            color: '#FFFFFF',
-            margin: 0,
-          }}>
-            Tecnologia, Estrutura e
+          {/* Heading */}
+          <h1
+            className="font-roboto-condensed font-bold uppercase leading-[0.95] text-white"
+            style={{
+              fontSize: 'clamp(2.5rem, 5.2vw, 5rem)',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            Tecnologia, estrutura e<br />
+            <span className="text-[#F35901]">Excelência Operacional.</span>
           </h1>
 
-          <h2 style={{
-            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-            fontWeight: 800,
-            lineHeight: 1.1,
-            letterSpacing: '-0.03em',
-            textTransform: 'uppercase',
-            color: '#FF6A00',
-            margin: 0,
-          }}>
-            Excelência Operacional.
-          </h2>
-
-          <p style={{
-            color: 'rgba(255,255,255,0.8)',
-            fontSize: '1.125rem',
-            maxWidth: '600px',
-            margin: '8px 0 0',
-          }}>
-            Soluções inovadoras que transformam sua estrutura em resultados
+          {/* Subtitle */}
+          <p
+            className="font-sora font-semibold text-white leading-[1.4] mt-1"
+            style={{
+              fontSize: 'clamp(1rem, 1.4vw, 1.2rem)',
+              letterSpacing: '-0.05em',
+              maxWidth: '560px',
+            }}
+          >
+            Soluções tecnológicas e serviços especializados para empresas que exigem qualidade, segurança e alto desempenho.
           </p>
 
-          {/* Fix 4: Botões com tamanho e estilo corretos */}
-          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginTop: '24px' }}>
-            <button style={{
-              backgroundColor: '#FF6A00',
-              color: '#FFFFFF',
-              padding: '18px 48px',
-              fontSize: '1.05rem',
-              fontWeight: 600,
-              borderRadius: '4px',
-              border: 'none',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap',
-              textTransform: 'uppercase',
-              letterSpacing: '0.5px',
-            }}>
-              Falar com especialista →
-            </button>
-
-            <button style={{
-              backgroundColor: 'transparent',
-              color: '#FFFFFF',
-              padding: '18px 48px',
-              fontSize: '1.05rem',
-              fontWeight: 600,
-              borderRadius: '4px',
-              border: '2px solid rgba(255,255,255,0.6)',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap',
-              textTransform: 'uppercase',
-              letterSpacing: '0.5px',
-            }}>
-              Ver soluções →
-            </button>
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-5 mt-3">
+            <a
+              href="#contato"
+              className="inline-flex items-center gap-3 font-sora text-white text-[16px] font-normal bg-[#F35901] rounded-[10px] px-9 py-[18px] hover:bg-[#d14d01] transition-colors"
+            >
+              Falar com especialista
+              <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
+                <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+            <a
+              href="#servicos"
+              className="inline-flex items-center gap-3 font-sora text-white text-[16px] font-normal border-[3px] border-[#F35901] rounded-[10px] px-9 py-[16px] hover:bg-[#F35901]/10 transition-colors"
+            >
+              Ver soluções
+              <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
+                <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
           </div>
 
-          {/* Fix 5: Stats como barra horizontal com ícones e linhas de separação */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            marginTop: '80px',
-            borderTop: '1px solid rgba(255,255,255,0.2)',
-            paddingTop: '48px',
-          }}>
-            {[
-              { value: '+12 ANOS', label: 'DE MERCADO', icon: '🛡️' },
-              { value: '+350', label: 'PROJETOS', icon: '📋' },
-              { value: 'ATENDIMENTO', label: 'NACIONAL', icon: '📍' },
-              { value: 'EQUIPE', label: 'ESPECIALIZADA', icon: '👥' },
-            ].map((stat, index) => (
-              <div key={index} style={{
-                flex: 1,
-                paddingLeft: index === 0 ? 0 : '40px',
-                paddingRight: '40px',
-                borderRight: index < 3 ? '1px solid rgba(255,255,255,0.2)' : 'none',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '16px',
-              }}>
-                <span style={{ fontSize: '2.5rem', lineHeight: 1 }}>{stat.icon}</span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <p style={{ color: '#FF6A00', fontWeight: 700, fontSize: '1.25rem', margin: 0, textTransform: 'uppercase' }}>
-                    {stat.value}
-                  </p>
-                  <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', margin: 0, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                    {stat.label}
-                  </p>
+          {/* Stats bar */}
+          <div className="mt-12 pt-8 border-t border-white/15">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+              {stats.map((stat, i) => (
+                <div
+                  key={i}
+                  className={`flex items-center gap-4 ${
+                    i < stats.length - 1 ? 'lg:border-r lg:border-white/15 lg:pr-5' : ''
+                  }`}
+                >
+                  <div className="w-[42px] h-[42px] flex-shrink-0 relative">
+                    <Image src={stat.icon} alt="" fill className="object-contain" />
+                  </div>
+                  <div className="flex flex-col leading-tight">
+                    <p className="font-sora font-normal text-white text-[15px] tracking-[-0.04em] uppercase">
+                      {stat.value}
+                    </p>
+                    <p className="font-sora font-normal text-white text-[15px] tracking-[-0.04em] uppercase">
+                      {stat.label}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-
         </div>
       </div>
     </section>

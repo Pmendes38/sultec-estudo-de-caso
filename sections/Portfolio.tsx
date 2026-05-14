@@ -1,81 +1,117 @@
 'use client'
 
 import { useState } from 'react'
-import { Container, Card, Button } from '@/components/ui'
+import Image from 'next/image'
 
 const projects = [
   {
-    id: 1,
-    title: 'Projeto Corporativo A',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop',
+    title: 'Cabeamento estruturado',
+    desc: 'Instalação e certificação de redes para indústrias e grandes operações.',
+    img: '/sultec/cards/cabeamento-estruturado.jpg',
   },
   {
-    id: 2,
-    title: 'Projeto Corporativo B',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop',
+    title: 'Infraestrutura de rede',
+    desc: 'Projetos completos de conectividade com materiais de alto padrão e execução certificada.',
+    img: '/sultec/cards/infraestrutura-de-rede.jpg',
   },
   {
-    id: 3,
-    title: 'Projeto Corporativo C',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop',
+    title: 'Data Centers',
+    desc: 'Montagem e estruturação de ambientes críticos com segurança e precisão técnica.',
+    img: '/sultec/cards/data-centers.jpg',
   },
 ]
 
+function ProjectCard({ project }: { project: typeof projects[0] }) {
+  return (
+    <div className="group relative rounded-[10px] overflow-hidden border-[3px] border-[#252526] aspect-[727/431] cursor-pointer hover:border-[#F35901]/60 transition-all duration-300">
+      <Image
+        src={project.img}
+        alt={project.title}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+        className="object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+
+      <div
+        className="absolute bottom-0 left-0 right-0 h-[136px]"
+        style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.92) 30%, rgba(0,0,0,0.7) 70%, transparent 100%)' }}
+      />
+
+      <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between gap-4">
+        <div className="flex flex-col gap-1.5 flex-1 min-w-0">
+          <h3 className="font-sora font-semibold text-white text-[18px] leading-[1.2] tracking-[-0.02em]">
+            {project.title}
+          </h3>
+          <p className="font-sora text-[#ABADAB] text-[13px] leading-[1.4] tracking-[-0.01em]">
+            {project.desc}
+          </p>
+        </div>
+        <div className="flex-shrink-0 w-[52px] h-[52px] border-[3px] border-[#F35901] rounded-[5px] flex items-center justify-center group-hover:bg-[#F35901]/20 transition-colors">
+          <span className="text-white text-[28px] font-light leading-none -mt-1">+</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function Portfolio() {
-  const [currentPage, setCurrentPage] = useState(0)
+  const [activeDot, setActiveDot] = useState(0)
+  const dotsCount = 4
 
   return (
-    <section id="portfolio" className="py-20 bg-dark-900">
-      <Container>
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-16 gap-6">
-          <div>
-            <p className="text-orange-500 font-sora font-bold text-sm uppercase tracking-wide">
+    <section id="portfolio" className="bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
+      <div className="max-w-[1500px] mx-auto px-8 lg:px-14">
+
+        {/* Header row */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+          <div className="flex flex-col gap-3">
+            <p className="font-sora text-[#F35901] text-[15px] tracking-[-0.04em] uppercase">
               Portfólio
             </p>
-            <h2 className="text-white font-sora font-extrabold text-3xl md:text-4xl uppercase mt-4">
-              Projetos Que Refletem Nossa Excelência.
+            <h2
+              className="font-roboto-condensed font-bold text-white uppercase leading-[1.0]"
+              style={{
+                fontSize: 'clamp(1.75rem, 3.2vw, 2.75rem)',
+                letterSpacing: '-0.02em',
+              }}
+            >
+              Projetos Que Refletem<br />Nossa Excelência
             </h2>
           </div>
-          <Button variant="outline">Ver todos os projetos →</Button>
+
+          <a
+            href="#contato"
+            className="self-start lg:self-auto inline-flex items-center gap-3 font-sora text-white text-[15px] border-[3px] border-[#F35901] rounded-[14px] px-7 py-[14px] hover:bg-[#F35901]/10 transition-colors"
+          >
+            Ver todos os projetos
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {projects.map((project) => (
-            <div key={project.id} className="relative group cursor-pointer">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-64 object-cover rounded-lg"
-              />
-              <div className="absolute inset-0 bg-dark-900/0 group-hover:bg-dark-900/40 transition-all rounded-lg flex items-end p-6">
-                <div className="absolute top-6 right-6 w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform">
-                  +
-                </div>
-              </div>
-              <h3 className="text-white font-sora font-bold mt-4">
-                {project.title}
-              </h3>
-            </div>
+        {/* Projects grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {projects.map((p) => (
+            <ProjectCard key={p.title} project={p} />
           ))}
         </div>
 
-        {/* Pagination Dots */}
-        <div className="flex justify-center gap-2">
-          {[0, 1, 2].map((dot) => (
+        {/* Pagination dots */}
+        <div className="flex justify-center gap-2 mt-10">
+          {Array.from({ length: dotsCount }).map((_, i) => (
             <button
-              key={dot}
-              onClick={() => setCurrentPage(dot)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                dot === currentPage
-                  ? 'bg-orange-500 w-8'
-                  : 'bg-dark-600 hover:bg-dark-500'
+              key={i}
+              onClick={() => setActiveDot(i)}
+              aria-label={`Página ${i + 1}`}
+              className={`h-2.5 rounded-full transition-all ${
+                i === activeDot ? 'w-8 bg-[#F35901]' : 'w-2.5 bg-white/20 hover:bg-white/40'
               }`}
             />
           ))}
         </div>
-      </Container>
+
+      </div>
     </section>
   )
 }

@@ -1,81 +1,98 @@
 'use client'
 
-import { useState } from 'react'
-import { Container, Button } from '@/components/ui'
+import { useState, useEffect } from 'react'
+import Image from 'next/image'
+
+const navItems = [
+  { label: 'Início', href: '#inicio' },
+  { label: 'Sobre', href: '#sobre' },
+  { label: 'Serviços', href: '#servicos' },
+  { label: 'Portfólio', href: '#portfolio' },
+  { label: 'Diferenciais', href: '#diferenciais' },
+  { label: 'Contato', href: '#contato' },
+]
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('inicio')
 
-  const navItems = [
-    { label: 'Início', href: '#' },
-    { label: 'Sobre', href: '#sobre' },
-    { label: 'Serviços', href: '#servicos' },
-    { label: 'Portfólio', href: '#portfolio' },
-    { label: 'Diferenciais', href: '#diferenciais' },
-  ]
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['inicio', 'sobre', 'servicos', 'portfolio', 'diferenciais', 'contato']
+      const scrollY = window.scrollY + 200
+      for (const id of sections) {
+        const el = document.getElementById(id)
+        if (el && el.offsetTop <= scrollY && el.offsetTop + el.offsetHeight > scrollY) {
+          setActiveSection(id)
+          return
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-dark-900/80 backdrop-blur-md border-b border-dark-600">
-      <Container>
-        <div className="flex items-center justify-between h-28">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#070808] border-b border-[#F35901]/20">
+      <div className="max-w-[1500px] mx-auto px-8 lg:px-14">
+        <div className="flex items-center justify-between h-[80px] lg:h-[100px]">
+
           {/* Logo */}
-          <div className="flex items-center gap-2 font-bold text-5xl">
-            <span className="text-orange-500">SULTEC</span>
-          </div>
+          <a href="#inicio" className="flex-shrink-0 relative h-12 lg:h-[60px] aspect-[1.88/1]">
+            <Image
+              src="/sultec/logo/logo.png"
+              alt="Sultec"
+              fill
+              priority
+              className="object-contain object-left"
+            />
+          </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-12">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-white font-sora font-medium text-base hover:text-orange-500 transition-colors"
-              >
-                {item.label}
-              </a>
-            ))}
+          <nav className="hidden lg:flex items-center gap-9 xl:gap-12">
+            {navItems.map((item) => {
+              const id = item.href.substring(1)
+              const isActive = activeSection === id
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className={`relative font-sora text-[16px] font-normal tracking-[-0.04em] transition-colors hover:text-[#F35901] ${
+                    isActive ? 'text-[#F35901]' : 'text-white'
+                  }`}
+                >
+                  {item.label}
+                  {isActive && (
+                    <span className="absolute -bottom-3 left-0 right-0 h-[3px] bg-[#F35901] rounded-full" />
+                  )}
+                </a>
+              )
+            })}
           </nav>
 
-          {/* Fix 6: Botão outline laranja com tamanho maior */}
-          <button
-            className="hidden md:inline-flex"
-            style={{
-              backgroundColor: 'transparent',
-              border: '2px solid #FF6A00',
-              color: '#FF6A00',
-              padding: '14px 32px',
-              fontSize: '1.05rem',
-              fontWeight: 600,
-              borderRadius: '4px',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap',
-              textTransform: 'uppercase',
-              letterSpacing: '0.5px',
-            }}
+          {/* CTA Button */}
+          <a
+            href="#contato"
+            className="hidden lg:inline-flex items-center gap-3 font-sora text-[15px] text-white font-normal border-2 border-[#F35901] rounded-[16px] px-7 py-[16px] hover:bg-[#F35901]/10 transition-colors"
           >
-            Solicitar orçamento →
-          </button>
+            Solicitar orçamento
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white"
+            className="lg:hidden text-white p-2"
+            aria-label="Menu"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d={
-                  mobileMenuOpen
-                    ? 'M6 18L18 6M6 6l12 12'
-                    : 'M4 6h16M4 12h16M4 18h16'
-                }
+                d={mobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
               />
             </svg>
           </button>
@@ -83,23 +100,29 @@ export function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <nav className="md:hidden pb-4 flex flex-col gap-4">
+          <nav className="lg:hidden pb-6 flex flex-col gap-5 border-t border-white/10 pt-6">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-white font-sora font-medium hover:text-orange-500 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`font-sora text-base hover:text-[#F35901] transition-colors ${
+                  activeSection === item.href.substring(1) ? 'text-[#F35901]' : 'text-white'
+                }`}
               >
                 {item.label}
               </a>
             ))}
-            <Button className="w-full justify-center text-sm">
+            <a
+              href="#contato"
+              onClick={() => setMobileMenuOpen(false)}
+              className="inline-flex items-center gap-2 font-sora text-sm text-white border-2 border-[#F35901] rounded-xl px-5 py-3 self-start hover:bg-[#F35901]/10 transition-colors"
+            >
               Solicitar orçamento →
-            </Button>
+            </a>
           </nav>
         )}
-      </Container>
+      </div>
     </header>
   )
 }
-
