@@ -56,7 +56,7 @@ export function CTA() {
 
         {/* S asset — large, top aligned with the orange divider (just above
             CTA), right edge stops before the heading starts */}
-        <div className="absolute -top-[160px] lg:-top-[180px] left-1/2 lg:left-[10%] -translate-x-1/2 lg:translate-x-0 w-[400px] lg:w-[520px] h-[460px] lg:h-[600px] pointer-events-none z-20">
+        <div className="absolute -top-[100px] lg:-top-[120px] left-1/2 lg:left-[10%] -translate-x-1/2 lg:translate-x-0 w-[400px] lg:w-[520px] h-[460px] lg:h-[600px] pointer-events-none z-20">
           <Image
             src="/sultec/patterns/asset-logo-sultec.png"
             alt=""
