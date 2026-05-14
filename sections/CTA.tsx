@@ -20,15 +20,21 @@ export function CTA() {
           }}
         />
 
-        {/* PATTERN LINES — circuit lines on top of the glow */}
+        {/* PATTERN LINES — circuit lines confined to the glow area only */}
         <div
           className="absolute left-0 top-0 bottom-0 w-1/2 lg:w-[55%] pointer-events-none z-10"
+          style={{
+            maskImage:
+              'radial-gradient(ellipse 55% 65% at 30% 50%, black 25%, transparent 75%)',
+            WebkitMaskImage:
+              'radial-gradient(ellipse 55% 65% at 30% 50%, black 25%, transparent 75%)',
+          }}
         >
           <Image
             src="/sultec/patterns/pattern-lines.png"
             alt=""
             fill
-            className="object-cover object-left opacity-90"
+            className="object-contain object-left opacity-95"
             priority={false}
           />
         </div>
@@ -48,9 +54,9 @@ export function CTA() {
           }}
         />
 
-        {/* S asset — large, centered horizontally in the glow area, aligned
-            vertically with the testimonial card (extends UP into Clients) */}
-        <div className="absolute -top-[260px] lg:-top-[300px] left-1/2 lg:left-[8%] -translate-x-1/2 lg:translate-x-0 w-[420px] lg:w-[560px] h-[480px] lg:h-[620px] pointer-events-none z-20">
+        {/* S asset — large, top aligned with the orange divider (just above
+            CTA), right edge stops before the heading starts */}
+        <div className="absolute -top-[160px] lg:-top-[180px] left-1/2 lg:left-[10%] -translate-x-1/2 lg:translate-x-0 w-[400px] lg:w-[520px] h-[460px] lg:h-[600px] pointer-events-none z-20">
           <Image
             src="/sultec/patterns/asset-logo-sultec.png"
             alt=""
