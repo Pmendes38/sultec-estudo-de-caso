@@ -9,7 +9,7 @@ export function CTA() {
       className="relative bg-[#070808] pt-0 pb-20 lg:pb-28"
     >
       {/* Main CTA body — relative container for overlays */}
-      <div className="relative min-h-[420px] lg:min-h-[460px]">
+      <div className="relative min-h-[480px] lg:min-h-[540px]">
 
         {/* LEFT: Orange radial glow — fills left half */}
         <div
@@ -19,6 +19,19 @@ export function CTA() {
               'radial-gradient(ellipse 70% 75% at 30% 50%, rgba(243,89,1,0.60) 0%, rgba(182,67,1,0.30) 28%, rgba(122,45,1,0.12) 55%, transparent 78%)',
           }}
         />
+
+        {/* PATTERN LINES — circuit lines on top of the glow (vector-4.png) */}
+        <div
+          className="absolute left-0 top-0 bottom-0 w-1/2 lg:w-[55%] pointer-events-none z-10 opacity-70 mix-blend-screen"
+        >
+          <Image
+            src="/sultec/patterns/vector-4.png"
+            alt=""
+            fill
+            className="object-cover object-left"
+            priority={false}
+          />
+        </div>
 
         {/* TOP RIGHT: small orange dot grid — only in corner, away from glow */}
         <div
@@ -35,23 +48,23 @@ export function CTA() {
           }}
         />
 
-        {/* S asset — positioned ON TOP of the orange glow */}
-        <div className="absolute top-0 left-2 lg:left-6 w-[220px] lg:w-[300px] h-[240px] lg:h-[320px] pointer-events-none z-20">
+        {/* S asset — bigger, vertically centered to align with the heading */}
+        <div className="absolute top-1/2 -translate-y-1/2 left-2 lg:left-8 w-[300px] lg:w-[440px] h-[320px] lg:h-[460px] pointer-events-none z-20">
           <Image
             src="/sultec/patterns/asset-logo-sultec.png"
             alt=""
             fill
-            className="object-contain object-left-top"
+            className="object-contain object-left"
             priority={false}
           />
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-[1500px] mx-auto px-8 lg:px-14 pt-16 lg:pt-20">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12 min-h-[300px]">
+        <div className="relative z-10 max-w-[1500px] mx-auto px-8 lg:px-14 pt-16 lg:pt-24">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10 min-h-[360px]">
 
-            {/* Spacer for the S on the left */}
-            <div className="hidden lg:block lg:w-[18%]" />
+            {/* Spacer for the bigger S on the left */}
+            <div className="hidden lg:block lg:w-[24%] flex-shrink-0" />
 
             {/* Center: Heading + subtitle */}
             <div className="flex flex-col gap-5 max-w-[560px] flex-1">
