@@ -6,48 +6,28 @@ export function CTA() {
   return (
     <section
       id="contato"
-      className="relative overflow-hidden bg-[#070808] pb-20 lg:pb-28"
+      className="relative bg-[#070808] pt-0 pb-20 lg:pb-28"
     >
-      {/* Top notched strip — slightly lighter dark grey with diagonal cut on the left */}
-      <div
-        className="relative h-[60px] lg:h-[80px] bg-[#0d0e10]"
-        style={{
-          clipPath:
-            'polygon(0 0, 28% 0, 33% 100%, 100% 100%, 100% 0, 0 0)',
-        }}
-      />
+      {/* Main CTA body — relative container for overlays */}
+      <div className="relative min-h-[420px] lg:min-h-[460px]">
 
-      {/* Main CTA body */}
-      <div className="relative">
-
-        {/* LEFT: Pattern image (circuit + stars) */}
-        <div className="absolute inset-y-0 left-0 w-1/2 lg:w-[55%] pointer-events-none">
-          <Image
-            src="/sultec/patterns/pattern-1.png"
-            alt=""
-            fill
-            className="object-cover object-left"
-            quality={90}
-          />
-        </div>
-
-        {/* LEFT: Orange radial glow on top of pattern */}
+        {/* LEFT: Orange radial glow — fills left half */}
         <div
-          className="absolute inset-y-0 left-0 w-1/2 lg:w-[55%] pointer-events-none"
+          className="absolute left-0 top-0 bottom-0 w-1/2 lg:w-[55%] pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse 60% 70% at 30% 50%, rgba(243,89,1,0.55) 0%, rgba(182,67,1,0.25) 30%, rgba(122,45,1,0.10) 55%, transparent 78%)',
+              'radial-gradient(ellipse 70% 75% at 30% 50%, rgba(243,89,1,0.60) 0%, rgba(182,67,1,0.30) 28%, rgba(122,45,1,0.12) 55%, transparent 78%)',
           }}
         />
 
-        {/* TOP RIGHT: Orange dot grid pattern */}
+        {/* TOP RIGHT: small orange dot grid — only in corner, away from glow */}
         <div
-          className="absolute right-0 top-0 w-[280px] lg:w-[340px] h-[140px] lg:h-[180px] pointer-events-none"
+          className="absolute right-0 top-0 w-[280px] lg:w-[340px] h-[120px] lg:h-[160px] pointer-events-none"
           style={{
             backgroundImage:
               'radial-gradient(circle, #F35901 1.5px, transparent 1.5px)',
             backgroundSize: '20px 20px',
-            opacity: 0.7,
+            opacity: 0.75,
             maskImage:
               'linear-gradient(to bottom left, black 30%, transparent 80%)',
             WebkitMaskImage:
@@ -55,11 +35,22 @@ export function CTA() {
           }}
         />
 
-        {/* Content */}
-        <div className="relative z-10 max-w-[1500px] mx-auto px-8 lg:px-14 pt-16 lg:pt-20 pb-4">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12">
+        {/* S asset — positioned ON TOP of the orange glow */}
+        <div className="absolute top-0 left-2 lg:left-6 w-[220px] lg:w-[300px] h-[240px] lg:h-[320px] pointer-events-none z-20">
+          <Image
+            src="/sultec/patterns/asset-logo-sultec.png"
+            alt=""
+            fill
+            className="object-contain object-left-top"
+            priority={false}
+          />
+        </div>
 
-            {/* Spacer (left half) — content starts at center */}
+        {/* Content */}
+        <div className="relative z-10 max-w-[1500px] mx-auto px-8 lg:px-14 pt-16 lg:pt-20">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12 min-h-[300px]">
+
+            {/* Spacer for the S on the left */}
             <div className="hidden lg:block lg:w-[18%]" />
 
             {/* Center: Heading + subtitle */}

@@ -42,7 +42,7 @@ export function Clients() {
   return (
     <section
       id="diferenciais"
-      className="relative bg-[#070808] pt-20 lg:pt-24 overflow-hidden"
+      className="relative bg-[#070808] pt-20 lg:pt-24 pb-0"
     >
       <div className="relative max-w-[1500px] mx-auto px-8 lg:px-14">
 
@@ -91,7 +91,6 @@ export function Clients() {
                   </div>
                 </div>
 
-                {/* Pagination dots */}
                 <div className="flex gap-1.5">
                   {testimonials.map((_, i) => (
                     <button
@@ -130,38 +129,19 @@ export function Clients() {
           </div>
         </div>
 
-        {/* TRANSITION AREA — diagonal line + S asset */}
-        <div className="relative mt-14 lg:mt-20 h-[180px] lg:h-[220px]">
-
-          {/* Orange diagonal step-line — goes left-bottom to right-top */}
+        {/* DIVIDER — orange step-line: separates testimonial from S asset (CTA) */}
+        <div className="relative mt-8 lg:mt-10 h-[24px]">
           <svg
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            viewBox="0 0 1500 220"
+            className="absolute inset-x-0 top-0 w-full h-[24px] pointer-events-none"
+            viewBox="0 0 1500 24"
             preserveAspectRatio="none"
           >
-            {/* Left horizontal segment (lower) */}
-            <line x1="0" y1="120" x2="380" y2="120" stroke="#F35901" strokeWidth="2.5" />
-            {/* Diagonal (rises right) */}
-            <line x1="380" y1="120" x2="540" y2="40" stroke="#F35901" strokeWidth="2.5" />
-            {/* Right horizontal segment (upper) */}
-            <line x1="540" y1="40" x2="1500" y2="40" stroke="#F35901" strokeWidth="2.5" />
+            <line x1="0" y1="20" x2="380" y2="20" stroke="#F35901" strokeWidth="2.5" />
+            <line x1="380" y1="20" x2="500" y2="6" stroke="#F35901" strokeWidth="2.5" />
+            <line x1="500" y1="6" x2="1500" y2="6" stroke="#F35901" strokeWidth="2.5" />
           </svg>
-
-          {/* S asset — bottom-left, large, partly extending below */}
-          <div
-            className="absolute -bottom-2 -left-4 lg:-left-2 w-[260px] lg:w-[340px] h-[280px] lg:h-[360px] pointer-events-none"
-            style={{ zIndex: 5 }}
-          >
-            <Image
-              src="/sultec/patterns/asset-logo-sultec.png"
-              alt=""
-              fill
-              className="object-contain object-bottom-left"
-              priority={false}
-            />
-          </div>
-
         </div>
+
       </div>
     </section>
   )
