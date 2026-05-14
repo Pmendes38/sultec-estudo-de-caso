@@ -19,7 +19,7 @@ export function Hero() {
       {/* Background image - takes the full hero, fades to dark on the left */}
       <div className="absolute inset-0">
         <Image
-          src="/sultec/bg-home.jpg"
+          src="/sultec/bg-home2.jpg"
           alt=""
           fill
           priority
