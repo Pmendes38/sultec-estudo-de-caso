@@ -20,12 +20,12 @@ export function CTA() {
     <section
       ref={sectionRef}
       id="contato"
-      className="relative bg-[#070808] pt-0 pb-20 lg:pb-28 overflow-hidden"
+      className="relative bg-[#070808] pt-0 pb-12 lg:pb-16 overflow-hidden"
     >
       {/* Container for content + visual layers (max width matches other sections).
           Glow + pattern + S all live INSIDE this container so they share the
           same coordinate system and stay perfectly aligned at every viewport. */}
-      <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 min-h-[480px] lg:min-h-[540px]">
+      <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 lg:-translate-x-[60px]">
 
         {/* TOP RIGHT: dot grid accent */}
         <div
@@ -46,8 +46,8 @@ export function CTA() {
         {/* Content block — flex row with S/glow on left, text+buttons on right.
             The S/glow IS a real flex child (not absolute), so it always sits
             INLINE with the text — no drift, no positioning math. */}
-        <div className="relative z-20 pt-16 3xl:pt-24">
-          <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 min-h-[360px]">
+        <div className="relative z-20 pt-4 lg:pt-6">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
 
             {/* LEFT — S/glow as a real flex child on lg+. Hidden on mobile. */}
             <motion.div
