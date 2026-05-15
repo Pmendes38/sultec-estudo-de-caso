@@ -45,7 +45,7 @@ const config: Config = {
         'scale-in': 'scaleIn 0.6s ease-out',
         'slide-in-right': 'slideInRight 0.6s ease-out',
         glow: 'glow 2s ease-in-out infinite',
-        marquee: 'marquee 30s linear infinite',
+        marquee: 'marquee 60s linear infinite',
       },
       keyframes: {
         fadeUp: {

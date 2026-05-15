@@ -51,8 +51,8 @@ export function Clients() {
     >
       <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14">
 
-        {/* TOP CONTENT — heading + testimonial only (logos moved below as marquee) */}
-        <div className="grid lg:grid-cols-1 gap-12 items-start">
+        {/* TOP CONTENT — heading/testimonial + marquee logos on the right */}
+        <div className="grid lg:grid-cols-[540px_1fr] gap-12 xl:gap-16 items-center">
 
           {/* Left: Heading + Testimonial card */}
           <motion.div
@@ -153,40 +153,39 @@ export function Clients() {
             </motion.div>
           </motion.div>
 
+          {/* RIGHT — auto-scrolling marquee of logos */}
+          <motion.div
+            className="relative overflow-hidden mt-8 lg:mt-0"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            viewport={viewportOnce}
+            style={{
+              // Edge fade so logos blend into the bg at the sides
+              maskImage:
+                'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+              WebkitMaskImage:
+                'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+            }}
+          >
+            <div className="flex w-max animate-marquee gap-12 lg:gap-16 items-center">
+              {/* Render logos twice for seamless infinite loop */}
+              {[...clients, ...clients].map((client, i) => (
+                <div
+                  key={`${client.name}-${i}`}
+                  className="relative h-24 lg:h-28 w-[180px] lg:w-[220px] flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity"
+                >
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
-
-        {/* MARQUEE — auto-scrolling logo strip (full width below the testimonial) */}
-        <motion.div
-          className="relative mt-12 lg:mt-16 overflow-hidden"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          viewport={viewportOnce}
-          style={{
-            // Edge fade so logos blend into the bg at the sides
-            maskImage:
-              'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
-            WebkitMaskImage:
-              'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
-          }}
-        >
-          <div className="flex w-max animate-marquee gap-16 lg:gap-24 items-center">
-            {/* Render logos twice for seamless infinite loop */}
-            {[...clients, ...clients].map((client, i) => (
-              <div
-                key={`${client.name}-${i}`}
-                className="relative h-24 lg:h-32 w-[180px] lg:w-[240px] flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity"
-              >
-                <Image
-                  src={client.logo}
-                  alt={client.name}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            ))}
-          </div>
-        </motion.div>
 
         {/* DIVIDER — orange step-line: animated draw effect */}
         <motion.div
