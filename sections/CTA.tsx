@@ -49,7 +49,7 @@ export function CTA() {
             wrapper center equals the flex-centered children's center. */}
         <motion.div
           aria-hidden
-          className="hidden 3xl:flex absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 pointer-events-none items-center justify-center 3xl:w-[1100px] 3xl:h-[680px]"
+          className="hidden lg:flex absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 pointer-events-none items-center justify-center lg:w-[800px] lg:h-[520px] xl:w-[950px] xl:h-[600px] 2xl:w-[1100px] 2xl:h-[680px]"
           style={{
             background:
               'radial-gradient(ellipse at center, rgba(255, 140, 50, 0.40) 0%, rgba(243, 89, 1, 0.20) 20%, rgba(243, 89, 1, 0.07) 40%, rgba(243, 89, 1, 0.02) 60%, transparent 75%)',
@@ -98,56 +98,59 @@ export function CTA() {
             - 3xl+ (≥1655px): side-by-side, S/glow on left, text center, buttons right
             - Below 3xl: text + buttons stacked, centered */}
         <div className="relative z-20 pt-16 3xl:pt-24">
-          <div className="flex flex-col 3xl:flex-row 3xl:items-center 3xl:justify-between gap-8 3xl:gap-12 min-h-[360px]">
+          {/* Outer row: spacer (reserves S/glow space on lg+) | right side */}
+          <div className="flex flex-col lg:flex-row lg:items-center gap-8 min-h-[360px]">
 
-            {/* Spacer reserves the left half for the S+glow on 3xl+
-                (S anchor at left-[25%] + 300px asset radius ≈ 45% of container) */}
-            <div className="hidden 3xl:block 3xl:w-[44%] flex-shrink-0" />
+            {/* Spacer reserves the left half for the S+glow on lg+ */}
+            <div className="hidden lg:block lg:w-[44%] flex-shrink-0" />
 
-            {/* Heading + subtitle — right-aligned below 3xl, left-aligned on 3xl+ */}
-            <motion.div
-              className="flex flex-col gap-5 w-full 3xl:max-w-[600px] flex-1 text-right 3xl:text-left"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportOnce}
-            >
-              <motion.h2
-                variants={fadeUp}
-                className="font-roboto-condensed font-normal text-white uppercase"
-                style={{
-                  fontSize: 'clamp(1.75rem, 4vw, 44px)',
-                  lineHeight: '1.18',
-                  letterSpacing: '0.02em',
-                  willChange: 'transform, opacity',
-                }}
+            {/* Right side — text + buttons. Stack on lg-3xl, side-by-side on 3xl+ */}
+            <div className="flex flex-col 3xl:flex-row 3xl:items-center 3xl:justify-between gap-8 3xl:gap-12 flex-1">
+
+              {/* Heading + subtitle */}
+              <motion.div
+                className="flex flex-col gap-5 w-full 3xl:max-w-[600px] flex-1 text-left"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
               >
-                <span className="block 3xl:whitespace-nowrap">Vamos Conversar Sobre</span>
-                <span className="block 3xl:whitespace-nowrap text-[#F35901]">O Seu Projeto?</span>
-              </motion.h2>
-              <motion.p
-                variants={fadeUp}
-                className="font-sora font-normal text-white leading-[1.5] ml-auto 3xl:mx-0"
-                style={{
-                  fontSize: 'clamp(1rem, 1.3vw, 1.1rem)',
-                  letterSpacing: '-0.04em',
-                  maxWidth: '520px',
-                }}
-              >
-                Nossa equipe está pronta para entender sua necessidade
-                {' '}e apresentar a melhor solução.
-              </motion.p>
-            </motion.div>
+                <motion.h2
+                  variants={fadeUp}
+                  className="font-roboto-condensed font-normal text-white uppercase"
+                  style={{
+                    fontSize: 'clamp(1.75rem, 4vw, 44px)',
+                    lineHeight: '1.18',
+                    letterSpacing: '0.02em',
+                    willChange: 'transform, opacity',
+                  }}
+                >
+                  <span className="block 3xl:whitespace-nowrap">Vamos Conversar Sobre</span>
+                  <span className="block 3xl:whitespace-nowrap text-[#F35901]">O Seu Projeto?</span>
+                </motion.h2>
+                <motion.p
+                  variants={fadeUp}
+                  className="font-sora font-normal text-white leading-[1.5]"
+                  style={{
+                    fontSize: 'clamp(1rem, 1.3vw, 1.1rem)',
+                    letterSpacing: '-0.04em',
+                    maxWidth: '520px',
+                  }}
+                >
+                  Nossa equipe está pronta para entender sua necessidade
+                  {' '}e apresentar a melhor solução.
+                </motion.p>
+              </motion.div>
 
-            {/* CTA Buttons — stack vertically. Below 3xl: centered under text.
-                On 3xl+: fixed-width column on the right */}
-            <motion.div
-              className="flex flex-col gap-4 w-full max-w-[380px] ml-auto 3xl:mx-0 3xl:w-[380px] 3xl:flex-shrink-0"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportOnce}
-            >
+              {/* CTA Buttons — stacked vertical column. Below 3xl: under the text.
+                  On 3xl+: fixed-width column to the right of the text */}
+              <motion.div
+                className="flex flex-col gap-4 w-full max-w-[380px] 3xl:w-[380px] 3xl:flex-shrink-0"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
+              >
               <motion.a
                 variants={fadeUp}
                 whileHover={buttonHover}
@@ -185,6 +188,7 @@ export function CTA() {
                 />
               </motion.a>
             </motion.div>
+            </div>
           </div>
         </div>
       </div>
