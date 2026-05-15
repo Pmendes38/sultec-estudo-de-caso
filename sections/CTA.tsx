@@ -43,34 +43,24 @@ export function CTA() {
           }}
         />
 
-        {/* GLOW + PATTERN + S — ALL nested inside a single anchor wrapper so
-            their visual centers are guaranteed to share the exact same pixel.
-            Sizing the wrapper to match the S asset means: the wrapper's
-            center == the S's center == the glow's center == the pattern's
-            center. No coordinate-system drift between layers. */}
-        <div
+        {/* GLOW + PATTERN + S — wrapper IS the glow (radial gradient as
+            background). Pattern + S are flex-centered children. Mathematical
+            impossibility for them to drift apart: the glow center equals the
+            wrapper center equals the flex-centered children's center. */}
+        <motion.div
           aria-hidden
-          className="hidden lg:block absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 pointer-events-none lg:w-[440px] lg:h-[500px] xl:w-[520px] xl:h-[580px] 2xl:w-[600px] 2xl:h-[680px]"
+          className="hidden lg:block absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center lg:w-[1000px] lg:h-[600px] xl:w-[1100px] xl:h-[680px] 2xl:w-[1200px] 2xl:h-[760px]"
+          style={{
+            background:
+              'radial-gradient(ellipse at center, rgba(255, 140, 50, 0.40) 0%, rgba(243, 89, 1, 0.20) 20%, rgba(243, 89, 1, 0.07) 40%, rgba(243, 89, 1, 0.02) 60%, transparent 75%)',
+            scale: glowScale,
+            filter: 'blur(0px)',
+            willChange: 'transform',
+          }}
         >
-          {/* Glow — sits behind everything; sized way bigger than the wrapper
-              and centered via translate so the gradient halo wraps the S */}
+          {/* Pattern lines — centered child via flexbox */}
           <motion.div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            style={{
-              width: '900px',
-              height: '500px',
-              background:
-                'radial-gradient(ellipse at center, rgba(255, 140, 50, 0.40) 0%, rgba(243, 89, 1, 0.20) 20%, rgba(243, 89, 1, 0.07) 40%, rgba(243, 89, 1, 0.02) 60%, transparent 75%)',
-              scale: glowScale,
-              filter: 'blur(30px)',
-              willChange: 'transform',
-            }}
-          />
-
-          {/* Pattern lines — centered on the wrapper, mix-blend-screen so
-              only the orange traces are visible */}
-          <motion.div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[5] lg:w-[720px] lg:h-[600px] xl:w-[820px] xl:h-[680px] 2xl:w-[920px] 2xl:h-[760px]"
+            className="absolute z-[5] lg:w-[720px] lg:h-[600px] xl:w-[820px] xl:h-[680px] 2xl:w-[920px] 2xl:h-[760px]"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
@@ -85,9 +75,9 @@ export function CTA() {
             />
           </motion.div>
 
-          {/* S asset — fills the wrapper exactly */}
+          {/* S asset — centered child via flexbox, smaller than the glow box */}
           <motion.div
-            className="relative w-full h-full z-10"
+            className="relative z-10 lg:w-[440px] lg:h-[500px] xl:w-[520px] xl:h-[580px] 2xl:w-[600px] 2xl:h-[680px]"
             style={{ y: sParallax, willChange: 'transform' }}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -102,7 +92,7 @@ export function CTA() {
               priority={false}
             />
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Content block — single layout that:
             - 3xl+ (≥1655px): side-by-side, S/glow on left, text center, buttons right
