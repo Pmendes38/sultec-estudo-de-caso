@@ -20,7 +20,7 @@ export function CTA() {
     <section
       ref={sectionRef}
       id="contato"
-      className="relative bg-[#070808] pt-0 pb-12 lg:pb-0 lg:-mt-[90px] overflow-hidden"
+      className="relative z-0 bg-[#070808] pt-0 pb-12 lg:pb-0 lg:-mt-[90px] overflow-hidden"
     >
       {/* Container for content + visual layers (max width matches other sections).
           Glow + pattern + S all live INSIDE this container so they share the
