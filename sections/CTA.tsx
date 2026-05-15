@@ -49,7 +49,7 @@ export function CTA() {
             wrapper center equals the flex-centered children's center. */}
         <motion.div
           aria-hidden
-          className="hidden lg:block absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center lg:w-[1000px] lg:h-[600px] xl:w-[1100px] xl:h-[680px] 2xl:w-[1200px] 2xl:h-[760px]"
+          className="hidden 3xl:flex absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 pointer-events-none items-center justify-center 3xl:w-[1100px] 3xl:h-[680px]"
           style={{
             background:
               'radial-gradient(ellipse at center, rgba(255, 140, 50, 0.40) 0%, rgba(243, 89, 1, 0.20) 20%, rgba(243, 89, 1, 0.07) 40%, rgba(243, 89, 1, 0.02) 60%, transparent 75%)',
