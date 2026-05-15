@@ -29,16 +29,12 @@ export function CTA() {
 
         {/* Orange radial glow — anchored to the LEFT side of the content area */}
         <motion.div
-          className="absolute top-0 bottom-0 left-0 right-0 pointer-events-none hidden lg:block"
+          className="absolute top-0 bottom-0 left-0 w-[55%] pointer-events-none hidden lg:block"
           style={{
             background:
-              'radial-gradient(ellipse 120% 100% at 20% 50%, rgba(243,89,1,0.50) 0%, rgba(182,67,1,0.25) 20%, rgba(122,45,1,0.10) 40%, rgba(122,45,1,0.03) 60%, transparent 85%)',
+              'radial-gradient(ellipse 85% 90% at 35% 50%, rgba(243,89,1,0.60) 0%, rgba(182,67,1,0.30) 25%, rgba(122,45,1,0.12) 45%, rgba(122,45,1,0.04) 65%, transparent 90%)',
             scale: glowScale,
             willChange: 'transform',
-            maskImage:
-              'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-            WebkitMaskImage:
-              'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
           }}
         />
 
@@ -107,7 +103,7 @@ export function CTA() {
 
         {/* Content */}
         <div className="relative z-10 pt-12 md:pt-16 lg:pt-24">
-          <div className="flex flex-col lg:flex-row lg:max-3xl:flex-col gap-8 md:gap-10 lg:items-center lg:max-3xl:items-center justify-between min-h-[360px]">
+          <div className="flex lg:flex-row flex-col gap-8 md:gap-10 lg:items-center justify-between min-h-[360px]">
 
             {/* Spacer reserves the left half for the S+glow — hidden on mobile/tablet, and below 1655px */}
             <div className="hidden lg:block max-3xl:hidden lg:w-[38%] flex-shrink-0" />
@@ -148,7 +144,7 @@ export function CTA() {
 
               {/* CTA Buttons — below text on mobile/tablet, inline on lg */}
               <motion.div
-                className="flex flex-col gap-3 md:gap-4 w-full max-w-[380px] lg:hidden 3xl:flex 3xl:flex-col 3xl:max-w-[380px] mx-auto"
+                className="flex flex-col gap-3 md:gap-4 w-full max-w-[380px] lg:hidden mx-auto"
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
@@ -193,9 +189,9 @@ export function CTA() {
               </motion.div>
             </motion.div>
 
-            {/* Right: CTA Buttons — only on 3xl+ (1655px and above) */}
+            {/* Right: CTA Buttons — only on lg+ */}
             <motion.div
-              className="hidden 3xl:flex flex-col gap-3 md:gap-4 w-full max-w-[380px] 3xl:w-[380px] 3xl:flex-shrink-0 mx-auto 3xl:mx-0"
+              className="hidden lg:flex flex-col gap-3 md:gap-4 w-full max-w-[380px] lg:w-[380px] lg:flex-shrink-0 mx-auto lg:mx-0"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
