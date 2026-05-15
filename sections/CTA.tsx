@@ -103,14 +103,14 @@ export function CTA() {
 
         {/* Content */}
         <div className="relative z-10 pt-12 md:pt-16 lg:pt-24">
-          <div className="flex flex-col lg:flex-row 3xl:flex-col lg:items-center 3xl:items-center justify-between gap-8 md:gap-10 min-h-[360px]">
+          <div className="flex flex-col lg:flex-row max-3xl:flex-col lg:items-center max-3xl:items-center justify-between gap-8 md:gap-10 min-h-[360px]">
 
-            {/* Spacer reserves the left half for the S+glow — hidden on mobile/tablet, and on 3xl */}
-            <div className="hidden lg:block 3xl:hidden lg:w-[38%] flex-shrink-0" />
+            {/* Spacer reserves the left half for the S+glow — hidden on mobile/tablet, and below 1655px */}
+            <div className="hidden lg:block max-3xl:hidden lg:w-[38%] flex-shrink-0" />
 
-            {/* Center: Heading + subtitle — centered on mobile and 3xl */}
+            {/* Center: Heading + subtitle — centered on mobile and below 1655px */}
             <motion.div
-              className="flex flex-col gap-4 md:gap-5 w-full lg:max-w-[600px] 3xl:max-w-none flex-1 text-center lg:text-left 3xl:text-center"
+              className="flex flex-col gap-4 md:gap-5 w-full lg:max-w-[600px] max-3xl:max-w-none flex-1 text-center lg:text-left max-3xl:text-center"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -143,9 +143,9 @@ export function CTA() {
               </motion.p>
             </motion.div>
 
-            {/* Right: CTA Buttons — moved below text on 3xl */}
+            {/* Right: CTA Buttons — moved below text below 1655px */}
             <motion.div
-              className="flex flex-col gap-3 md:gap-4 w-full max-w-[380px] lg:w-[380px] lg:flex-shrink-0 3xl:max-w-[600px] 3xl:w-full mx-auto lg:mx-0 3xl:mx-auto"
+              className="flex flex-col gap-3 md:gap-4 w-full max-w-[380px] lg:w-[380px] lg:flex-shrink-0 max-3xl:max-w-[600px] max-3xl:w-full mx-auto lg:mx-0 max-3xl:mx-auto"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
