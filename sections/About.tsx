@@ -42,16 +42,16 @@ export function About() {
           />
 
           {/* Main grid: text left, video right */}
-          <div className="relative grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-14 items-start mb-12">
+          <div className="relative grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-14 items-start mb-12">
 
             {/* LEFT */}
             <div className="flex flex-col gap-7">
-              {/* Heading — Titulo 2: Roboto Bold 96/89 LS -7% */}
+              {/* Heading — Titulo 2: Roboto Bold ~64/60 LS -7% (reduced for video balance) */}
               <h2
                 className="font-roboto font-bold text-white"
                 style={{
-                  fontSize: 'clamp(2.25rem, 6vw, 96px)',
-                  lineHeight: '0.927',
+                  fontSize: 'clamp(2rem, 4vw, 64px)',
+                  lineHeight: '0.95',
                   letterSpacing: '-0.07em',
                 }}
               >

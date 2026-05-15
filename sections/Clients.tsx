@@ -118,7 +118,7 @@ export function Clients() {
               {clients.map((client) => (
                 <div
                   key={client.name}
-                  className="relative w-full max-w-[140px] h-14 lg:h-16 opacity-95 hover:opacity-100 transition-opacity"
+                  className="relative w-full max-w-[180px] h-20 lg:h-24 opacity-95 hover:opacity-100 transition-opacity"
                 >
                   <Image
                     src={client.logo}

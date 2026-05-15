@@ -34,12 +34,12 @@ export function Hero() {
       <div className="relative z-10 w-full max-w-[1500px] mx-auto px-8 lg:px-14 py-20 lg:py-24">
         <div className="flex flex-col gap-7 max-w-[920px]">
 
-          {/* Heading — Titulo 1: Roboto Condensed Bold 88/100 LS 0 */}
+          {/* Heading — Titulo 1: Roboto Condensed Bold ~72/82 LS 0 */}
           <h1
             className="font-roboto-condensed font-bold uppercase text-white"
             style={{
-              fontSize: 'clamp(2.5rem, 6vw, 88px)',
-              lineHeight: '1.136',
+              fontSize: 'clamp(2.25rem, 5vw, 72px)',
+              lineHeight: '1.14',
               letterSpacing: '0',
             }}
           >
@@ -49,7 +49,7 @@ export function Hero() {
 
           {/* Subtitle */}
           <p
-            className="font-sora font-semibold text-white leading-[1.4] mt-1"
+            className="font-sora font-normal text-white leading-[1.5] mt-1"
             style={{
               fontSize: 'clamp(1rem, 1.4vw, 1.2rem)',
               letterSpacing: '-0.05em',

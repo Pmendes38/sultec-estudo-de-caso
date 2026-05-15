@@ -71,16 +71,16 @@ export function CTA() {
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10 min-h-[360px]">
 
             {/* Spacer for the bigger S on the left */}
-            <div className="hidden lg:block lg:w-[18%] flex-shrink-0" />
+            <div className="hidden lg:block lg:w-[26%] flex-shrink-0" />
 
             {/* Center: Heading + subtitle */}
-            <div className="flex flex-col gap-5 max-w-[680px] flex-1 lg:pl-[80px]">
-              {/* Titulo 6: Roboto Condensed Regular 64/78 LS 2% */}
+            <div className="flex flex-col gap-5 max-w-[600px] flex-1 lg:pl-[60px]">
+              {/* Titulo 6: Roboto Condensed Regular ~44/52 LS 2% (smaller per spec request) */}
               <h2
                 className="font-roboto-condensed font-normal text-white uppercase"
                 style={{
-                  fontSize: 'clamp(2rem, 4.5vw, 64px)',
-                  lineHeight: '1.219',
+                  fontSize: 'clamp(1.5rem, 3vw, 44px)',
+                  lineHeight: '1.18',
                   letterSpacing: '0.02em',
                 }}
               >
