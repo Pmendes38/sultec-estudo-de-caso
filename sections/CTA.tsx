@@ -50,7 +50,7 @@ export function CTA() {
             center. No coordinate-system drift between layers. */}
         <div
           aria-hidden
-          className="hidden lg:block absolute top-1/2 left-[19%] -translate-x-1/2 -translate-y-1/2 pointer-events-none lg:w-[440px] lg:h-[500px] xl:w-[520px] xl:h-[580px] 2xl:w-[600px] 2xl:h-[680px]"
+          className="hidden lg:block absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 pointer-events-none lg:w-[440px] lg:h-[500px] xl:w-[520px] xl:h-[580px] 2xl:w-[600px] 2xl:h-[680px]"
         >
           {/* Glow — sits behind everything; sized way bigger than the wrapper
               and centered via translate so the gradient halo wraps the S */}
@@ -110,8 +110,9 @@ export function CTA() {
         <div className="relative z-20 pt-16 3xl:pt-24">
           <div className="flex flex-col 3xl:flex-row 3xl:items-center 3xl:justify-between gap-8 3xl:gap-12 min-h-[360px]">
 
-            {/* Spacer reserves the left half for the S+glow on 3xl+ */}
-            <div className="hidden 3xl:block 3xl:w-[38%] flex-shrink-0" />
+            {/* Spacer reserves the left half for the S+glow on 3xl+
+                (S anchor at left-[25%] + 300px asset radius ≈ 45% of container) */}
+            <div className="hidden 3xl:block 3xl:w-[44%] flex-shrink-0" />
 
             {/* Heading + subtitle — right-aligned below 3xl, left-aligned on 3xl+ */}
             <motion.div
