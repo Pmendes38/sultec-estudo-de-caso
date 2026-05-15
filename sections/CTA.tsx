@@ -27,39 +27,21 @@ export function CTA() {
           heading never overlaps S). */}
       <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 min-h-[480px] lg:min-h-[540px]">
 
-        {/* Orange radial glow — anchored to the LEFT side of the content area */}
+        {/* Orange radial glow — anchored to the LEFT side with natural fade */}
         <motion.div
-          className="absolute top-0 bottom-0 left-0 w-[55%] pointer-events-none hidden lg:block"
+          className="absolute top-1/2 left-0 pointer-events-none hidden lg:block -translate-y-1/2"
           style={{
+            width: '900px',
+            height: '600px',
             background:
-              'radial-gradient(ellipse 85% 90% at 35% 50%, rgba(243,89,1,0.60) 0%, rgba(182,67,1,0.30) 25%, rgba(122,45,1,0.12) 45%, rgba(122,45,1,0.04) 65%, transparent 90%)',
+              'radial-gradient(ellipse 100% 100% at 0% 50%, rgba(243,89,1,0.70) 0%, rgba(243,89,1,0.50) 15%, rgba(182,67,1,0.30) 35%, rgba(122,45,1,0.12) 55%, rgba(122,45,1,0.03) 75%, transparent 100%)',
             scale: glowScale,
             willChange: 'transform',
+            filter: 'blur(60px)',
           }}
         />
 
-        {/* PATTERN LINES — confined to the glow area */}
-        <motion.div
-          className="absolute top-0 bottom-0 left-0 w-[55%] pointer-events-none z-10 hidden lg:block"
-          style={{
-            maskImage:
-              'radial-gradient(ellipse 55% 65% at 35% 50%, black 25%, transparent 75%)',
-            WebkitMaskImage:
-              'radial-gradient(ellipse 55% 65% at 35% 50%, black 25%, transparent 75%)',
-          }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          viewport={viewportOnce}
-        >
-          <Image
-            src="/sultec/patterns/pattern-lines.png"
-            alt=""
-            fill
-            className="object-contain object-left mix-blend-screen"
-            priority={false}
-          />
-        </motion.div>
+        {/* PATTERN LINES — removed to prevent box frame effect */}
 
         {/* TOP RIGHT: dot grid — only on desktop */}
         <div
@@ -103,7 +85,7 @@ export function CTA() {
 
         {/* Content */}
         <div className="relative z-10 pt-12 md:pt-16 lg:pt-24">
-          <div className="flex lg:flex-row flex-col gap-8 md:gap-10 lg:items-center justify-between min-h-[360px]">
+          <div className="flex lg:flex-row flex-col gap-8 md:gap-10 lg:items-center justify-between min-h-[360px] max-3xl:flex-col">
 
             {/* Spacer reserves the left half for the S+glow — hidden on mobile/tablet, and below 1655px */}
             <div className="hidden lg:block max-3xl:hidden lg:w-[38%] flex-shrink-0" />
@@ -142,9 +124,9 @@ export function CTA() {
                 {' '}e apresentar a melhor solução.
               </motion.p>
 
-              {/* CTA Buttons — below text on mobile/tablet, inline on lg */}
+              {/* CTA Buttons — below text on mobile/tablet and max-3xl */}
               <motion.div
-                className="flex flex-col gap-3 md:gap-4 w-full max-w-[380px] lg:hidden mx-auto"
+                className="flex flex-col gap-3 md:gap-4 w-full max-w-[380px] lg:hidden max-3xl:flex mx-auto"
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
@@ -189,9 +171,9 @@ export function CTA() {
               </motion.div>
             </motion.div>
 
-            {/* Right: CTA Buttons — only on lg+ */}
+            {/* Right: CTA Buttons — only on lg+ (hidden on max-3xl) */}
             <motion.div
-              className="hidden lg:flex flex-col gap-3 md:gap-4 w-full max-w-[380px] lg:w-[380px] lg:flex-shrink-0 mx-auto lg:mx-0"
+              className="hidden lg:flex max-3xl:hidden flex-col gap-3 md:gap-4 w-full max-w-[380px] lg:w-[380px] lg:flex-shrink-0 mx-auto lg:mx-0"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
