@@ -27,21 +27,20 @@ export function CTA() {
           same coordinate system and stay perfectly aligned at every viewport. */}
       <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 min-h-[480px] lg:min-h-[540px]">
 
-        {/* Atmospheric glow — fixed-size box centered on the S, with the
-            gradient fully fading inside it. The box is way bigger than the
-            visible glow so no edges can ever touch the rectangle bounds.
-            A blur filter softens any residual transition. */}
+        {/* Atmospheric glow — fixed-size box centered on the S. Sized to
+            stay INSIDE the container so it never bleeds into the next
+            section. Strong fade-out + blur creates the soft atmospheric look. */}
         <motion.div
           aria-hidden
           className="absolute top-1/2 left-[19%] -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden lg:block"
           style={{
-            width: '1100px',
-            height: '900px',
+            width: '900px',
+            height: '500px',
             background: `
-              radial-gradient(ellipse at center, rgba(255, 140, 50, 0.35) 0%, rgba(243, 89, 1, 0.18) 22%, rgba(243, 89, 1, 0.06) 45%, rgba(243, 89, 1, 0.015) 65%, transparent 80%)
+              radial-gradient(ellipse at center, rgba(255, 140, 50, 0.40) 0%, rgba(243, 89, 1, 0.20) 20%, rgba(243, 89, 1, 0.07) 40%, rgba(243, 89, 1, 0.02) 60%, transparent 75%)
             `,
             scale: glowScale,
-            filter: 'blur(40px)',
+            filter: 'blur(30px)',
             willChange: 'transform',
           }}
         />
