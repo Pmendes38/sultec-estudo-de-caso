@@ -25,7 +25,7 @@ export function CTA() {
       {/* Container for content + visual layers (max width matches other sections).
           Glow + pattern + S all live INSIDE this container so they share the
           same coordinate system and stay perfectly aligned at every viewport. */}
-      <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 lg:-translate-x-[60px]">
+      <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 lg:-translate-x-[150px] lg:-translate-y-[50px]">
 
         {/* TOP RIGHT: dot grid accent */}
         <div
