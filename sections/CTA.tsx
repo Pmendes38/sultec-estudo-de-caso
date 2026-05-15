@@ -11,12 +11,12 @@ export function CTA() {
       {/* Main CTA body — relative container for overlays */}
       <div className="relative min-h-[480px] lg:min-h-[540px]">
 
-        {/* LEFT: Orange radial glow — fills left half */}
+        {/* LEFT: Orange radial glow — centered on the S asset (≈30% of section) */}
         <div
           className="absolute left-0 top-0 bottom-0 w-1/2 lg:w-[55%] pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse 70% 75% at 30% 50%, rgba(243,89,1,0.60) 0%, rgba(182,67,1,0.30) 28%, rgba(122,45,1,0.12) 55%, transparent 78%)',
+              'radial-gradient(ellipse 70% 75% at 56% 50%, rgba(243,89,1,0.60) 0%, rgba(182,67,1,0.30) 28%, rgba(122,45,1,0.12) 55%, transparent 78%)',
           }}
         />
 
@@ -25,9 +25,9 @@ export function CTA() {
           className="absolute left-0 top-0 bottom-0 w-1/2 lg:w-[55%] pointer-events-none z-10"
           style={{
             maskImage:
-              'radial-gradient(ellipse 55% 65% at 30% 50%, black 25%, transparent 75%)',
+              'radial-gradient(ellipse 55% 65% at 56% 50%, black 25%, transparent 75%)',
             WebkitMaskImage:
-              'radial-gradient(ellipse 55% 65% at 30% 50%, black 25%, transparent 75%)',
+              'radial-gradient(ellipse 55% 65% at 56% 50%, black 25%, transparent 75%)',
           }}
         >
           <Image
@@ -54,9 +54,9 @@ export function CTA() {
           }}
         />
 
-        {/* S asset — large, top aligned with the orange divider (just above
-            CTA), right edge stops before the heading starts */}
-        <div className="absolute -top-[100px] lg:-top-[120px] left-1/2 lg:left-[10%] -translate-x-1/2 lg:translate-x-0 w-[500px] lg:w-[620px] h-[560px] lg:h-[700px] pointer-events-none z-20">
+        {/* S asset — centered exactly on the orange glow
+            (glow center: 56% × 55% ≈ 30.8% horizontal × 50% vertical of section) */}
+        <div className="absolute top-1/2 left-1/2 lg:left-[30.8%] -translate-x-1/2 -translate-y-1/2 w-[500px] lg:w-[620px] h-[560px] lg:h-[700px] pointer-events-none z-20">
           <Image
             src="/sultec/patterns/asset-logo-sultec.png"
             alt=""
