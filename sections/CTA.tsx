@@ -43,68 +43,60 @@ export function CTA() {
           }}
         />
 
-        {/* GLOW + PATTERN + S — wrapper IS the glow (radial gradient as
-            background). Pattern + S are flex-centered children. Mathematical
-            impossibility for them to drift apart: the glow center equals the
-            wrapper center equals the flex-centered children's center. */}
-        <motion.div
-          aria-hidden
-          className="hidden lg:flex absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 pointer-events-none items-center justify-center lg:w-[800px] lg:h-[520px] xl:w-[950px] xl:h-[600px] 2xl:w-[1100px] 2xl:h-[680px]"
-          style={{
-            background:
-              'radial-gradient(ellipse at center, rgba(255, 140, 50, 0.40) 0%, rgba(243, 89, 1, 0.20) 20%, rgba(243, 89, 1, 0.07) 40%, rgba(243, 89, 1, 0.02) 60%, transparent 75%)',
-            scale: glowScale,
-            filter: 'blur(0px)',
-            willChange: 'transform',
-          }}
-        >
-          {/* Pattern lines — centered child via flexbox */}
-          <motion.div
-            className="absolute z-[5] lg:w-[720px] lg:h-[600px] xl:w-[820px] xl:h-[680px] 2xl:w-[920px] 2xl:h-[760px]"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            viewport={viewportOnce}
-          >
-            <Image
-              src="/sultec/patterns/pattern-lines.png"
-              alt=""
-              fill
-              className="object-contain mix-blend-screen opacity-90"
-              priority={false}
-            />
-          </motion.div>
-
-          {/* S asset — centered child via flexbox, smaller than the glow box */}
-          <motion.div
-            className="relative z-10 lg:w-[440px] lg:h-[500px] xl:w-[520px] xl:h-[580px] 2xl:w-[600px] 2xl:h-[680px]"
-            style={{ y: sParallax, willChange: 'transform' }}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
-            viewport={viewportOnce}
-          >
-            <Image
-              src="/sultec/patterns/asset-logo-sultec.png"
-              alt=""
-              fill
-              className="object-contain"
-              priority={false}
-            />
-          </motion.div>
-        </motion.div>
-
-        {/* Content block — single layout that:
-            - 3xl+ (≥1655px): side-by-side, S/glow on left, text center, buttons right
-            - Below 3xl: text + buttons stacked, centered */}
+        {/* Content block — flex row with S/glow on left, text+buttons on right.
+            The S/glow IS a real flex child (not absolute), so it always sits
+            INLINE with the text — no drift, no positioning math. */}
         <div className="relative z-20 pt-16 3xl:pt-24">
-          {/* Outer row: spacer (reserves S/glow space on lg+) | right side */}
-          <div className="flex flex-col lg:flex-row lg:items-center gap-8 min-h-[360px]">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 min-h-[360px]">
 
-            {/* Spacer reserves the left half for the S+glow on lg+ */}
-            <div className="hidden lg:block lg:w-[44%] flex-shrink-0" />
+            {/* LEFT — S/glow as a real flex child on lg+. Hidden on mobile. */}
+            <motion.div
+              aria-hidden
+              className="hidden lg:flex lg:w-[44%] flex-shrink-0 relative items-center justify-center pointer-events-none lg:h-[520px] xl:h-[600px] 2xl:h-[680px]"
+              style={{
+                background:
+                  'radial-gradient(ellipse at center, rgba(255, 140, 50, 0.40) 0%, rgba(243, 89, 1, 0.20) 20%, rgba(243, 89, 1, 0.07) 40%, rgba(243, 89, 1, 0.02) 60%, transparent 75%)',
+                scale: glowScale,
+                willChange: 'transform',
+              }}
+            >
+              {/* Pattern lines — centered via flexbox */}
+              <motion.div
+                className="absolute z-[5] lg:w-[640px] lg:h-[540px] xl:w-[740px] xl:h-[620px] 2xl:w-[840px] 2xl:h-[700px]"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                viewport={viewportOnce}
+              >
+                <Image
+                  src="/sultec/patterns/pattern-lines.png"
+                  alt=""
+                  fill
+                  className="object-contain mix-blend-screen opacity-90"
+                  priority={false}
+                />
+              </motion.div>
 
-            {/* Right side — text + buttons. Stack on lg-3xl, side-by-side on 3xl+ */}
+              {/* S asset — centered via flexbox */}
+              <motion.div
+                className="relative z-10 lg:w-[380px] lg:h-[440px] xl:w-[460px] xl:h-[520px] 2xl:w-[540px] 2xl:h-[620px]"
+                style={{ y: sParallax, willChange: 'transform' }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
+                viewport={viewportOnce}
+              >
+                <Image
+                  src="/sultec/patterns/asset-logo-sultec.png"
+                  alt=""
+                  fill
+                  className="object-contain"
+                  priority={false}
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* RIGHT — text + buttons. Stack on lg-3xl, side-by-side on 3xl+ */}
             <div className="flex flex-col 3xl:flex-row 3xl:items-center 3xl:justify-between gap-8 3xl:gap-12 flex-1">
 
               {/* Heading + subtitle */}
