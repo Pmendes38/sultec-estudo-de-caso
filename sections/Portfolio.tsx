@@ -1,150 +1,154 @@
-"use client"
-import React, { useState } from 'react'
+'use client'
+
+import { useState } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ChevronRight } from 'lucide-react'
-import { Container, Card, CardContent, Button } from '@/components/ui'
-import { projects } from '@/data/content'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import {
+  fadeUp,
+  staggerContainer,
+  buttonHover,
+  buttonTap,
+  viewportOnce,
+} from '@/lib/animations'
 
-export const Portfolio: React.FC = () => {
-  const scrollAnimation = useScrollAnimation()
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+const projects = [
+  {
+    title: 'Cabeamento estruturado',
+    desc: 'Instalação e certificação de redes para indústrias e grandes operações.',
+    img: '/sultec/cards/cabeamento-estruturado.jpg',
+  },
+  {
+    title: 'Infraestrutura de rede',
+    desc: 'Projetos completos de conectividade com materiais de alto padrão e execução certificada.',
+    img: '/sultec/cards/infraestrutura-de-rede.jpg',
+  },
+  {
+    title: 'Data Centers',
+    desc: 'Montagem e estruturação de ambientes críticos com segurança e precisão técnica.',
+    img: '/sultec/cards/data-centers.jpg',
+  },
+]
 
-  const categories = ['Todos', ...new Set(projects.map((p) => p.category))]
+function ProjectCard({ project }: { project: typeof projects[0] }) {
+  return (
+    <motion.div
+      variants={fadeUp}
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      className="group relative rounded-[10px] overflow-hidden border-[3px] border-[#252526] aspect-[727/431] cursor-pointer hover:border-[#F35901]/60 transition-colors duration-300"
+      style={{ willChange: 'transform' }}
+    >
+      <Image
+        src={project.img}
+        alt={project.title}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+        className="object-cover group-hover:scale-105 transition-transform duration-500"
+      />
 
-  const filteredProjects = selectedCategory && selectedCategory !== 'Todos'
-    ? projects.filter((p) => p.category === selectedCategory)
-    : projects
+      <div
+        className="absolute bottom-0 left-0 right-0 h-[136px]"
+        style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.92) 30%, rgba(0,0,0,0.7) 70%, transparent 100%)' }}
+      />
+
+      <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between gap-4">
+        <div className="flex flex-col gap-1.5 flex-1 min-w-0">
+          <h3 className="font-sora font-semibold text-white text-[18px] leading-[1.2] tracking-[-0.02em]">
+            {project.title}
+          </h3>
+          <p className="font-sora text-[#ABADAB] text-[13px] leading-[1.4] tracking-[-0.01em]">
+            {project.desc}
+          </p>
+        </div>
+        <motion.div
+          className="flex-shrink-0 w-[52px] h-[52px] border-[3px] border-[#F35901] rounded-[5px] flex items-center justify-center group-hover:bg-[#F35901]/20 transition-colors"
+          whileHover={{ rotate: 90 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <span className="text-white text-[28px] font-light leading-none -mt-1">+</span>
+        </motion.div>
+      </div>
+    </motion.div>
+  )
+}
+
+export function Portfolio() {
+  const [activeDot, setActiveDot] = useState(0)
+  const dotsCount = 4
 
   return (
-    <section
-      id="projetos"
-      className="py-28 bg-gradient-to-b from-dark-800 to-dark-900 relative overflow-hidden"
-    >
-      {/* Background Glow */}
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl" />
+    <section id="portfolio" className="bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
+      <div className="max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14">
 
-      <Container className="relative z-10">
-        {/* Header */}
+        {/* Header row */}
         <motion.div
-          className="flex items-end justify-between mb-16 flex-wrap gap-6"
-          {...scrollAnimation.fadeUp}
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
         >
-          <div className="flex-1">
-            <motion.span
-              className="text-orange-500 font-semibold uppercase tracking-widest text-sm"
-              {...scrollAnimation.fadeUp}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              Projetos
-            </motion.span>
-
+          <div className="flex flex-col gap-3">
+            <motion.p variants={fadeUp} className="font-sora text-[#F35901] text-[15px] tracking-[-0.04em] uppercase">
+              Portfólio
+            </motion.p>
             <motion.h2
-              className="text-5xl lg:text-6xl font-black mt-4 max-w-2xl text-white"
-              {...scrollAnimation.fadeUp}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              variants={fadeUp}
+              className="font-roboto font-normal text-white uppercase"
+              style={{
+                fontSize: 'clamp(1.75rem, 3.5vw, 48px)',
+                lineHeight: '1.042',
+                letterSpacing: '-0.05em',
+                willChange: 'transform, opacity',
+              }}
             >
-              Projetos executados com qualidade e padrão profissional.
+              <span className="block lg:whitespace-nowrap">Projetos Que Refletem</span>
+              <span className="block lg:whitespace-nowrap">Nossa Excelência</span>
             </motion.h2>
           </div>
 
-          <motion.div
-            {...scrollAnimation.fadeUp}
-            transition={{ duration: 0.6, delay: 0.3 }}
+          <motion.a
+            variants={fadeUp}
+            whileHover={buttonHover}
+            whileTap={buttonTap}
+            href="#contato"
+            className="self-start lg:self-auto inline-flex items-center gap-3 font-sora text-white text-[15px] border-[3px] border-[#F35901] rounded-[14px] px-7 py-[14px] hover:bg-[#F35901]/10 transition-colors"
           >
-            <Button size="lg" className="rounded-xl">
-              Ver mais projetos
-              <ChevronRight size={20} />
-            </Button>
-          </motion.div>
+            Ver todos os projetos
+            <motion.svg width="14" height="14" viewBox="0 0 14 14" fill="none" whileHover={{ x: 3 }}>
+              <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </motion.svg>
+          </motion.a>
         </motion.div>
 
-        {/* Category Filter */}
+        {/* Projects grid — staggered */}
         <motion.div
-          className="flex flex-wrap gap-3 mb-16"
-          {...scrollAnimation.fadeUp}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
         >
-          {categories.map((category, index) => (
-            <motion.button
-              key={category}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              onClick={() => setSelectedCategory(category === 'Todos' ? null : category)}
-              className={`px-6 py-2 rounded-full font-semibold transition-all ${
-                (selectedCategory === null && category === 'Todos') ||
-                selectedCategory === category
-                  ? 'bg-orange-500 text-white shadow-glow-orange'
-                  : 'bg-white/10 text-white/70 hover:bg-white/20 border border-white/10'
+          {projects.map((p) => (
+            <ProjectCard key={p.title} project={p} />
+          ))}
+        </motion.div>
+
+        {/* Pagination dots */}
+        <div className="flex justify-center gap-2 mt-10">
+          {Array.from({ length: dotsCount }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveDot(i)}
+              aria-label={`Página ${i + 1}`}
+              className={`h-2.5 rounded-full transition-all ${
+                i === activeDot ? 'w-8 bg-[#F35901]' : 'w-2.5 bg-white/20 hover:bg-white/40'
               }`}
-            >
-              {category}
-            </motion.button>
+            />
           ))}
-        </motion.div>
+        </div>
 
-        {/* Projects Grid */}
-        <motion.div
-          className="grid lg:grid-cols-3 gap-8"
-          layout
-          {...scrollAnimation.staggerContainer}
-        >
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              layoutId={`project-${project.id}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="group"
-            >
-              <Card className="overflow-hidden h-full hover:border-orange-500/40 transition-all">
-                {/* Image */}
-                <div className="relative h-72 overflow-hidden">
-                  <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.4 }}
-                  />
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent" />
-
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center gap-2 bg-orange-500/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold">
-                      {project.category}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <CardContent className="pt-8">
-                  <h3 className="text-xl font-bold mb-3 text-white">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-white/65 leading-relaxed text-sm mb-6 font-light">
-                    {project.description}
-                  </p>
-
-                  {/* CTA */}
-                  <button className="flex items-center gap-2 text-orange-500 font-semibold hover:gap-3 transition-all group-hover:text-orange-400">
-                    Saiba mais
-                    <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
-      </Container>
+      </div>
     </section>
   )
 }

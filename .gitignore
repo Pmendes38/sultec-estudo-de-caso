@@ -1,6 +1,12 @@
 node_modules/
 .next/
 out/
+
+# Local Claude Code settings
+.claude/
+
+# Figma source assets (already copied to public/sultec/)
+PASTA CRIAÇÃO SITE SULTEC/
 .env.local
 .env.*.local
 .vercel

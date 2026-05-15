@@ -7,9 +7,13 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'placehold.co',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.figma.com',
+        pathname: '/api/mcp/asset/**',
+      },
     ],
   },
-  swcMinify: true,
 }
 
 module.exports = nextConfig
