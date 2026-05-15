@@ -13,7 +13,7 @@ export function CTA() {
   })
   // Px-based parallax keeps the -translate-y-1/2 centering intact
   const sParallax = useTransform(scrollYProgress, [0, 1], [40, -40])
-  // Tight scale range avoids edge artifacts when the rectangular container scales
+  // Tight scale keeps any breathing imperceptible at the edges
   const glowScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.98, 1.02, 0.98])
 
   return (
@@ -22,35 +22,34 @@ export function CTA() {
       id="contato"
       className="relative bg-[#070808] pt-0 pb-20 lg:pb-28 overflow-hidden"
     >
-      {/* All visual layers + content live inside the same max-w container so
-          they scale together at every viewport (S stays centered on glow,
-          heading never overlaps S). */}
+      {/* Atmospheric glow — covers the full section so the radial fully fades
+          to transparent before reaching any edge (no rectangular halo). Two
+          stacked gradients give the light depth and a brighter core. */}
+      <motion.div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none hidden lg:block"
+        style={{
+          background: `
+            radial-gradient(60% 70% at 19% 50%, rgba(243, 89, 1, 0.42) 0%, rgba(243, 89, 1, 0.22) 22%, rgba(243, 89, 1, 0.08) 45%, rgba(243, 89, 1, 0.02) 65%, transparent 80%),
+            radial-gradient(35% 45% at 19% 50%, rgba(255, 130, 40, 0.30) 0%, rgba(255, 130, 40, 0.10) 35%, transparent 65%)
+          `,
+          scale: glowScale,
+          willChange: 'transform',
+        }}
+      />
+
+      {/* Container for content + S asset (max width matches other sections) */}
       <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 min-h-[480px] lg:min-h-[540px]">
 
-        {/* Orange radial glow — anchored to the LEFT side with natural fade */}
-        <motion.div
-          className="absolute top-1/2 left-0 pointer-events-none hidden lg:block -translate-y-1/2"
-          style={{
-            width: '900px',
-            height: '600px',
-            background:
-              'radial-gradient(ellipse 100% 100% at 0% 50%, rgba(243,89,1,0.70) 0%, rgba(243,89,1,0.50) 15%, rgba(182,67,1,0.30) 35%, rgba(122,45,1,0.12) 55%, rgba(122,45,1,0.03) 75%, transparent 100%)',
-            scale: glowScale,
-            willChange: 'transform',
-            filter: 'blur(60px)',
-          }}
-        />
-
-        {/* PATTERN LINES — removed to prevent box frame effect */}
-
-        {/* TOP RIGHT: dot grid — only on desktop */}
+        {/* TOP RIGHT: dot grid accent */}
         <div
+          aria-hidden
           className="absolute right-0 top-0 w-[280px] lg:w-[340px] h-[120px] lg:h-[160px] pointer-events-none hidden lg:block"
           style={{
             backgroundImage:
               'radial-gradient(circle, #F35901 1.5px, transparent 1.5px)',
             backgroundSize: '20px 20px',
-            opacity: 0.75,
+            opacity: 0.7,
             maskImage:
               'linear-gradient(to bottom left, black 30%, transparent 80%)',
             WebkitMaskImage:
@@ -58,12 +57,11 @@ export function CTA() {
           }}
         />
 
-        {/* S asset — tablet and up, with responsive sizing 
-            - md:block (tablet): Show asset with smaller size
-            - lg: Show at medium size 
-            - xl/2xl: Show at full size */}
+        {/* S asset — desktop only, centered on the glow center
+            Glow center: 19% horizontal × 50% vertical of the section */}
         <div
-          className="hidden md:block absolute top-1/2 -translate-y-1/2 pointer-events-none z-20 md:left-[5%] md:w-[280px] md:h-[320px] lg:left-[19.25%] lg:w-[440px] lg:h-[500px] xl:w-[520px] xl:h-[580px] 2xl:w-[600px] 2xl:h-[680px] md:-translate-x-1/2"
+          aria-hidden
+          className="hidden lg:block absolute top-1/2 left-[19%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 lg:w-[440px] lg:h-[500px] xl:w-[520px] xl:h-[580px] 2xl:w-[600px] 2xl:h-[680px]"
         >
           <motion.div
             className="relative w-full h-full"
@@ -83,16 +81,18 @@ export function CTA() {
           </motion.div>
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 pt-12 md:pt-16 lg:pt-24">
-          <div className="flex lg:flex-row flex-col gap-8 md:gap-10 lg:items-center justify-between min-h-[360px] max-3xl:flex-col">
+        {/* Content block — single layout that:
+            - 3xl+ (≥1655px): side-by-side, S/glow on left, text center, buttons right
+            - Below 3xl: text + buttons stacked, centered */}
+        <div className="relative z-20 pt-16 3xl:pt-24">
+          <div className="flex flex-col 3xl:flex-row 3xl:items-center 3xl:justify-between gap-8 3xl:gap-12 min-h-[360px]">
 
-            {/* Spacer reserves the left half for the S+glow — hidden on mobile/tablet, and below 1655px */}
-            <div className="hidden lg:block max-3xl:hidden lg:w-[38%] flex-shrink-0" />
+            {/* Spacer reserves the left half for the S+glow on 3xl+ */}
+            <div className="hidden 3xl:block 3xl:w-[38%] flex-shrink-0" />
 
-            {/* Center: Heading + subtitle — centered on mobile and below 1655px */}
+            {/* Heading + subtitle */}
             <motion.div
-              className="flex flex-col gap-4 md:gap-5 w-full lg:max-w-[600px] max-3xl:max-w-none flex-1 text-center lg:text-left max-3xl:text-center"
+              className="flex flex-col gap-5 w-full 3xl:max-w-[600px] flex-1 text-center 3xl:text-left"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -108,72 +108,27 @@ export function CTA() {
                   willChange: 'transform, opacity',
                 }}
               >
-                <span className="block md:lg:whitespace-nowrap">Vamos Conversar Sobre</span>
-                <span className="block md:lg:whitespace-nowrap text-[#F35901]">O Seu Projeto?</span>
+                <span className="block 3xl:whitespace-nowrap">Vamos Conversar Sobre</span>
+                <span className="block 3xl:whitespace-nowrap text-[#F35901]">O Seu Projeto?</span>
               </motion.h2>
               <motion.p
                 variants={fadeUp}
-                className="font-sora font-normal text-white leading-[1.5]"
+                className="font-sora font-normal text-white leading-[1.5] mx-auto 3xl:mx-0"
                 style={{
                   fontSize: 'clamp(1rem, 1.3vw, 1.1rem)',
                   letterSpacing: '-0.04em',
-                  maxWidth: '100%',
+                  maxWidth: '520px',
                 }}
               >
-                Nossa equipe está pronta para entender sua necessidade<span className="hidden lg:inline"><br /></span>
+                Nossa equipe está pronta para entender sua necessidade
                 {' '}e apresentar a melhor solução.
               </motion.p>
-
-              {/* CTA Buttons — below text on mobile/tablet and max-3xl */}
-              <motion.div
-                className="flex flex-col gap-3 md:gap-4 w-full max-w-[380px] lg:hidden max-3xl:flex mx-auto"
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportOnce}
-              >
-                <motion.a
-                  variants={fadeUp}
-                  whileHover={buttonHover}
-                  whileTap={buttonTap}
-                  href="tel:+5511999999999"
-                  className="flex items-center justify-between gap-3 bg-[#F35901] rounded-[10px] px-5 md:px-6 py-3 md:py-4 font-sora text-white text-[15px] md:text-[16px] lg:text-[18px] font-normal hover:bg-[#d14d01] transition-colors whitespace-nowrap"
-                >
-                  <span className="flex-1 text-left">Solicitar orçamento</span>
-                  <motion.svg width="18" height="18" viewBox="0 0 14 14" fill="none" whileHover={{ x: 3 }} className="flex-shrink-0 ml-2">
-                    <path
-                      d="M1 7H13M13 7L7 1M13 7L7 13"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </motion.svg>
-                </motion.a>
-                <motion.a
-                  variants={fadeUp}
-                  whileHover={buttonHover}
-                  whileTap={buttonTap}
-                  href="https://wa.me/5500000000000"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between gap-3 bg-transparent border-[3px] border-[#F35901] rounded-[10px] px-5 md:px-6 py-[14px] md:py-[16px] font-sora text-white text-[15px] md:text-[16px] lg:text-[18px] font-normal hover:bg-[#F35901]/10 transition-colors whitespace-nowrap"
-                >
-                  <span className="flex-1 text-left">Falar via WhatsApp</span>
-                  <Image
-                    src="/sultec/icons/whatsapp.svg"
-                    alt=""
-                    width={22}
-                    height={22}
-                    className="flex-shrink-0 ml-2 md:w-[24px] md:h-[24px]"
-                  />
-                </motion.a>
-              </motion.div>
             </motion.div>
 
-            {/* Right: CTA Buttons — only on lg+ (hidden on max-3xl) */}
+            {/* CTA Buttons — stack vertically. Below 3xl: centered under text.
+                On 3xl+: fixed-width column on the right */}
             <motion.div
-              className="hidden lg:flex max-3xl:hidden flex-col gap-3 md:gap-4 w-full max-w-[380px] lg:w-[380px] lg:flex-shrink-0 mx-auto lg:mx-0"
+              className="flex flex-col gap-4 w-full max-w-[380px] mx-auto 3xl:mx-0 3xl:w-[380px] 3xl:flex-shrink-0"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -184,7 +139,7 @@ export function CTA() {
                 whileHover={buttonHover}
                 whileTap={buttonTap}
                 href="tel:+5511999999999"
-                className="flex items-center justify-between gap-3 bg-[#F35901] rounded-[10px] px-5 md:px-6 py-3 md:py-4 font-sora text-white text-[15px] md:text-[16px] lg:text-[18px] font-normal hover:bg-[#d14d01] transition-colors whitespace-nowrap"
+                className="flex items-center justify-between gap-3 bg-[#F35901] rounded-[10px] px-6 py-4 font-sora text-white text-[16px] 3xl:text-[18px] font-normal hover:bg-[#d14d01] transition-colors"
               >
                 <span className="flex-1 text-left">Solicitar orçamento</span>
                 <motion.svg width="18" height="18" viewBox="0 0 14 14" fill="none" whileHover={{ x: 3 }} className="flex-shrink-0 ml-2">
@@ -204,15 +159,15 @@ export function CTA() {
                 href="https://wa.me/5500000000000"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 bg-transparent border-[3px] border-[#F35901] rounded-[10px] px-5 md:px-6 py-[14px] md:py-[16px] font-sora text-white text-[15px] md:text-[16px] lg:text-[18px] font-normal hover:bg-[#F35901]/10 transition-colors whitespace-nowrap"
+                className="flex items-center justify-between gap-3 bg-transparent border-[3px] border-[#F35901] rounded-[10px] px-6 py-[14px] font-sora text-white text-[16px] 3xl:text-[18px] font-normal hover:bg-[#F35901]/10 transition-colors"
               >
                 <span className="flex-1 text-left">Falar via WhatsApp</span>
                 <Image
                   src="/sultec/icons/whatsapp.svg"
                   alt=""
-                  width={22}
-                  height={22}
-                  className="flex-shrink-0 ml-2 md:w-[24px] md:h-[24px]"
+                  width={24}
+                  height={24}
+                  className="flex-shrink-0 ml-2"
                 />
               </motion.a>
             </motion.div>
