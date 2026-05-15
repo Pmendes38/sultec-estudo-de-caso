@@ -90,9 +90,9 @@ export function CTA() {
             {/* Spacer reserves the left half for the S+glow on 3xl+ */}
             <div className="hidden 3xl:block 3xl:w-[38%] flex-shrink-0" />
 
-            {/* Heading + subtitle */}
+            {/* Heading + subtitle — right-aligned below 3xl, left-aligned on 3xl+ */}
             <motion.div
-              className="flex flex-col gap-5 w-full 3xl:max-w-[600px] flex-1 text-center 3xl:text-left"
+              className="flex flex-col gap-5 w-full 3xl:max-w-[600px] flex-1 text-right 3xl:text-left"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -113,7 +113,7 @@ export function CTA() {
               </motion.h2>
               <motion.p
                 variants={fadeUp}
-                className="font-sora font-normal text-white leading-[1.5] mx-auto 3xl:mx-0"
+                className="font-sora font-normal text-white leading-[1.5] ml-auto 3xl:mx-0"
                 style={{
                   fontSize: 'clamp(1rem, 1.3vw, 1.1rem)',
                   letterSpacing: '-0.04em',
@@ -128,7 +128,7 @@ export function CTA() {
             {/* CTA Buttons — stack vertically. Below 3xl: centered under text.
                 On 3xl+: fixed-width column on the right */}
             <motion.div
-              className="flex flex-col gap-4 w-full max-w-[380px] mx-auto 3xl:mx-0 3xl:w-[380px] 3xl:flex-shrink-0"
+              className="flex flex-col gap-4 w-full max-w-[380px] ml-auto 3xl:mx-0 3xl:w-[380px] 3xl:flex-shrink-0"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
