@@ -47,7 +47,7 @@ export function Clients() {
       <div className="relative max-w-[1500px] mx-auto px-8 lg:px-14">
 
         {/* TOP CONTENT — heading/testimonial + logos */}
-        <div className="grid lg:grid-cols-[460px_1fr] gap-12 xl:gap-20 items-start">
+        <div className="grid lg:grid-cols-[540px_1fr] gap-12 xl:gap-20 items-start">
 
           {/* Left: Heading + Testimonial card */}
           <div className="flex flex-col gap-7">
@@ -64,7 +64,8 @@ export function Clients() {
                   letterSpacing: '-0.05em',
                 }}
               >
-                Empresas Que Confiam<br />Na Sultec.
+                <span className="block lg:whitespace-nowrap">Empresas Que Confiam</span>
+                <span className="block lg:whitespace-nowrap">Na Sultec.</span>
               </h2>
             </div>
 

@@ -42,7 +42,7 @@ export function About() {
           />
 
           {/* Main grid: text left, video right */}
-          <div className="relative grid lg:grid-cols-[1fr_1.15fr] gap-10 lg:gap-14 items-start mb-12">
+          <div className="relative grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-14 items-start mb-12">
 
             {/* LEFT */}
             <div className="flex flex-col gap-7">
@@ -55,9 +55,10 @@ export function About() {
                   letterSpacing: '-0.07em',
                 }}
               >
-                Conectividade que<br />
-                <span className="text-[#F35901]">move</span>{' '}
-                o seu negócio.
+                <span className="block lg:whitespace-nowrap">Conectividade que</span>
+                <span className="block lg:whitespace-nowrap">
+                  <span className="text-[#F35901]">move</span> o seu negócio.
+                </span>
               </h2>
 
               {/* Subtitle */}

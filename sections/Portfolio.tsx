@@ -77,7 +77,8 @@ export function Portfolio() {
                 letterSpacing: '-0.05em',
               }}
             >
-              Projetos Que Refletem<br />Nossa Excelência
+              <span className="block lg:whitespace-nowrap">Projetos Que Refletem</span>
+              <span className="block lg:whitespace-nowrap">Nossa Excelência</span>
             </h2>
           </div>
 

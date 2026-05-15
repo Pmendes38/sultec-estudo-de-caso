@@ -32,19 +32,19 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-[1500px] mx-auto px-8 lg:px-14 py-20 lg:py-24">
-        <div className="flex flex-col gap-7 max-w-[760px]">
+        <div className="flex flex-col gap-7 max-w-[920px]">
 
           {/* Heading — Titulo 1: Roboto Condensed Bold 88/100 LS 0 */}
           <h1
             className="font-roboto-condensed font-bold uppercase text-white"
             style={{
               fontSize: 'clamp(2.5rem, 6vw, 88px)',
-              lineHeight: '100px',
+              lineHeight: '1.136',
               letterSpacing: '0',
             }}
           >
-            Tecnologia, estrutura e<br />
-            <span className="text-[#F35901]">Excelência Operacional.</span>
+            <span className="block lg:whitespace-nowrap">Tecnologia, estrutura e</span>
+            <span className="block lg:whitespace-nowrap text-[#F35901]">Excelência Operacional.</span>
           </h1>
 
           {/* Subtitle */}

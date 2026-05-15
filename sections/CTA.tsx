@@ -71,10 +71,10 @@ export function CTA() {
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10 min-h-[360px]">
 
             {/* Spacer for the bigger S on the left */}
-            <div className="hidden lg:block lg:w-[24%] flex-shrink-0" />
+            <div className="hidden lg:block lg:w-[18%] flex-shrink-0" />
 
             {/* Center: Heading + subtitle */}
-            <div className="flex flex-col gap-5 max-w-[560px] flex-1 lg:pl-[80px]">
+            <div className="flex flex-col gap-5 max-w-[680px] flex-1 lg:pl-[80px]">
               {/* Titulo 6: Roboto Condensed Regular 64/78 LS 2% */}
               <h2
                 className="font-roboto-condensed font-normal text-white uppercase"
@@ -84,8 +84,8 @@ export function CTA() {
                   letterSpacing: '0.02em',
                 }}
               >
-                Vamos Conversar Sobre<br />
-                <span className="text-[#F35901]">O Seu Projeto?</span>
+                <span className="block lg:whitespace-nowrap">Vamos Conversar Sobre</span>
+                <span className="block lg:whitespace-nowrap text-[#F35901]">O Seu Projeto?</span>
               </h2>
               <p
                 className="font-sora font-normal text-white leading-[1.5]"

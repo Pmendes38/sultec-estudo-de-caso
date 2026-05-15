@@ -95,10 +95,10 @@ export function Services() {
               fontSize: 'clamp(1.75rem, 3.5vw, 48px)',
               lineHeight: '1.042',
               letterSpacing: '-0.05em',
-              maxWidth: '600px',
             }}
           >
-            Soluções Completas<br />Para Cada Necessidade
+            <span className="block lg:whitespace-nowrap">Soluções Completas</span>
+            <span className="block lg:whitespace-nowrap">Para Cada Necessidade</span>
           </h2>
         </div>
 
