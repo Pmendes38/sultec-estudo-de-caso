@@ -103,7 +103,7 @@ export function CTA() {
 
         {/* Content */}
         <div className="relative z-10 pt-12 md:pt-16 lg:pt-24">
-          <div className="flex flex-col lg:flex-row max-3xl:flex-col lg:items-center max-3xl:items-center justify-between gap-8 md:gap-10 min-h-[360px]">
+          <div className="flex lg:flex-row flex-col gap-8 md:gap-10 lg:items-center justify-between min-h-[360px]">
 
             {/* Spacer reserves the left half for the S+glow — hidden on mobile/tablet, and below 1655px */}
             <div className="hidden lg:block max-3xl:hidden lg:w-[38%] flex-shrink-0" />
@@ -141,11 +141,57 @@ export function CTA() {
                 Nossa equipe está pronta para entender sua necessidade<span className="hidden lg:inline"><br /></span>
                 {' '}e apresentar a melhor solução.
               </motion.p>
+
+              {/* CTA Buttons — below text on mobile/tablet, inline on lg */}
+              <motion.div
+                className="flex flex-col gap-3 md:gap-4 w-full max-w-[380px] lg:hidden mx-auto"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
+              >
+                <motion.a
+                  variants={fadeUp}
+                  whileHover={buttonHover}
+                  whileTap={buttonTap}
+                  href="tel:+5511999999999"
+                  className="flex items-center justify-between gap-3 bg-[#F35901] rounded-[10px] px-5 md:px-6 py-3 md:py-4 font-sora text-white text-[15px] md:text-[16px] lg:text-[18px] font-normal hover:bg-[#d14d01] transition-colors whitespace-nowrap"
+                >
+                  <span className="flex-1 text-left">Solicitar orçamento</span>
+                  <motion.svg width="18" height="18" viewBox="0 0 14 14" fill="none" whileHover={{ x: 3 }} className="flex-shrink-0 ml-2">
+                    <path
+                      d="M1 7H13M13 7L7 1M13 7L7 13"
+                      stroke="white"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </motion.svg>
+                </motion.a>
+                <motion.a
+                  variants={fadeUp}
+                  whileHover={buttonHover}
+                  whileTap={buttonTap}
+                  href="https://wa.me/5500000000000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between gap-3 bg-transparent border-[3px] border-[#F35901] rounded-[10px] px-5 md:px-6 py-[14px] md:py-[16px] font-sora text-white text-[15px] md:text-[16px] lg:text-[18px] font-normal hover:bg-[#F35901]/10 transition-colors whitespace-nowrap"
+                >
+                  <span className="flex-1 text-left">Falar via WhatsApp</span>
+                  <Image
+                    src="/sultec/icons/whatsapp.svg"
+                    alt=""
+                    width={22}
+                    height={22}
+                    className="flex-shrink-0 ml-2 md:w-[24px] md:h-[24px]"
+                  />
+                </motion.a>
+              </motion.div>
             </motion.div>
 
-            {/* Right: CTA Buttons — moved below text below 1655px */}
+            {/* Right: CTA Buttons — only on lg+ */}
             <motion.div
-              className="flex flex-col gap-3 md:gap-4 w-full max-w-[380px] lg:w-[380px] lg:flex-shrink-0 max-3xl:max-w-[600px] max-3xl:w-full mx-auto lg:mx-0 max-3xl:mx-auto"
+              className="hidden lg:flex flex-col gap-3 md:gap-4 w-full max-w-[380px] lg:w-[380px] lg:flex-shrink-0 mx-auto lg:mx-0"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
