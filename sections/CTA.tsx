@@ -76,9 +76,10 @@ export function CTA() {
         {/* S asset — outer wrapper centers on the glow (translate -50% / -50%);
             inner motion div applies a small px-based parallax so it doesn't
             collide with the centering transform */}
-        {/* S asset — desktop only (hidden on mobile/tablet to avoid layout bugs) */}
+        {/* S asset — desktop only, centered exactly on the glow
+            (glow center: 44% × 55% ≈ 24.2% horizontal × 50% vertical of section) */}
         <div
-          className="hidden lg:block absolute top-1/2 lg:left-[24.2%] -translate-y-1/2 w-[620px] h-[700px] pointer-events-none z-20"
+          className="hidden lg:block absolute top-1/2 lg:left-[24.2%] -translate-x-1/2 -translate-y-1/2 w-[620px] h-[700px] pointer-events-none z-20"
         >
           <motion.div
             className="relative w-full h-full"
