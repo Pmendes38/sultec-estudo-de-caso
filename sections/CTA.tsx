@@ -11,8 +11,7 @@ export function CTA() {
     target: sectionRef,
     offset: ['start end', 'end start'],
   })
-  // Glow pulses subtle scale; S parallax in pixels (small) so we don't
-  // break the -translate-y-1/2 centering applied via Tailwind classes
+  // Px-based parallax keeps the -translate-y-1/2 centering intact
   const sParallax = useTransform(scrollYProgress, [0, 1], [40, -40])
   const glowScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1.05, 0.95])
 
@@ -20,29 +19,32 @@ export function CTA() {
     <section
       ref={sectionRef}
       id="contato"
-      className="relative bg-[#070808] pt-0 pb-20 lg:pb-28 overflow-visible"
+      className="relative bg-[#070808] pt-0 pb-20 lg:pb-28 overflow-hidden"
     >
-      <div className="relative min-h-[480px] lg:min-h-[540px]">
+      {/* All visual layers + content live inside the same max-w container so
+          they scale together at every viewport (S stays centered on glow,
+          heading never overlaps S). */}
+      <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 min-h-[480px] lg:min-h-[540px]">
 
-        {/* LEFT: Orange radial glow — subtle scale on scroll */}
+        {/* Orange radial glow — anchored to the LEFT side of the content area */}
         <motion.div
-          className="absolute left-0 top-0 bottom-0 w-1/2 lg:w-[55%] pointer-events-none"
+          className="absolute top-0 bottom-0 left-0 w-[55%] pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse 70% 75% at 44% 50%, rgba(243,89,1,0.60) 0%, rgba(182,67,1,0.30) 28%, rgba(122,45,1,0.12) 55%, transparent 78%)',
+              'radial-gradient(ellipse 70% 75% at 35% 50%, rgba(243,89,1,0.60) 0%, rgba(182,67,1,0.30) 28%, rgba(122,45,1,0.12) 55%, transparent 78%)',
             scale: glowScale,
             willChange: 'transform',
           }}
         />
 
-        {/* PATTERN LINES — slow rotation for living feel */}
+        {/* PATTERN LINES — confined to the glow area */}
         <motion.div
-          className="absolute left-0 top-0 bottom-0 w-1/2 lg:w-[55%] pointer-events-none z-10"
+          className="absolute top-0 bottom-0 left-0 w-[55%] pointer-events-none z-10"
           style={{
             maskImage:
-              'radial-gradient(ellipse 55% 65% at 44% 50%, black 25%, transparent 75%)',
+              'radial-gradient(ellipse 55% 65% at 35% 50%, black 25%, transparent 75%)',
             WebkitMaskImage:
-              'radial-gradient(ellipse 55% 65% at 44% 50%, black 25%, transparent 75%)',
+              'radial-gradient(ellipse 55% 65% at 35% 50%, black 25%, transparent 75%)',
           }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -73,13 +75,10 @@ export function CTA() {
           }}
         />
 
-        {/* S asset — outer wrapper centers on the glow (translate -50% / -50%);
-            inner motion div applies a small px-based parallax so it doesn't
-            collide with the centering transform */}
-        {/* S asset — desktop only, centered exactly on the glow
-            (glow center: 44% × 55% ≈ 24.2% horizontal × 50% vertical of section) */}
+        {/* S asset — desktop only, centered on the glow center
+            Glow center: 35% × 55% ≈ 19.25% of the content container */}
         <div
-          className="hidden lg:block absolute top-1/2 lg:left-[24.2%] -translate-x-1/2 -translate-y-1/2 w-[620px] h-[700px] pointer-events-none z-20"
+          className="hidden lg:block absolute top-1/2 left-[19.25%] -translate-x-1/2 -translate-y-1/2 w-[440px] xl:w-[520px] 2xl:w-[600px] h-[500px] xl:h-[580px] 2xl:h-[680px] pointer-events-none z-20"
         >
           <motion.div
             className="relative w-full h-full"
@@ -100,14 +99,15 @@ export function CTA() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 pt-16 lg:pt-24">
+        <div className="relative z-10 pt-16 lg:pt-24">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10 min-h-[360px]">
 
-            <div className="hidden lg:block lg:w-[26%] flex-shrink-0" />
+            {/* Spacer reserves the left half for the S+glow */}
+            <div className="hidden lg:block lg:w-[38%] flex-shrink-0" />
 
             {/* Center: Heading + subtitle */}
             <motion.div
-              className="flex flex-col gap-5 max-w-[600px] flex-1 lg:pl-[60px]"
+              className="flex flex-col gap-5 max-w-[600px] flex-1"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -142,7 +142,7 @@ export function CTA() {
 
             {/* Right: CTA Buttons */}
             <motion.div
-              className="flex flex-col gap-4 w-full lg:w-[400px] lg:flex-shrink-0"
+              className="flex flex-col gap-4 w-full lg:w-[380px] lg:flex-shrink-0"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
