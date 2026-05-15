@@ -10,7 +10,6 @@ const navItems = [
   { label: 'Sobre', href: '#sobre' },
   { label: 'Serviços', href: '#servicos' },
   { label: 'Portfólio', href: '#portfolio' },
-  { label: 'Diferenciais', href: '#diferenciais' },
   { label: 'Contato', href: '#contato' },
 ]
 
@@ -20,7 +19,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['inicio', 'sobre', 'servicos', 'portfolio', 'diferenciais', 'contato']
+      const sections = ['inicio', 'sobre', 'servicos', 'portfolio', 'contato']
       const scrollY = window.scrollY + 200
       for (const id of sections) {
         const el = document.getElementById(id)
@@ -41,7 +40,7 @@ export function Header() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="fixed top-0 left-0 right-0 z-50 bg-[#070808] border-b border-[#F35901]/20"
     >
-      <div className="max-w-[1500px] mx-auto px-8 lg:px-14">
+      <div className="max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14">
         <div className="flex items-center justify-between h-[80px] lg:h-[100px]">
 
           {/* Logo */}

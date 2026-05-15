@@ -93,7 +93,7 @@ function ServiceCard({ service }: { service: typeof services[0] }) {
 export function Services() {
   return (
     <section id="servicos" className="bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
-      <div className="max-w-[1500px] mx-auto px-8 lg:px-14">
+      <div className="max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14">
 
         {/* Header — fade up on scroll */}
         <motion.div

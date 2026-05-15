@@ -42,7 +42,7 @@ export function Hero() {
       </motion.div>
 
       {/* Content with stagger entrance */}
-      <div className="relative z-10 w-full max-w-[1500px] mx-auto px-8 lg:px-14 py-20 lg:py-24">
+      <div className="relative z-10 w-full max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 py-20 lg:py-24">
         <motion.div
           className="flex flex-col gap-7 max-w-[920px]"
           variants={heroContainer}

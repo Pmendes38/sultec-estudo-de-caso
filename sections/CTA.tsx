@@ -11,8 +11,9 @@ export function CTA() {
     target: sectionRef,
     offset: ['start end', 'end start'],
   })
-  // S asset drifts up slightly + the glow pulses subtle scale
-  const sY = useTransform(scrollYProgress, [0, 1], ['8%', '-8%'])
+  // Glow pulses subtle scale; S parallax in pixels (small) so we don't
+  // break the -translate-y-1/2 centering applied via Tailwind classes
+  const sParallax = useTransform(scrollYProgress, [0, 1], [40, -40])
   const glowScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1.05, 0.95])
 
   return (
@@ -72,26 +73,32 @@ export function CTA() {
           }}
         />
 
-        {/* S asset — parallax drift on scroll */}
-        <motion.div
-          className="absolute top-1/2 left-1/2 lg:left-[24.2%] -translate-x-1/2 -translate-y-1/2 w-[500px] lg:w-[620px] h-[560px] lg:h-[700px] pointer-events-none z-20"
-          style={{ y: sY, willChange: 'transform' }}
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
-          viewport={viewportOnce}
+        {/* S asset — outer wrapper centers on the glow (translate -50% / -50%);
+            inner motion div applies a small px-based parallax so it doesn't
+            collide with the centering transform */}
+        <div
+          className="absolute top-1/2 left-1/2 lg:left-[24.2%] -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[360px] lg:w-[620px] h-[320px] sm:h-[400px] lg:h-[700px] pointer-events-none z-20 opacity-50 lg:opacity-100"
         >
-          <Image
-            src="/sultec/patterns/asset-logo-sultec.png"
-            alt=""
-            fill
-            className="object-contain"
-            priority={false}
-          />
-        </motion.div>
+          <motion.div
+            className="relative w-full h-full"
+            style={{ y: sParallax, willChange: 'transform' }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
+            viewport={viewportOnce}
+          >
+            <Image
+              src="/sultec/patterns/asset-logo-sultec.png"
+              alt=""
+              fill
+              className="object-contain"
+              priority={false}
+            />
+          </motion.div>
+        </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-[1500px] mx-auto px-8 lg:px-14 pt-16 lg:pt-24">
+        <div className="relative z-10 max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 pt-16 lg:pt-24">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10 min-h-[360px]">
 
             <div className="hidden lg:block lg:w-[26%] flex-shrink-0" />

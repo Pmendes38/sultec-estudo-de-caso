@@ -9,7 +9,6 @@ const navLinks = [
   { label: 'Sobre', href: '#sobre' },
   { label: 'Serviços', href: '#servicos' },
   { label: 'Portfólio', href: '#portfolio' },
-  { label: 'Diferenciais', href: '#diferenciais' },
   { label: 'Contato', href: '#contato' },
 ]
 
@@ -32,7 +31,7 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="bg-[#070808]">
-      <div className="max-w-[1500px] mx-auto px-8 lg:px-14 py-14 lg:py-16">
+      <div className="max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 py-14 lg:py-16">
 
         {/* Main grid — staggered column reveal */}
         <motion.div
