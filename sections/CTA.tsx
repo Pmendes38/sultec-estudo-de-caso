@@ -41,6 +41,27 @@ export function CTA() {
       {/* Container for content + S asset (max width matches other sections) */}
       <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 min-h-[480px] lg:min-h-[540px]">
 
+        {/* PATTERN LINES — orange circuit lines layered on top of the glow.
+            Centered on the same point as the S/glow. mix-blend-screen drops
+            the dark background of the PNG so only the bright lines show
+            (no rectangular frame). */}
+        <motion.div
+          aria-hidden
+          className="absolute top-1/2 left-[19%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[5] hidden lg:block lg:w-[720px] lg:h-[600px] xl:w-[820px] xl:h-[680px] 2xl:w-[920px] 2xl:h-[760px]"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          viewport={viewportOnce}
+        >
+          <Image
+            src="/sultec/patterns/pattern-lines.png"
+            alt=""
+            fill
+            className="object-contain mix-blend-screen opacity-90"
+            priority={false}
+          />
+        </motion.div>
+
         {/* TOP RIGHT: dot grid accent */}
         <div
           aria-hidden
