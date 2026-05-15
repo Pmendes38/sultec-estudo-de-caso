@@ -59,8 +59,8 @@ export function Hero() {
               willChange: 'transform, opacity',
             }}
           >
-            <span className="block lg:whitespace-nowrap">Tecnologia, estrutura e</span>
-            <span className="block lg:whitespace-nowrap text-[#F35901]">Excelência Operacional.</span>
+            <span className="block">Tecnologia, estrutura e</span>
+            <span className="block text-[#F35901]">excelência operacional.</span>
           </motion.h1>
 
           {/* Subtitle */}
