@@ -23,24 +23,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar Styling */
+/* Scrollbar — subtle dark to blend with the theme */
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #070808;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ff6a00;
-  border-radius: 6px;
-  border: 3px solid #0a0a0a;
+  background: #1f2022;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #fa5a00;
+  background: #2a2b2d;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1f2022 #070808;
 }
 
 /* Selection Color */
@@ -63,10 +68,10 @@ textarea {
   transition: all 0.3s ease;
 }
 
-/* Focus Styles */
-button:focus,
-a:focus {
-  outline: 2px solid #ff6a00;
+/* Focus Styles — only on keyboard navigation, subtle */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(243, 89, 1, 0.7);
   outline-offset: 2px;
 }
 
@@ -126,26 +131,6 @@ a:focus {
 
 .hover-glow:hover {
   box-shadow: 0 0 30px rgba(255, 106, 0, 0.3);
-}
-
-/* Responsive Typography */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-}
-
-/* Container Queries Support */
-.space-y-responsive {
-  @apply space-y-8 lg:space-y-12;
 }
 
 /* Image Optimization */
