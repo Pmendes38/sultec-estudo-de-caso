@@ -22,24 +22,26 @@ export function CTA() {
       id="contato"
       className="relative bg-[#070808] pt-0 pb-20 lg:pb-28 overflow-hidden"
     >
-      {/* Atmospheric glow — covers the full section so the radial fully fades
-          to transparent before reaching any edge (no rectangular halo). Two
-          stacked gradients give the light depth and a brighter core. */}
-      <motion.div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none hidden lg:block"
-        style={{
-          background: `
-            radial-gradient(60% 70% at 19% 50%, rgba(243, 89, 1, 0.42) 0%, rgba(243, 89, 1, 0.22) 22%, rgba(243, 89, 1, 0.08) 45%, rgba(243, 89, 1, 0.02) 65%, transparent 80%),
-            radial-gradient(35% 45% at 19% 50%, rgba(255, 130, 40, 0.30) 0%, rgba(255, 130, 40, 0.10) 35%, transparent 65%)
-          `,
-          scale: glowScale,
-          willChange: 'transform',
-        }}
-      />
-
-      {/* Container for content + S asset (max width matches other sections) */}
+      {/* Container for content + visual layers (max width matches other sections).
+          Glow + pattern + S all live INSIDE this container so they share the
+          same coordinate system and stay perfectly aligned at every viewport. */}
       <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 min-h-[480px] lg:min-h-[540px]">
+
+        {/* Atmospheric glow — anchored inside the container so it shares the
+            S asset's coordinate system. Two stacked radial gradients fully
+            fade to transparent before any edge (no rectangular halo). */}
+        <motion.div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none hidden lg:block"
+          style={{
+            background: `
+              radial-gradient(60% 70% at 19% 50%, rgba(243, 89, 1, 0.42) 0%, rgba(243, 89, 1, 0.22) 22%, rgba(243, 89, 1, 0.08) 45%, rgba(243, 89, 1, 0.02) 65%, transparent 80%),
+              radial-gradient(35% 45% at 19% 50%, rgba(255, 130, 40, 0.30) 0%, rgba(255, 130, 40, 0.10) 35%, transparent 65%)
+            `,
+            scale: glowScale,
+            willChange: 'transform',
+          }}
+        />
 
         {/* PATTERN LINES — orange circuit lines layered on top of the glow.
             Centered on the same point as the S/glow. mix-blend-screen drops
