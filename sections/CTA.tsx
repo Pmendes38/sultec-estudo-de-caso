@@ -27,45 +27,6 @@ export function CTA() {
           same coordinate system and stay perfectly aligned at every viewport. */}
       <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 min-h-[480px] lg:min-h-[540px]">
 
-        {/* Atmospheric glow — fixed-size box centered on the S. Sized to
-            stay INSIDE the container so it never bleeds into the next
-            section. Strong fade-out + blur creates the soft atmospheric look. */}
-        <motion.div
-          aria-hidden
-          className="absolute top-1/2 left-[19%] -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden lg:block"
-          style={{
-            width: '900px',
-            height: '500px',
-            background: `
-              radial-gradient(ellipse at center, rgba(255, 140, 50, 0.40) 0%, rgba(243, 89, 1, 0.20) 20%, rgba(243, 89, 1, 0.07) 40%, rgba(243, 89, 1, 0.02) 60%, transparent 75%)
-            `,
-            scale: glowScale,
-            filter: 'blur(30px)',
-            willChange: 'transform',
-          }}
-        />
-
-        {/* PATTERN LINES — orange circuit lines layered on top of the glow.
-            Centered on the same point as the S/glow. mix-blend-screen drops
-            the dark background of the PNG so only the bright lines show
-            (no rectangular frame). */}
-        <motion.div
-          aria-hidden
-          className="absolute top-1/2 left-[19%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[5] hidden lg:block lg:w-[720px] lg:h-[600px] xl:w-[820px] xl:h-[680px] 2xl:w-[920px] 2xl:h-[760px]"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          viewport={viewportOnce}
-        >
-          <Image
-            src="/sultec/patterns/pattern-lines.png"
-            alt=""
-            fill
-            className="object-contain mix-blend-screen opacity-90"
-            priority={false}
-          />
-        </motion.div>
-
         {/* TOP RIGHT: dot grid accent */}
         <div
           aria-hidden
@@ -82,14 +43,51 @@ export function CTA() {
           }}
         />
 
-        {/* S asset — desktop only, centered on the glow center
-            Glow center: 19% horizontal × 50% vertical of the section */}
+        {/* GLOW + PATTERN + S — ALL nested inside a single anchor wrapper so
+            their visual centers are guaranteed to share the exact same pixel.
+            Sizing the wrapper to match the S asset means: the wrapper's
+            center == the S's center == the glow's center == the pattern's
+            center. No coordinate-system drift between layers. */}
         <div
           aria-hidden
-          className="hidden lg:block absolute top-1/2 left-[19%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 lg:w-[440px] lg:h-[500px] xl:w-[520px] xl:h-[580px] 2xl:w-[600px] 2xl:h-[680px]"
+          className="hidden lg:block absolute top-1/2 left-[19%] -translate-x-1/2 -translate-y-1/2 pointer-events-none lg:w-[440px] lg:h-[500px] xl:w-[520px] xl:h-[580px] 2xl:w-[600px] 2xl:h-[680px]"
         >
+          {/* Glow — sits behind everything; sized way bigger than the wrapper
+              and centered via translate so the gradient halo wraps the S */}
           <motion.div
-            className="relative w-full h-full"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            style={{
+              width: '900px',
+              height: '500px',
+              background:
+                'radial-gradient(ellipse at center, rgba(255, 140, 50, 0.40) 0%, rgba(243, 89, 1, 0.20) 20%, rgba(243, 89, 1, 0.07) 40%, rgba(243, 89, 1, 0.02) 60%, transparent 75%)',
+              scale: glowScale,
+              filter: 'blur(30px)',
+              willChange: 'transform',
+            }}
+          />
+
+          {/* Pattern lines — centered on the wrapper, mix-blend-screen so
+              only the orange traces are visible */}
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[5] lg:w-[720px] lg:h-[600px] xl:w-[820px] xl:h-[680px] 2xl:w-[920px] 2xl:h-[760px]"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            viewport={viewportOnce}
+          >
+            <Image
+              src="/sultec/patterns/pattern-lines.png"
+              alt=""
+              fill
+              className="object-contain mix-blend-screen opacity-90"
+              priority={false}
+            />
+          </motion.div>
+
+          {/* S asset — fills the wrapper exactly */}
+          <motion.div
+            className="relative w-full h-full z-10"
             style={{ y: sParallax, willChange: 'transform' }}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
