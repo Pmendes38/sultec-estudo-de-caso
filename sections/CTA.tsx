@@ -13,7 +13,8 @@ export function CTA() {
   })
   // Px-based parallax keeps the -translate-y-1/2 centering intact
   const sParallax = useTransform(scrollYProgress, [0, 1], [40, -40])
-  const glowScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1.05, 0.95])
+  // Tight scale range avoids edge artifacts when the rectangular container scales
+  const glowScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.98, 1.02, 0.98])
 
   return (
     <section
@@ -31,7 +32,7 @@ export function CTA() {
           className="absolute top-0 bottom-0 left-0 w-[55%] pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse 70% 75% at 35% 50%, rgba(243,89,1,0.60) 0%, rgba(182,67,1,0.30) 28%, rgba(122,45,1,0.12) 55%, transparent 78%)',
+              'radial-gradient(ellipse 85% 90% at 35% 50%, rgba(243,89,1,0.60) 0%, rgba(182,67,1,0.30) 25%, rgba(122,45,1,0.12) 45%, rgba(122,45,1,0.04) 65%, transparent 90%)',
             scale: glowScale,
             willChange: 'transform',
           }}
@@ -55,7 +56,7 @@ export function CTA() {
             src="/sultec/patterns/pattern-lines.png"
             alt=""
             fill
-            className="object-contain object-left opacity-95"
+            className="object-contain object-left mix-blend-screen"
             priority={false}
           />
         </motion.div>
@@ -142,7 +143,7 @@ export function CTA() {
 
             {/* Right: CTA Buttons */}
             <motion.div
-              className="flex flex-col gap-4 w-full lg:w-[380px] lg:flex-shrink-0"
+              className="flex flex-col gap-4 w-full max-w-[380px] lg:w-[380px] lg:flex-shrink-0"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -153,10 +154,10 @@ export function CTA() {
                 whileHover={buttonHover}
                 whileTap={buttonTap}
                 href="tel:+5511999999999"
-                className="flex items-center justify-between gap-3 bg-[#F35901] rounded-[10px] px-7 py-5 font-sora text-white text-[18px] font-normal hover:bg-[#d14d01] transition-colors"
+                className="flex items-center justify-between gap-3 bg-[#F35901] rounded-[10px] px-6 py-4 font-sora text-white text-[16px] sm:text-[17px] lg:text-[18px] font-normal hover:bg-[#d14d01] transition-colors whitespace-nowrap"
               >
-                Solicitar orçamento
-                <motion.svg width="20" height="20" viewBox="0 0 14 14" fill="none" whileHover={{ x: 3 }}>
+                <span className="flex-1 text-left">Solicitar orçamento</span>
+                <motion.svg width="20" height="20" viewBox="0 0 14 14" fill="none" whileHover={{ x: 3 }} className="flex-shrink-0 ml-2">
                   <path
                     d="M1 7H13M13 7L7 1M13 7L7 13"
                     stroke="white"
@@ -173,14 +174,15 @@ export function CTA() {
                 href="https://wa.me/5500000000000"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 bg-transparent border-[3px] border-[#F35901] rounded-[10px] px-7 py-[18px] font-sora text-white text-[18px] font-normal hover:bg-[#F35901]/10 transition-colors"
+                className="flex items-center justify-between gap-3 bg-transparent border-[3px] border-[#F35901] rounded-[10px] px-6 py-[16px] font-sora text-white text-[16px] sm:text-[17px] lg:text-[18px] font-normal hover:bg-[#F35901]/10 transition-colors whitespace-nowrap"
               >
-                Falar via WhatsApp
+                <span className="flex-1 text-left">Falar via WhatsApp</span>
                 <Image
                   src="/sultec/icons/whatsapp.svg"
                   alt=""
                   width={24}
                   height={24}
+                  className="flex-shrink-0 ml-2"
                 />
               </motion.a>
             </motion.div>
