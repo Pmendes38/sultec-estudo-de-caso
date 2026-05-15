@@ -1,6 +1,9 @@
 'use client'
 
 import Image from 'next/image'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
+import { heroContainer, heroItem, buttonHover, buttonTap } from '@/lib/animations'
 
 const stats = [
   { icon: '/sultec/icons/seguranca.svg', value: '+12 ANOS', label: 'DE MERCADO' },
@@ -10,14 +13,23 @@ const stats = [
 ]
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  })
+  // Subtle parallax: bg scrolls slightly slower than the page
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
+
   return (
     <section
+      ref={sectionRef}
       id="inicio"
       className="relative w-full overflow-hidden bg-[#070808] border-b border-[#F35901]/30"
       style={{ paddingTop: '100px' }}
     >
-      {/* Background image - takes the full hero, fades to dark on the left */}
-      <div className="absolute inset-0">
+      {/* Background image — parallax */}
+      <motion.div className="absolute inset-0" style={{ y: bgY, willChange: 'transform' }}>
         <Image
           src="/sultec/bg-home2.jpg"
           alt=""
@@ -26,67 +38,81 @@ export function Hero() {
           quality={92}
           className="object-cover object-right"
         />
-        {/* Left-side gradient — strong dark to transparent */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#070808] from-30% via-[#070808]/85 via-55% to-transparent to-90%" />
-      </div>
+      </motion.div>
 
-      {/* Content */}
+      {/* Content with stagger entrance */}
       <div className="relative z-10 w-full max-w-[1500px] mx-auto px-8 lg:px-14 py-20 lg:py-24">
-        <div className="flex flex-col gap-7 max-w-[920px]">
-
-          {/* Heading — Titulo 1: Roboto Condensed Bold ~72/82 LS 0 */}
-          <h1
+        <motion.div
+          className="flex flex-col gap-7 max-w-[920px]"
+          variants={heroContainer}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Heading — Titulo 1 */}
+          <motion.h1
+            variants={heroItem}
             className="font-roboto-condensed font-bold uppercase text-white"
             style={{
               fontSize: 'clamp(2.25rem, 5vw, 72px)',
               lineHeight: '1.14',
               letterSpacing: '0',
+              willChange: 'transform, opacity',
             }}
           >
             <span className="block lg:whitespace-nowrap">Tecnologia, estrutura e</span>
             <span className="block lg:whitespace-nowrap text-[#F35901]">Excelência Operacional.</span>
-          </h1>
+          </motion.h1>
 
           {/* Subtitle */}
-          <p
+          <motion.p
+            variants={heroItem}
             className="font-sora font-normal text-white leading-[1.5] mt-1"
             style={{
               fontSize: 'clamp(1rem, 1.4vw, 1.2rem)',
               letterSpacing: '-0.05em',
               maxWidth: '560px',
+              willChange: 'transform, opacity',
             }}
           >
             Soluções tecnológicas e serviços especializados para empresas que exigem qualidade, segurança e alto desempenho.
-          </p>
+          </motion.p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap gap-5 mt-3">
-            <a
+          <motion.div variants={heroItem} className="flex flex-wrap gap-5 mt-3">
+            <motion.a
               href="#contato"
+              whileHover={buttonHover}
+              whileTap={buttonTap}
               className="inline-flex items-center gap-3 font-sora text-white text-[16px] font-normal bg-[#F35901] rounded-[10px] px-9 py-[18px] hover:bg-[#d14d01] transition-colors"
             >
               Falar com especialista
-              <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
+              <motion.svg width="16" height="16" viewBox="0 0 14 14" fill="none" whileHover={{ x: 3 }}>
                 <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </a>
-            <a
+              </motion.svg>
+            </motion.a>
+            <motion.a
               href="#servicos"
+              whileHover={buttonHover}
+              whileTap={buttonTap}
               className="inline-flex items-center gap-3 font-sora text-white text-[16px] font-normal border-[3px] border-[#F35901] rounded-[10px] px-9 py-[16px] hover:bg-[#F35901]/10 transition-colors"
             >
               Ver soluções
-              <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
+              <motion.svg width="16" height="16" viewBox="0 0 14 14" fill="none" whileHover={{ x: 3 }}>
                 <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </a>
-          </div>
+              </motion.svg>
+            </motion.a>
+          </motion.div>
 
           {/* Stats bar */}
-          <div className="mt-12 pt-8 border-t border-white/15">
+          <motion.div variants={heroItem} className="mt-12 pt-8 border-t border-white/15">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
               {stats.map((stat, i) => (
-                <div
+                <motion.div
                   key={i}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.9 + i * 0.08 }}
                   className={`flex items-center gap-4 ${
                     i < stats.length - 1 ? 'lg:border-r lg:border-white/15 lg:pr-5' : ''
                   }`}
@@ -102,11 +128,11 @@ export function Hero() {
                       {stat.label}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )

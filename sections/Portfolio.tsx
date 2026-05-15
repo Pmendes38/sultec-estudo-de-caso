@@ -2,6 +2,14 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
+import {
+  fadeUp,
+  staggerContainer,
+  buttonHover,
+  buttonTap,
+  viewportOnce,
+} from '@/lib/animations'
 
 const projects = [
   {
@@ -23,7 +31,13 @@ const projects = [
 
 function ProjectCard({ project }: { project: typeof projects[0] }) {
   return (
-    <div className="group relative rounded-[10px] overflow-hidden border-[3px] border-[#252526] aspect-[727/431] cursor-pointer hover:border-[#F35901]/60 transition-all duration-300">
+    <motion.div
+      variants={fadeUp}
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      className="group relative rounded-[10px] overflow-hidden border-[3px] border-[#252526] aspect-[727/431] cursor-pointer hover:border-[#F35901]/60 transition-colors duration-300"
+      style={{ willChange: 'transform' }}
+    >
       <Image
         src={project.img}
         alt={project.title}
@@ -46,11 +60,15 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
             {project.desc}
           </p>
         </div>
-        <div className="flex-shrink-0 w-[52px] h-[52px] border-[3px] border-[#F35901] rounded-[5px] flex items-center justify-center group-hover:bg-[#F35901]/20 transition-colors">
+        <motion.div
+          className="flex-shrink-0 w-[52px] h-[52px] border-[3px] border-[#F35901] rounded-[5px] flex items-center justify-center group-hover:bg-[#F35901]/20 transition-colors"
+          whileHover={{ rotate: 90 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+        >
           <span className="text-white text-[28px] font-light leading-none -mt-1">+</span>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
@@ -63,42 +81,58 @@ export function Portfolio() {
       <div className="max-w-[1500px] mx-auto px-8 lg:px-14">
 
         {/* Header row */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+        <motion.div
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <div className="flex flex-col gap-3">
-            <p className="font-sora text-[#F35901] text-[15px] tracking-[-0.04em] uppercase">
+            <motion.p variants={fadeUp} className="font-sora text-[#F35901] text-[15px] tracking-[-0.04em] uppercase">
               Portfólio
-            </p>
-            {/* Titulo 4: Roboto Regular 48/50 LS -5% */}
-            <h2
+            </motion.p>
+            <motion.h2
+              variants={fadeUp}
               className="font-roboto font-normal text-white uppercase"
               style={{
                 fontSize: 'clamp(1.75rem, 3.5vw, 48px)',
                 lineHeight: '1.042',
                 letterSpacing: '-0.05em',
+                willChange: 'transform, opacity',
               }}
             >
               <span className="block lg:whitespace-nowrap">Projetos Que Refletem</span>
               <span className="block lg:whitespace-nowrap">Nossa Excelência</span>
-            </h2>
+            </motion.h2>
           </div>
 
-          <a
+          <motion.a
+            variants={fadeUp}
+            whileHover={buttonHover}
+            whileTap={buttonTap}
             href="#contato"
             className="self-start lg:self-auto inline-flex items-center gap-3 font-sora text-white text-[15px] border-[3px] border-[#F35901] rounded-[14px] px-7 py-[14px] hover:bg-[#F35901]/10 transition-colors"
           >
             Ver todos os projetos
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <motion.svg width="14" height="14" viewBox="0 0 14 14" fill="none" whileHover={{ x: 3 }}>
               <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </a>
-        </div>
+            </motion.svg>
+          </motion.a>
+        </motion.div>
 
-        {/* Projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Projects grid — staggered */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {projects.map((p) => (
             <ProjectCard key={p.title} project={p} />
           ))}
-        </div>
+        </motion.div>
 
         {/* Pagination dots */}
         <div className="flex justify-center gap-2 mt-10">

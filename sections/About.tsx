@@ -1,6 +1,16 @@
 'use client'
 
 import Image from 'next/image'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
+import {
+  fadeUp,
+  staggerContainer,
+  slideLeft,
+  buttonHover,
+  buttonTap,
+  viewportOnce,
+} from '@/lib/animations'
 
 const features = [
   {
@@ -28,62 +38,93 @@ const statsBar = [
 ]
 
 export function About() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
+  // Decorative glow drifts subtly with scroll
+  const glowY = useTransform(scrollYProgress, [0, 1], ['-10%', '15%'])
+
   return (
-    <section id="sobre" className="bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
+    <section
+      ref={sectionRef}
+      id="sobre"
+      className="bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30"
+    >
       <div className="max-w-[1500px] mx-auto px-8 lg:px-14">
 
         {/* Outer rounded card */}
         <div className="relative bg-gradient-to-br from-[#0a0b0c] via-[#0d0e10] to-[#0a0b0c] border border-[#1c1d1e] rounded-[40px] lg:rounded-[60px] p-8 lg:p-14 overflow-hidden">
 
-          {/* Subtle decorative orange glow on the right */}
-          <div
+          {/* Subtle decorative orange glow — parallax */}
+          <motion.div
             className="absolute -right-40 top-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-            style={{ background: 'radial-gradient(circle, rgba(243,89,1,0.10) 0%, transparent 60%)' }}
+            style={{
+              background: 'radial-gradient(circle, rgba(243,89,1,0.10) 0%, transparent 60%)',
+              y: glowY,
+              willChange: 'transform',
+            }}
           />
 
           {/* Main grid: text left, video right */}
           <div className="relative grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-14 items-start mb-12">
 
-            {/* LEFT */}
-            <div className="flex flex-col gap-7">
+            {/* LEFT — slides in from the left on scroll */}
+            <motion.div
+              className="flex flex-col gap-7"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+            >
               {/* Heading — Titulo 2: Roboto Bold ~64/60 LS -7% (reduced for video balance) */}
-              <h2
+              <motion.h2
+                variants={fadeUp}
                 className="font-roboto font-bold text-white"
                 style={{
                   fontSize: 'clamp(2rem, 4vw, 64px)',
                   lineHeight: '0.95',
                   letterSpacing: '-0.07em',
+                  willChange: 'transform, opacity',
                 }}
               >
                 <span className="block lg:whitespace-nowrap">Conectividade que</span>
                 <span className="block lg:whitespace-nowrap">
                   <span className="text-[#F35901]">move</span> o seu negócio.
                 </span>
-              </h2>
+              </motion.h2>
 
               {/* Subtitle */}
-              <p
+              <motion.p
+                variants={fadeUp}
                 className="font-sora text-[#ABADAB] leading-[1.55]"
                 style={{ fontSize: 'clamp(0.95rem, 1.2vw, 1.05rem)', letterSpacing: '-0.02em', maxWidth: '480px' }}
               >
                 Conheça nossos projetos, nossa expertise técnica e o padrão de qualidade que entrega segurança, performance e eficiência para empresas em todo o Brasil.
-              </p>
+              </motion.p>
 
               {/* Button */}
-              <a
+              <motion.a
                 href="#sobre"
+                variants={fadeUp}
+                whileHover={buttonHover}
+                whileTap={buttonTap}
                 className="self-start inline-flex items-center gap-3 font-sora text-white text-[15px] border-[3px] border-[#F35901] rounded-[14px] px-7 py-[14px] hover:bg-[#F35901]/10 transition-colors"
               >
                 Saiba mais sobre a Sultec
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <motion.svg width="14" height="14" viewBox="0 0 14 14" fill="none" whileHover={{ x: 3 }}>
                   <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </a>
+                </motion.svg>
+              </motion.a>
 
               {/* 3 Features */}
-              <div className="grid grid-cols-3 gap-6 mt-4 pt-6 border-t border-white/5">
+              <motion.div
+                className="grid grid-cols-3 gap-6 mt-4 pt-6 border-t border-white/5"
+                variants={staggerContainer}
+              >
                 {features.map((f, i) => (
-                  <div key={i} className="flex flex-col gap-3">
+                  <motion.div key={i} variants={fadeUp} className="flex flex-col gap-3">
                     <div className="w-10 h-10 relative flex-shrink-0">
                       <Image src={f.icon} alt="" fill className="object-contain" />
                     </div>
@@ -93,13 +134,19 @@ export function About() {
                     <p className="font-sora text-[#ABADAB] text-[13px] leading-[1.5] tracking-[-0.01em]">
                       {f.desc}
                     </p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* RIGHT — Video player mockup */}
-            <div className="relative">
+            <motion.div
+              className="relative"
+              variants={slideLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+            >
               <div className="relative bg-[#1a1b1d] border-[3px] border-[#F35901] rounded-[30px] lg:rounded-[50px] overflow-hidden aspect-video shadow-[0_0_60px_rgba(243,89,1,0.15)]">
 
                 {/* Soft white wash inside to mimic the Figma look */}
@@ -108,11 +155,16 @@ export function About() {
                 {/* Center play */}
                 <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3">
                   <p className="font-sora text-white/70 text-2xl tracking-[0.05em]">VIDEO AQUI</p>
-                  <button className="w-16 h-16 bg-[#F35901] rounded-full flex items-center justify-center hover:bg-[#d14d01] transition-colors shadow-lg">
+                  <motion.button
+                    whileHover={{ scale: 1.1, boxShadow: '0 0 30px rgba(243,89,1,0.6)' }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.25 }}
+                    className="w-16 h-16 bg-[#F35901] rounded-full flex items-center justify-center hover:bg-[#d14d01] shadow-lg"
+                  >
                     <svg className="w-6 h-6 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M8 5v14l11-7z" />
                     </svg>
-                  </button>
+                  </motion.button>
                 </div>
 
                 {/* Bottom controls bar */}
@@ -137,15 +189,28 @@ export function About() {
                   </svg>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Stats bar */}
-          <div className="relative bg-[#141416] border border-[#262727] rounded-[24px] lg:rounded-[40px] px-6 lg:px-10 py-7">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div
+            className="relative bg-[#141416] border border-[#262727] rounded-[24px] lg:rounded-[40px] px-6 lg:px-10 py-7"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            viewport={viewportOnce}
+          >
+            <motion.div
+              className="grid grid-cols-2 lg:grid-cols-4 gap-6"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+            >
               {statsBar.map((s, i) => (
-                <div
+                <motion.div
                   key={i}
+                  variants={fadeUp}
                   className={`flex items-center gap-4 ${
                     i < statsBar.length - 1 ? 'lg:border-r lg:border-white/15 lg:pr-6' : ''
                   }`}
@@ -159,10 +224,10 @@ export function About() {
                     </p>
                     <p className="font-sora text-[#ABADAB] text-[13px] tracking-[-0.01em]">{s.label}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
         </div>
       </div>

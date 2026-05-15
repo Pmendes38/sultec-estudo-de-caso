@@ -2,6 +2,14 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { motion, AnimatePresence } from 'framer-motion'
+import {
+  fadeUp,
+  staggerContainer,
+  staggerContainerFast,
+  fadeInScale,
+  viewportOnce,
+} from '@/lib/animations'
 
 const clients = [
   { name: 'JBS', logo: '/sultec/clientes/jbs.png' },
@@ -50,13 +58,20 @@ export function Clients() {
         <div className="grid lg:grid-cols-[540px_1fr] gap-12 xl:gap-20 items-start">
 
           {/* Left: Heading + Testimonial card */}
-          <div className="flex flex-col gap-7">
+          <motion.div
+            className="flex flex-col gap-7"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
             <div className="flex flex-col gap-3">
-              <p className="font-sora text-[#F35901] text-[15px] tracking-[-0.04em] uppercase">
+              <motion.p variants={fadeUp} className="font-sora text-[#F35901] text-[15px] tracking-[-0.04em] uppercase">
                 Clientes e Parceiros
-              </p>
+              </motion.p>
               {/* Titulo 5: Roboto Regular 48/50 LS -5% */}
-              <h2
+              <motion.h2
+                variants={fadeUp}
                 className="font-roboto font-normal text-white uppercase"
                 style={{
                   fontSize: 'clamp(1.75rem, 3.5vw, 48px)',
@@ -66,32 +81,61 @@ export function Clients() {
               >
                 <span className="block lg:whitespace-nowrap">Empresas Que Confiam</span>
                 <span className="block lg:whitespace-nowrap">Na Sultec.</span>
-              </h2>
+              </motion.h2>
             </div>
 
-            {/* Testimonial card */}
-            <div className="bg-[#0d0e10] border border-[#1c1d1e] rounded-[14px] p-7 flex flex-col gap-5 max-w-[420px]">
+            {/* Testimonial card — animated quote crossfade */}
+            <motion.div
+              variants={fadeUp}
+              className="bg-[#0d0e10] border border-[#1c1d1e] rounded-[14px] p-7 flex flex-col gap-5 max-w-[420px]"
+            >
               <span className="text-[#F35901] text-[42px] leading-[0.5] font-roboto font-bold">
                 &ldquo;
               </span>
 
-              <p className="font-sora text-[#ABADAB] text-[15px] leading-[1.55] tracking-[-0.02em] min-h-[100px]">
-                {t.quote}
-              </p>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={active}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  className="font-sora text-[#ABADAB] text-[15px] leading-[1.55] tracking-[-0.02em] min-h-[100px]"
+                >
+                  {t.quote}
+                </motion.p>
+              </AnimatePresence>
 
               <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full bg-[#252526] flex-shrink-0 overflow-hidden flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold font-sora">
-                      {t.author.charAt(0)}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-sora text-white text-[14px] font-normal leading-tight">
-                      {t.author}
-                    </p>
-                    <p className="font-sora text-[#ABADAB] text-[12px] mt-0.5">{t.role}</p>
-                  </div>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={active}
+                      initial={{ opacity: 0, scale: 0.85 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.85 }}
+                      transition={{ duration: 0.3 }}
+                      className="w-11 h-11 rounded-full bg-[#252526] flex-shrink-0 overflow-hidden flex items-center justify-center"
+                    >
+                      <span className="text-white text-sm font-semibold font-sora">
+                        {t.author.charAt(0)}
+                      </span>
+                    </motion.div>
+                  </AnimatePresence>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={active}
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 8 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <p className="font-sora text-white text-[14px] font-normal leading-tight">
+                        {t.author}
+                      </p>
+                      <p className="font-sora text-[#ABADAB] text-[12px] mt-0.5">{t.role}</p>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
 
                 <div className="flex gap-1.5">
@@ -100,7 +144,7 @@ export function Clients() {
                       key={i}
                       onClick={() => setActive(i)}
                       aria-label={`Depoimento ${i + 1}`}
-                      className={`h-2 rounded-full transition-all ${
+                      className={`h-2 rounded-full transition-all duration-300 ${
                         i === active
                           ? 'w-6 bg-[#F35901]'
                           : 'w-2 bg-white/25 hover:bg-white/45'
@@ -109,16 +153,26 @@ export function Clients() {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          {/* Right: Logos grid */}
-          <div className="flex flex-col justify-start pt-4 lg:pt-12">
+          {/* Right: Logos grid — staggered reveal with subtle hover */}
+          <motion.div
+            className="flex flex-col justify-start pt-4 lg:pt-12"
+            variants={staggerContainerFast}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
             <div className="grid grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10 items-center justify-items-center">
               {clients.map((client) => (
-                <div
+                <motion.div
                   key={client.name}
-                  className="relative w-full max-w-[180px] h-20 lg:h-24 opacity-95 hover:opacity-100 transition-opacity"
+                  variants={fadeInScale}
+                  whileHover={{ scale: 1.08, opacity: 1 }}
+                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative w-full max-w-[180px] h-20 lg:h-24 opacity-95"
+                  style={{ willChange: 'transform' }}
                 >
                   <Image
                     src={client.logo}
@@ -126,24 +180,55 @@ export function Clients() {
                     fill
                     className="object-contain"
                   />
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* DIVIDER — orange step-line: separates testimonial from S asset (CTA) */}
-        <div className="relative mt-8 lg:mt-10 h-[24px]">
-          <svg
+        {/* DIVIDER — orange step-line: animated draw effect */}
+        <motion.div
+          className="relative mt-8 lg:mt-10 h-[24px]"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          viewport={viewportOnce}
+        >
+          <motion.svg
             className="absolute inset-x-0 top-0 w-full h-[24px] pointer-events-none"
             viewBox="0 0 1500 24"
             preserveAspectRatio="none"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.15, delayChildren: 0.3 } },
+            }}
           >
-            <line x1="0" y1="20" x2="380" y2="20" stroke="#F35901" strokeWidth="2.5" />
-            <line x1="380" y1="20" x2="500" y2="6" stroke="#F35901" strokeWidth="2.5" />
-            <line x1="500" y1="6" x2="1500" y2="6" stroke="#F35901" strokeWidth="2.5" />
-          </svg>
-        </div>
+            {[
+              { d: 'M0 20 L380 20' },
+              { d: 'M380 20 L500 6' },
+              { d: 'M500 6 L1500 6' },
+            ].map((seg, i) => (
+              <motion.path
+                key={i}
+                d={seg.d}
+                stroke="#F35901"
+                strokeWidth="2.5"
+                fill="none"
+                variants={{
+                  hidden: { pathLength: 0, opacity: 0 },
+                  visible: {
+                    pathLength: 1,
+                    opacity: 1,
+                    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+                  },
+                }}
+              />
+            ))}
+          </motion.svg>
+        </motion.div>
 
       </div>
     </section>

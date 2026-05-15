@@ -1,6 +1,8 @@
 'use client'
 
 import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { fadeUp, staggerContainer, viewportOnce } from '@/lib/animations'
 
 const services = [
   {
@@ -43,7 +45,13 @@ const services = [
 
 function ServiceCard({ service }: { service: typeof services[0] }) {
   return (
-    <div className="group relative rounded-[10px] overflow-hidden border-[3px] border-[#252526] aspect-[727/431] cursor-pointer hover:border-[#F35901]/60 transition-all duration-300">
+    <motion.div
+      variants={fadeUp}
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      className="group relative rounded-[10px] overflow-hidden border-[3px] border-[#252526] aspect-[727/431] cursor-pointer hover:border-[#F35901]/60 transition-colors duration-300"
+      style={{ willChange: 'transform' }}
+    >
       <Image
         src={service.img}
         alt={service.title}
@@ -52,7 +60,7 @@ function ServiceCard({ service }: { service: typeof services[0] }) {
         className="object-cover group-hover:scale-105 transition-transform duration-500"
       />
 
-      {/* Bottom gradient bar — black at the bottom fading up */}
+      {/* Bottom gradient bar */}
       <div
         className="absolute bottom-0 left-0 right-0 h-[136px]"
         style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.92) 30%, rgba(0,0,0,0.7) 70%, transparent 100%)' }}
@@ -69,12 +77,16 @@ function ServiceCard({ service }: { service: typeof services[0] }) {
           </p>
         </div>
 
-        {/* + Button */}
-        <div className="flex-shrink-0 w-[52px] h-[52px] border-[3px] border-[#F35901] rounded-[5px] flex items-center justify-center group-hover:bg-[#F35901]/20 transition-colors">
+        {/* + Button — micro rotation on group hover */}
+        <motion.div
+          className="flex-shrink-0 w-[52px] h-[52px] border-[3px] border-[#F35901] rounded-[5px] flex items-center justify-center group-hover:bg-[#F35901]/20 transition-colors"
+          whileHover={{ rotate: 90 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+        >
           <span className="text-white text-[28px] font-light leading-none -mt-1">+</span>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
@@ -83,31 +95,44 @@ export function Services() {
     <section id="servicos" className="bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
       <div className="max-w-[1500px] mx-auto px-8 lg:px-14">
 
-        {/* Header */}
-        <div className="flex flex-col gap-3 mb-12">
-          <p className="font-sora text-[#F35901] text-[15px] tracking-[-0.04em] uppercase">
+        {/* Header — fade up on scroll */}
+        <motion.div
+          className="flex flex-col gap-3 mb-12"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
+          <motion.p variants={fadeUp} className="font-sora text-[#F35901] text-[15px] tracking-[-0.04em] uppercase">
             Nossos Serviços
-          </p>
-          {/* Titulo 3: Roboto Regular 48/50 LS -5% */}
-          <h2
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
             className="font-roboto font-normal text-white uppercase"
             style={{
               fontSize: 'clamp(1.75rem, 3.5vw, 48px)',
               lineHeight: '1.042',
               letterSpacing: '-0.05em',
+              willChange: 'transform, opacity',
             }}
           >
             <span className="block lg:whitespace-nowrap">Soluções Completas</span>
             <span className="block lg:whitespace-nowrap">Para Cada Necessidade</span>
-          </h2>
-        </div>
+          </motion.h2>
+        </motion.div>
 
-        {/* Grid 3x2 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Grid 3x2 — staggered card reveal */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {services.map((s) => (
             <ServiceCard key={s.id} service={s} />
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>
