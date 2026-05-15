@@ -201,7 +201,7 @@ export function About() {
             viewport={viewportOnce}
           >
             <motion.div
-              className="grid grid-cols-2 lg:grid-cols-4 gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -218,11 +218,13 @@ export function About() {
                   <div className="w-11 h-11 flex-shrink-0 relative">
                     <Image src={s.icon} alt="" fill className="object-contain" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <p className="font-sora text-white text-[15px] font-normal leading-tight tracking-[-0.02em]">
                       {s.value}
                     </p>
-                    <p className="font-sora text-[#ABADAB] text-[13px] tracking-[-0.01em]">{s.label}</p>
+                    <p className="font-sora text-[#ABADAB] text-[13px] tracking-[-0.01em] leading-snug">
+                      {s.label}
+                    </p>
                   </div>
                 </motion.div>
               ))}
