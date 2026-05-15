@@ -6,8 +6,7 @@ import { useRef } from 'react'
 import { heroContainer, heroItem, buttonHover, buttonTap } from '@/lib/animations'
 
 const stats = [
-  { icon: '/sultec/icons/seguranca.svg', value: '+12 ANOS', label: 'DE MERCADO' },
-  { icon: '/sultec/icons/projetos.svg', value: '+350', label: 'PROJETOS' },
+  { icon: '/sultec/icons/projetos.svg', value: '+500', label: 'PROJETOS' },
   { icon: '/sultec/icons/local.svg', value: 'ATENDIMENTO', label: 'NACIONAL' },
   { icon: '/sultec/icons/pessoas.svg', value: 'EQUIPE', label: 'ESPECIALIZADA' },
 ]
@@ -106,7 +105,7 @@ export function Hero() {
 
           {/* Stats bar */}
           <motion.div variants={heroItem} className="mt-12 pt-8 border-t border-white/15">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {stats.map((stat, i) => (
                 <motion.div
                   key={i}
@@ -114,7 +113,7 @@ export function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.9 + i * 0.08 }}
                   className={`flex items-center gap-4 ${
-                    i < stats.length - 1 ? 'lg:border-r lg:border-white/15 lg:pr-5' : ''
+                    i < stats.length - 1 ? 'sm:border-r sm:border-white/15 sm:pr-5' : ''
                   }`}
                 >
                   <div className="w-[42px] h-[42px] flex-shrink-0 relative">

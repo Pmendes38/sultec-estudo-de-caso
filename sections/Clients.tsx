@@ -3,13 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import {
-  fadeUp,
-  staggerContainer,
-  staggerContainerFast,
-  fadeInScale,
-  viewportOnce,
-} from '@/lib/animations'
+import { fadeUp, staggerContainer, viewportOnce } from '@/lib/animations'
 
 const clients = [
   { name: 'JBS', logo: '/sultec/clientes/jbs.png' },
@@ -18,6 +12,9 @@ const clients = [
   { name: 'HRO', logo: '/sultec/clientes/hro.png' },
   { name: 'DRV Máquinas', logo: '/sultec/clientes/drv.png' },
   { name: 'Uno', logo: '/sultec/clientes/uno.png' },
+  { name: 'Pesacat', logo: '/sultec/clientes/pesacat.png' },
+  { name: 'Tozzo', logo: '/sultec/clientes/tozzo.png' },
+  { name: 'Uceff', logo: '/sultec/clientes/uceff.png' },
 ]
 
 const testimonials = [
@@ -54,8 +51,8 @@ export function Clients() {
     >
       <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14">
 
-        {/* TOP CONTENT — heading/testimonial + logos */}
-        <div className="grid lg:grid-cols-[540px_1fr] gap-12 xl:gap-20 items-start">
+        {/* TOP CONTENT — heading + testimonial only (logos moved below as marquee) */}
+        <div className="grid lg:grid-cols-1 gap-12 items-start">
 
           {/* Left: Heading + Testimonial card */}
           <motion.div
@@ -156,35 +153,40 @@ export function Clients() {
             </motion.div>
           </motion.div>
 
-          {/* Right: Logos grid — staggered reveal with subtle hover */}
-          <motion.div
-            className="flex flex-col justify-start pt-4 lg:pt-12"
-            variants={staggerContainerFast}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-          >
-            <div className="grid grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10 items-center justify-items-center">
-              {clients.map((client) => (
-                <motion.div
-                  key={client.name}
-                  variants={fadeInScale}
-                  whileHover={{ scale: 1.08, opacity: 1 }}
-                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative w-full max-w-[180px] h-20 lg:h-24 opacity-95"
-                  style={{ willChange: 'transform' }}
-                >
-                  <Image
-                    src={client.logo}
-                    alt={client.name}
-                    fill
-                    className="object-contain"
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
+
+        {/* MARQUEE — auto-scrolling logo strip (full width below the testimonial) */}
+        <motion.div
+          className="relative mt-12 lg:mt-16 overflow-hidden"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          viewport={viewportOnce}
+          style={{
+            // Edge fade so logos blend into the bg at the sides
+            maskImage:
+              'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+            WebkitMaskImage:
+              'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+          }}
+        >
+          <div className="flex w-max animate-marquee gap-16 lg:gap-24 items-center">
+            {/* Render logos twice for seamless infinite loop */}
+            {[...clients, ...clients].map((client, i) => (
+              <div
+                key={`${client.name}-${i}`}
+                className="relative h-24 lg:h-32 w-[180px] lg:w-[240px] flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity"
+              >
+                <Image
+                  src={client.logo}
+                  alt={client.name}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* DIVIDER — orange step-line: animated draw effect */}
         <motion.div
