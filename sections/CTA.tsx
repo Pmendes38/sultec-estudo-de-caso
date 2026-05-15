@@ -75,11 +75,12 @@ export function CTA() {
 
             {/* Center: Heading + subtitle */}
             <div className="flex flex-col gap-5 max-w-[560px] flex-1 lg:pl-[80px]">
+              {/* Titulo 6: Roboto Condensed Regular 64/78 LS 2% */}
               <h2
                 className="font-roboto-condensed font-normal text-white uppercase"
                 style={{
-                  fontSize: '64px',
-                  lineHeight: '78px',
+                  fontSize: 'clamp(2rem, 4.5vw, 64px)',
+                  lineHeight: '1.219',
                   letterSpacing: '0.02em',
                 }}
               >
