@@ -3,6 +3,7 @@ import {
   About,
   Services,
   Portfolio,
+  FlukeCertification,
   CTA,
   Clients,
 } from '@/sections'
@@ -14,6 +15,7 @@ export default function Home() {
       <About />
       <Services />
       <Portfolio />
+      <FlukeCertification />
       <Clients />
       <CTA />
     </main>
