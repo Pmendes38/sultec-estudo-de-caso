@@ -95,7 +95,12 @@ export function Footer() {
           {/* Col 4: Contato */}
           <motion.div variants={fadeUp}>
             <FooterCol title="Contato">
-              <p className="font-sora text-[#898A89] text-[14px]">(00) 00000-0000</p>
+              <a
+                href="tel:+5549999650736"
+                className="font-sora text-[#898A89] text-[14px] hover:text-white transition-colors"
+              >
+                (00) 00000-0000
+              </a>
               <a
                 href="mailto:contato@example.com"
                 className="font-sora text-[#898A89] text-[14px] hover:text-white transition-colors underline"
