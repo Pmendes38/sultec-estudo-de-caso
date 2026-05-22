@@ -88,7 +88,9 @@ export function Header() {
 
           {/* CTA Button */}
           <motion.a
-            href="#contato"
+            href="https://wa.me/5500000000000"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={buttonHover}
             whileTap={buttonTap}
             className="hidden lg:inline-flex items-center gap-3 font-sora text-[15px] text-white font-normal border-2 border-[#F35901] rounded-[16px] px-7 py-[16px] hover:bg-[#F35901]/10 transition-colors"
@@ -143,7 +145,9 @@ export function Header() {
                   </motion.a>
                 ))}
                 <motion.a
-                  href="#contato"
+                  href="https://wa.me/5500000000000"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: navItems.length * 0.05 }}

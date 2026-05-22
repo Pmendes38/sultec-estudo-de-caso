@@ -147,7 +147,9 @@ export function CTA() {
                 variants={fadeUp}
                 whileHover={buttonHover}
                 whileTap={buttonTap}
-                href="tel:+5549999650736"
+                href="https://wa.me/5500000000000"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-between gap-3 bg-[#F35901] rounded-[10px] px-6 py-4 font-sora text-white text-[16px] 3xl:text-[18px] font-normal hover:bg-[#d14d01] transition-colors"
               >
                 <span className="flex-1 text-left">Solicitar orçamento</span>
