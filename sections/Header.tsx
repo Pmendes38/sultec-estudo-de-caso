@@ -1,25 +1,41 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { buttonHover, buttonTap } from '@/lib/animations'
 
-const navItems = [
-  { label: 'Início', href: '#inicio' },
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Serviços', href: '#servicos' },
-  { label: 'Portfólio', href: '#portfolio' },
-  { label: 'Contato', href: '#contato' },
+type NavItem = { label: string; href: string; anchor: string | null }
+
+const navItems: NavItem[] = [
+  { label: 'Início',    href: '#inicio',    anchor: 'inicio'   },
+  { label: 'Sobre',     href: '#sobre',     anchor: 'sobre'    },
+  { label: 'Serviços',  href: '#servicos',  anchor: 'servicos' },
+  { label: 'Projetos',  href: '/projetos',  anchor: null       },
+  { label: 'Contato',   href: '#contato',   anchor: 'contato'  },
 ]
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('inicio')
+  const pathname = usePathname()
+  const isHome = pathname === '/'
+
+  const getHref = (item: NavItem) => {
+    if (item.anchor === null) return item.href
+    return isHome ? item.href : `/${item.href}`
+  }
+
+  const isActive = (item: NavItem) => {
+    if (item.anchor === null) return pathname === item.href
+    return isHome && activeSection === item.anchor
+  }
 
   useEffect(() => {
+    if (!isHome) return
     const handleScroll = () => {
-      const sections = ['inicio', 'sobre', 'servicos', 'portfolio', 'contato']
+      const sections = ['inicio', 'sobre', 'servicos', 'contato']
       const scrollY = window.scrollY + 200
       for (const id of sections) {
         const el = document.getElementById(id)
@@ -31,7 +47,7 @@ export function Header() {
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [isHome])
 
   return (
     <motion.header
@@ -63,18 +79,17 @@ export function Header() {
           {/* Desktop Navigation — animated active underline */}
           <nav className="hidden lg:flex items-center gap-9 xl:gap-12">
             {navItems.map((item) => {
-              const id = item.href.substring(1)
-              const isActive = activeSection === id
+              const active = isActive(item)
               return (
                 <a
                   key={item.label}
-                  href={item.href}
+                  href={getHref(item)}
                   className={`relative font-sora text-[16px] font-normal tracking-[-0.04em] transition-colors hover:text-[#F35901] ${
-                    isActive ? 'text-[#F35901]' : 'text-white'
+                    active ? 'text-[#F35901]' : 'text-white'
                   }`}
                 >
                   {item.label}
-                  {isActive && (
+                  {active && (
                     <motion.span
                       layoutId="nav-underline"
                       className="absolute -bottom-3 left-0 right-0 h-[3px] bg-[#F35901] rounded-full"
@@ -132,13 +147,13 @@ export function Header() {
                 {navItems.map((item, i) => (
                   <motion.a
                     key={item.label}
-                    href={item.href}
+                    href={getHref(item)}
                     initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: i * 0.05 }}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`font-sora text-base hover:text-[#F35901] transition-colors ${
-                      activeSection === item.href.substring(1) ? 'text-[#F35901]' : 'text-white'
+                      isActive(item) ? 'text-[#F35901]' : 'text-white'
                     }`}
                   >
                     {item.label}

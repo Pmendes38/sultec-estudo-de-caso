@@ -111,7 +111,7 @@ export function Portfolio() {
             variants={fadeUp}
             whileHover={buttonHover}
             whileTap={buttonTap}
-            href="#contato"
+            href="/projetos"
             className="self-start lg:self-auto inline-flex items-center gap-3 font-sora text-white text-[15px] border-[3px] border-[#F35901] rounded-[14px] px-7 py-[14px] hover:bg-[#F35901]/10 transition-colors"
           >
             Ver todos os projetos

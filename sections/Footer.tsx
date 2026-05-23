@@ -5,11 +5,11 @@ import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/animations'
 
 const navLinks = [
-  { label: 'Início', href: '#inicio' },
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Serviços', href: '#servicos' },
-  { label: 'Portfólio', href: '#portfolio' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Início',    href: '/#inicio'   },
+  { label: 'Sobre',     href: '/#sobre'    },
+  { label: 'Serviços',  href: '/#servicos' },
+  { label: 'Projetos',  href: '/projetos'  },
+  { label: 'Contato',   href: '/#contato'  },
 ]
 
 const serviceLinks = [
