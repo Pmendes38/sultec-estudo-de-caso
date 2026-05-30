@@ -8,6 +8,7 @@ import { fadeUp, staggerContainer, viewportOnce } from '@/lib/animations'
 const clients = [
   { name: 'JBS', logo: '/sultec/clientes/jbs.png' },
   { name: 'Sicoob', logo: '/sultec/clientes/sicoob.png' },
+  { name: 'Cresol', logo: '/sultec/clientes/cresol.svg' }, // recriação vetorial; trocar pelo SVG/PNG oficial se desejar 100% de fidelidade
   { name: 'Aurora', logo: '/sultec/clientes/aurora.png' },
   { name: 'HRO', logo: '/sultec/clientes/hro.png' },
   { name: 'DRV Máquinas', logo: '/sultec/clientes/drv.png' },

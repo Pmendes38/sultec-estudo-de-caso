@@ -6,7 +6,8 @@ import { useRef } from 'react'
 import { heroContainer, heroItem, buttonHover, buttonTap } from '@/lib/animations'
 
 const stats = [
-  { icon: '/sultec/icons/projetos.svg', value: '+500', label: 'PROJETOS' },
+  // TODO: validar critério de contagem com Naiguel antes de publicar o número de projetos (ex.: '+500')
+  { icon: '/sultec/icons/projetos.svg', value: 'PROJETOS', label: 'ENTREGUES' },
   { icon: '/sultec/icons/local.svg', value: 'ATENDIMENTO', label: 'NACIONAL' },
   { icon: '/sultec/icons/pessoas.svg', value: 'EQUIPE', label: 'ESPECIALIZADA' },
 ]

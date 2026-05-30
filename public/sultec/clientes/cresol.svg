@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Recriação vetorial do logo da Cresol a partir da referência enviada pelo cliente.
+  Cores: laranja #F18A00 (anel) e verde #00693C (emblema + wordmark).
+  Para fidelidade 100%, basta substituir este arquivo pelo SVG/PNG oficial.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" role="img" aria-label="Cresol">
+  <!-- Anel laranja -->
+  <circle cx="50" cy="50" r="33" fill="none" stroke="#F18A00" stroke-width="9"/>
+  <!-- Emblema verde: dois elos entrelaçados -->
+  <g fill="none" stroke="#00693C" stroke-width="6" stroke-linecap="round">
+    <ellipse cx="50" cy="50" rx="20" ry="10" transform="rotate(45 50 50)"/>
+    <ellipse cx="50" cy="50" rx="20" ry="10" transform="rotate(-45 50 50)"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="106" y="68" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="800" fill="#00693C" letter-spacing="1">CRESOL</text>
+</svg>

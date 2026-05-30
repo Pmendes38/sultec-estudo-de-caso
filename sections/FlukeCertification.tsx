@@ -56,37 +56,22 @@ const certifications: Certification[] = [
     tags: ['LASERWAY', 'GPON', 'OS2 / OM4'],
   },
   {
-    id: 'optifiber',
-    eyebrow: 'Fluke OptiFiber Pro · Fibra Óptica',
-    titleLineOne: 'OTDR Fluke OptiFiber Pro.',
-    titleLineTwo: 'Diagnóstico avançado em',
-    titleAccent: 'fibra óptica.',
+    // TODO: validar/expandir o texto da FS com o cliente (copy provisório).
+    id: 'fs',
+    eyebrow: 'FS · Infraestrutura Óptica',
+    titleLineOne: 'Soluções FS.',
+    titleLineTwo: 'Conectividade óptica de',
+    titleAccent: 'alto desempenho.',
     description:
-      'Inspeção e certificação de enlaces ópticos com o OTDR Fluke OptiFiber Pro: medição de atenuação, identificação de emendas, conectores e eventos com precisão sub-métrica. A ferramenta usada em data centers e backbones corporativos de missão crítica.',
+      'Trabalhamos com soluções FS para infraestrutura óptica e de conectividade — fibra, transceivers e componentes de rede com alta disponibilidade e excelente relação custo-benefício, dimensionados para projetos de qualquer porte.',
     benefits: [
-      'Mapeamento completo de eventos ópticos em cada lance de fibra',
-      'Identificação precisa de perdas, emendas ruins e conectores sujos',
-      'Relatórios profissionais para handover e auditoria técnica',
-      'Padrão Tier 1 e Tier 2 conforme TIA-568-C.0',
+      'Portfólio óptico completo: fibra, transceivers e acessórios de rede',
+      'Alta disponibilidade e custo-benefício para projetos de qualquer porte',
     ],
-    tags: ['OTDR', 'TIER 1 & 2', 'TIA-568-C'],
+    tags: ['FIBRA', 'CONECTIVIDADE', 'FS'],
   },
-  {
-    id: 'panduit',
-    eyebrow: 'Panduit · Verified Solutions',
-    titleLineOne: 'Soluções Panduit.',
-    titleLineTwo: 'Performance e garantia',
-    titleAccent: 'de fábrica.',
-    description:
-      'Implantação de sistemas Panduit com certificação de fábrica e garantia estendida de canal. Categoria 6A blindada, infraestrutura de data center e gerenciamento térmico para ambientes corporativos de alta exigência.',
-    benefits: [
-      'Garantia Panduit Certified Network estendida',
-      'Cat 6A F/UTP e blindada para ambientes EMI-críticos',
-      'Componentes homologados e projeto end-to-end pelo fabricante',
-      'Soluções de gerenciamento e contenção térmica para data centers',
-    ],
-    tags: ['CAT 6A', 'PANDUIT CN', 'DATA CENTER'],
-  },
+  // TODO: estrutura pronta para receber a "máquina de fusão" como item adicional
+  // (adicionar aqui um novo objeto de certificação quando o conteúdo for confirmado).
 ]
 
 export function FlukeCertification() {
