@@ -32,8 +32,7 @@ const features = [
 
 const statsBar = [
   { icon: '/sultec/icons/clientes.svg', value: '+15 anos', label: 'de experiência' },
-  // TODO: validar critério de contagem com Naiguel antes de publicar o número de projetos (ex.: '+500 projetos')
-  { icon: '/sultec/icons/buildings.svg', value: 'Projetos', label: 'entregues em todo o Brasil' },
+  { icon: '/sultec/icons/buildings.svg', value: '+500 projetos', label: 'entregues' },
   { icon: '/sultec/icons/brasil.svg', value: 'Atuação nacional', label: 'em todo o Brasil' },
   { icon: '/sultec/icons/quality.svg', value: 'Qualidade', label: 'e certificações (Fluke)' },
 ]
