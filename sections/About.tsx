@@ -67,23 +67,29 @@ export function About() {
             }}
           />
 
-          {/* Main grid: text left, video right */}
-          <div className="relative grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-14 items-start mb-12">
+          {/*
+            Conteúdo da seção — vídeo removido temporariamente.
+            O texto é redistribuído para preencher o card de forma coesa
+            (título à esquerda, descrição + CTA à direita, diferenciais em
+            largura total). O player de vídeo continua preservado como asset
+            no bloco comentado logo abaixo — reativar quando o vídeo existir.
+          */}
+          <div className="relative flex flex-col gap-10 lg:gap-14 mb-12">
 
-            {/* LEFT — slides in from the left on scroll */}
+            {/* Topo: título + descrição/CTA */}
             <motion.div
-              className="flex flex-col gap-7"
+              className="grid lg:grid-cols-2 gap-8 lg:gap-14 lg:items-end"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
             >
-              {/* Heading — Titulo 2: Roboto Bold ~64/60 LS -7% (reduced for video balance) */}
+              {/* Heading — Titulo 2: Roboto Bold ~64/60 LS -7% */}
               <motion.h2
                 variants={fadeUp}
                 className="font-roboto font-bold text-white"
                 style={{
-                  fontSize: 'clamp(2rem, 4vw, 64px)',
+                  fontSize: 'clamp(2rem, 4.2vw, 64px)',
                   lineHeight: '0.95',
                   letterSpacing: '-0.07em',
                   willChange: 'transform, opacity',
@@ -95,51 +101,65 @@ export function About() {
                 </span>
               </motion.h2>
 
-              {/* Subtitle */}
-              <motion.p
-                variants={fadeUp}
-                className="font-sora text-[#ABADAB] leading-[1.55]"
-                style={{ fontSize: 'clamp(0.95rem, 1.2vw, 1.05rem)', letterSpacing: '-0.02em', maxWidth: '480px' }}
-              >
-                Conheça nossos projetos, nossa expertise técnica e o padrão de qualidade que entrega segurança, performance e eficiência para empresas em todo o Brasil.
-              </motion.p>
+              {/* Descrição + Botão */}
+              <div className="flex flex-col gap-6">
+                <motion.p
+                  variants={fadeUp}
+                  className="font-sora text-[#ABADAB] leading-[1.6]"
+                  style={{ fontSize: 'clamp(1rem, 1.25vw, 1.1rem)', letterSpacing: '-0.02em', maxWidth: '560px' }}
+                >
+                  Conheça nossos projetos, nossa expertise técnica e o padrão de qualidade que entrega segurança, performance e eficiência para empresas em todo o Brasil.
+                </motion.p>
 
-              {/* Button */}
-              <motion.a
-                href="#sobre"
-                variants={fadeUp}
-                whileHover={buttonHover}
-                whileTap={buttonTap}
-                className="self-start inline-flex items-center gap-3 font-sora text-white text-[15px] border-[3px] border-[#F35901] rounded-[14px] px-7 py-[14px] hover:bg-[#F35901]/10 transition-colors"
-              >
-                Saiba mais sobre a Sultec
-                <motion.svg width="14" height="14" viewBox="0 0 14 14" fill="none" whileHover={{ x: 3 }}>
-                  <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </motion.svg>
-              </motion.a>
-
-              {/* 3 Features */}
-              <motion.div
-                className="grid grid-cols-3 gap-6 mt-4 pt-6 border-t border-white/5"
-                variants={staggerContainer}
-              >
-                {features.map((f, i) => (
-                  <motion.div key={i} variants={fadeUp} className="flex flex-col gap-3">
-                    <div className="w-10 h-10 relative flex-shrink-0">
-                      <Image src={f.icon} alt="" fill className="object-contain" />
-                    </div>
-                    <p className="font-sora text-white text-[15px] font-normal leading-[1.25] whitespace-pre-line tracking-[-0.02em]">
-                      {f.title}
-                    </p>
-                    <p className="font-sora text-[#ABADAB] text-[13px] leading-[1.5] tracking-[-0.01em]">
-                      {f.desc}
-                    </p>
-                  </motion.div>
-                ))}
-              </motion.div>
+                <motion.a
+                  href="#sobre"
+                  variants={fadeUp}
+                  whileHover={buttonHover}
+                  whileTap={buttonTap}
+                  className="self-start inline-flex items-center gap-3 font-sora text-white text-[15px] border-[3px] border-[#F35901] rounded-[14px] px-7 py-[14px] hover:bg-[#F35901]/10 transition-colors"
+                >
+                  Saiba mais sobre a Sultec
+                  <motion.svg width="14" height="14" viewBox="0 0 14 14" fill="none" whileHover={{ x: 3 }}>
+                    <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </motion.svg>
+                </motion.a>
+              </div>
             </motion.div>
 
-            {/* RIGHT — Video player mockup */}
+            {/* 3 Diferenciais — largura total */}
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-10 pt-8 border-t border-white/5"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+            >
+              {features.map((f, i) => (
+                <motion.div key={i} variants={fadeUp} className="flex flex-col gap-3">
+                  <div className="w-10 h-10 relative flex-shrink-0">
+                    <Image src={f.icon} alt="" fill className="object-contain" />
+                  </div>
+                  <p className="font-sora text-white text-[16px] font-normal leading-[1.25] whitespace-pre-line tracking-[-0.02em]">
+                    {f.title}
+                  </p>
+                  <p className="font-sora text-[#ABADAB] text-[14px] leading-[1.5] tracking-[-0.01em]">
+                    {f.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/*
+            ─────────────────────────────────────────────────────────────────
+            ASSET PRESERVADO — player de vídeo da seção "Sobre".
+            O vídeo ainda não está disponível. Para reativar:
+              1. Descomente este bloco.
+              2. Volte o container acima para o grid de 2 colunas
+                 (ex.: grid lg:grid-cols-[1fr_1fr] ... items-start)
+                 colocando o texto numa coluna e este player na outra.
+            (usa a variante `slideLeft` já importada)
+            ─────────────────────────────────────────────────────────────────
             <motion.div
               className="relative"
               variants={slideLeft}
@@ -148,11 +168,7 @@ export function About() {
               viewport={viewportOnce}
             >
               <div className="relative bg-[#1a1b1d] border-[3px] border-[#F35901] rounded-[30px] lg:rounded-[50px] overflow-hidden aspect-video shadow-[0_0_60px_rgba(243,89,1,0.15)]">
-
-                {/* Soft white wash inside to mimic the Figma look */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-white/10 to-white/20" />
-
-                {/* Center play */}
                 <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3">
                   <p className="font-sora text-white/70 text-2xl tracking-[0.05em]">VIDEO AQUI</p>
                   <motion.button
@@ -166,8 +182,6 @@ export function About() {
                     </svg>
                   </motion.button>
                 </div>
-
-                {/* Bottom controls bar */}
                 <div className="absolute bottom-0 left-0 right-0 bg-black/70 backdrop-blur-sm px-6 py-3 flex items-center gap-3">
                   <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M8 5v14l11-7z" />
@@ -176,21 +190,10 @@ export function About() {
                   <div className="flex-1 h-[3px] bg-white/20 rounded-full">
                     <div className="w-0 h-full bg-[#F35901] rounded-full" />
                   </div>
-                  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
-                  </svg>
-                  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="3" />
-                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
-                  </svg>
-                  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="15 3 21 3 21 9" /><polyline points="9 21 3 21 3 15" />
-                    <line x1="21" y1="3" x2="14" y2="10" /><line x1="3" y1="21" x2="10" y2="14" />
-                  </svg>
                 </div>
               </div>
             </motion.div>
-          </div>
+          */}
 
           {/* Stats bar */}
           <motion.div
