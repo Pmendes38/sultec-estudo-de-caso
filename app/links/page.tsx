@@ -17,8 +17,7 @@ export const metadata: Metadata = {
 const LINKS = {
   whatsapp: 'https://wa.me/5500000000000',
   site: '/',
-  // TODO: adicionar a URL real do LinkedIn da Sultec (ex.: https://www.linkedin.com/company/...)
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/company/sultec-tecnologia/',
   email: 'mailto:contato@example.com',
 }
 
