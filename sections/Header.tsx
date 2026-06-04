@@ -19,6 +19,9 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
 
+  // Página de links (linktree) é standalone — sem o menu do site.
+  if (pathname === '/links') return null
+
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname === href || pathname?.startsWith(`${href}/`)
 

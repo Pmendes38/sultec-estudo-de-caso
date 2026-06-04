@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/animations'
 
@@ -29,6 +30,11 @@ const socialLinks = [
 ]
 
 export function Footer() {
+  const pathname = usePathname()
+
+  // Página de links (linktree) é standalone — sem o rodapé do site.
+  if (pathname === '/links') return null
+
   return (
     <footer className="bg-[#070808]">
       <div className="max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 py-14 lg:py-16">
