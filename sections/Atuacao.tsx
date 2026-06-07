@@ -20,8 +20,9 @@ const COPPER = '#C87533'
 const BASE_DARK = '#0D0D0D'
 
 // Raio do pino proporcional ao nº de unidades (sqrt p/ não explodir nos grandes).
+// Calibrado para o mapa do Brasil inteiro, onde os pinos ficam concentrados no Sul.
 function pinRadius(unidades: number) {
-  return 3.5 + Math.sqrt(unidades) * 2.1
+  return 2.2 + Math.sqrt(unidades) * 1.05
 }
 
 type Hover = { m: MunicipioGeo; x: number; y: number }
@@ -59,22 +60,11 @@ function Stat({ value, label }: { value: number; label: string }) {
 export function Atuacao() {
   const wrapRef = useRef<HTMLDivElement>(null)
   const [hover, setHover] = useState<Hover | null>(null)
-  const [isMobile, setIsMobile] = useState(false)
 
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 640px)')
-    const update = () => setIsMobile(mq.matches)
-    update()
-    mq.addEventListener('change', update)
-    return () => mq.removeEventListener('change', update)
-  }, [])
-
-  // Enquadrado no centro geográfico dos municípios (oeste de SC / sul do PR / RS),
-  // calculado para manter todos os 30 pinos dentro do quadro com margem.
-  // No mobile fica um pouco mais aberto para dar respiro aos pinos.
-  const projectionConfig = isMobile
-    ? { center: [-51.6, -26.2] as [number, number], scale: 3800 }
-    : { center: [-51.6, -26.2] as [number, number], scale: 4200 }
+  // Mapa do Brasil inteiro — center/scale calculados (d3 fitExtent) para o país
+  // caber no quadro 800×620. Os pinos ficam concentrados no Sul (oeste de SC),
+  // reforçando onde a Sultec atua dentro do alcance nacional.
+  const projectionConfig = { center: [-54.4, -15.1] as [number, number], scale: 790 }
 
   const showTip = (m: MunicipioGeo, e: React.MouseEvent) => {
     const rect = wrapRef.current?.getBoundingClientRect()
@@ -171,7 +161,7 @@ export function Atuacao() {
                 return (
                   <Marker key={coordKey(m)} coordinates={[m.lon, m.lat]}>
                     {/* halo */}
-                    <circle r={r + 3} fill={COPPER} opacity={0.12} />
+                    <circle r={r + 2} fill={COPPER} opacity={0.1} />
                     {/* pino animado */}
                     <motion.circle
                       r={r}
