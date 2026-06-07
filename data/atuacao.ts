@@ -39,15 +39,17 @@ export const municipiosGeo: MunicipioGeo[] = municipios
 export const ufsAtuacao: UF[] = ['SC', 'PR', 'RS']
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Totais de autoridade (prova social) informados pela Sultec.
-// NOTA: a lista enumerada em atuacao.json soma 31 municípios (30 plotados + 1
-// pendente) e 54 unidades. Os valores abaixo são os totais OFICIAIS fornecidos
-// pela Sultec — mantidos como fonte para os contadores. Ajustar aqui se mudar.
+// Totais de autoridade (prova social) — DERIVADOS da lista (fonte única).
+// Conta todos os municípios de atuação, inclusive o pendente (Itapejara), pois
+// é atuação real (só a coordenada está a confirmar). Hoje resulta em:
+//   estados: 3 · municípios: 31 · unidades: 54
+// Quando o pendente for confirmado / novas cidades forem adicionadas ao
+// atuacao.json, os contadores se atualizam sozinhos.
 // ─────────────────────────────────────────────────────────────────────────────
 export const totais = {
-  estados: 3,
-  municipios: 32,
-  unidades: 55,
+  estados: new Set(municipios.map((m) => m.uf)).size,
+  municipios: municipios.length,
+  unidades: municipios.reduce((soma, m) => soma + m.unidades, 0),
 }
 
 // Flag de privacidade/compliance.

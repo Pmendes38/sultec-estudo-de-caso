@@ -69,10 +69,12 @@ export function Atuacao() {
     return () => mq.removeEventListener('change', update)
   }, [])
 
-  // Foco no Sul; no mobile aproxima ainda mais o oeste de SC.
+  // Enquadrado no centro geográfico dos municípios (oeste de SC / sul do PR / RS),
+  // calculado para manter todos os 30 pinos dentro do quadro com margem.
+  // No mobile fica um pouco mais aberto para dar respiro aos pinos.
   const projectionConfig = isMobile
-    ? { center: [-52.4, -27] as [number, number], scale: 3700 }
-    : { center: [-52, -27.6] as [number, number], scale: 2550 }
+    ? { center: [-51.6, -26.2] as [number, number], scale: 3800 }
+    : { center: [-51.6, -26.2] as [number, number], scale: 4200 }
 
   const showTip = (m: MunicipioGeo, e: React.MouseEvent) => {
     const rect = wrapRef.current?.getBoundingClientRect()
