@@ -10,7 +10,7 @@ import { buttonHover, buttonTap } from '@/lib/animations'
 const navItems = [
   { label: 'Início',    href: '/'         },
   { label: 'Sobre',     href: '/sobre'    },
-  { label: 'Serviços',  href: '/servicos' },
+  { label: 'Soluções',  href: '/servicos' },
   { label: 'Projetos',  href: '/projetos' },
   { label: 'Contato',   href: '/contato'  },
 ] as const
@@ -77,15 +77,17 @@ export function Header() {
 
           {/* CTA Button */}
           <motion.div whileHover={buttonHover} whileTap={buttonTap} className="hidden lg:inline-flex">
-            <Link
-              href="/contato"
+            <a
+              href="https://wa.me/5500000000000"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 font-sora text-[15px] text-white font-normal border-2 border-[#F35901] rounded-[16px] px-7 py-[16px] hover:bg-[#F35901]/10 transition-colors"
             >
               Solicitar orçamento
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </Link>
+            </a>
           </motion.div>
 
           {/* Mobile Menu Button */}
@@ -144,13 +146,15 @@ export function Header() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
                 >
-                  <Link
-                    href="/contato"
+                  <a
+                    href="https://wa.me/5500000000000"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setMobileMenuOpen(false)}
                     className="inline-flex items-center gap-2 font-sora text-sm text-white border-2 border-[#F35901] rounded-xl px-5 py-3 hover:bg-[#F35901]/10 transition-colors"
                   >
                     Solicitar orçamento →
-                  </Link>
+                  </a>
                 </motion.div>
               </div>
             </motion.nav>

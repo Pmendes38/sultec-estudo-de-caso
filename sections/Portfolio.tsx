@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
   fadeUp,
@@ -130,7 +131,9 @@ export function Portfolio() {
           viewport={viewportOnce}
         >
           {projects.map((p) => (
-            <ProjectCard key={p.title} project={p} />
+            <Link key={p.title} href="/projetos" className="block">
+              <ProjectCard project={p} />
+            </Link>
           ))}
         </motion.div>
 

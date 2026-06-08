@@ -91,7 +91,7 @@ export function Hero() {
               </motion.svg>
             </motion.a>
             <motion.a
-              href="#servicos"
+              href="/servicos"
               whileHover={buttonHover}
               whileTap={buttonTap}
               className="inline-flex items-center gap-3 font-sora text-white text-[16px] font-normal border-[3px] border-[#F35901] rounded-[10px] px-9 py-[16px] hover:bg-[#F35901]/10 transition-colors"

@@ -8,7 +8,7 @@ import { fadeUp, staggerContainer, viewportOnce } from '@/lib/animations'
 const navLinks = [
   { label: 'Início',    href: '/#inicio'   },
   { label: 'Sobre',     href: '/#sobre'    },
-  { label: 'Serviços',  href: '/#servicos' },
+  { label: 'Soluções',  href: '/#servicos' },
   { label: 'Projetos',  href: '/projetos'  },
   { label: 'Contato',   href: '/#contato'  },
 ]
@@ -91,7 +91,7 @@ export function Footer() {
 
           {/* Col 3: Serviços */}
           <motion.div variants={fadeUp}>
-            <FooterCol title="Serviços">
+            <FooterCol title="Soluções">
               {serviceLinks.map((item) => (
                 <FooterLink key={item} href="#servicos">{item}</FooterLink>
               ))}

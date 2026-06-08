@@ -6,7 +6,7 @@ import { ServicosProcesso } from './_parts/ServicosProcesso'
 import { ServicosCTA } from './_parts/ServicosCTA'
 
 export const metadata: Metadata = {
-  title: 'Serviços — Sultec Soluções Tecnológicas',
+  title: 'Soluções — Sultec Soluções Tecnológicas',
   description:
     'Cabeamento estruturado, data center, certificação Fluke DSX, projetos corporativos, manutenção preventiva e suporte 24h. Tudo sob uma única responsabilidade.',
 }

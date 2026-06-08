@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/animations'
 
@@ -98,7 +99,9 @@ export function ServicosGrid() {
           viewport={viewportOnce}
         >
           {services.map((s) => (
-            <ServiceCard key={s.id} service={s} />
+            <Link key={s.id} href={`/servicos/${s.id}`} className="block h-full">
+              <ServiceCard service={s} />
+            </Link>
           ))}
         </motion.div>
       </div>

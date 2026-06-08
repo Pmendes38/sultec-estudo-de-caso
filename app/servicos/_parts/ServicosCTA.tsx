@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, buttonHover, buttonTap, viewportOnce } from '@/lib/animations'
 
@@ -52,15 +51,17 @@ export function ServicosCTA() {
 
           <motion.div variants={fadeUp} className="relative mt-9 inline-block">
             <motion.div whileHover={buttonHover} whileTap={buttonTap}>
-              <Link
-                href="/contato"
+              <a
+                href="https://wa.me/5500000000000"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 font-sora text-white text-[15px] bg-[#F35901] hover:bg-orange-600 rounded-[14px] px-8 py-[16px] transition-colors"
               >
                 Solicitar orçamento
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </Link>
+              </a>
             </motion.div>
           </motion.div>
         </motion.div>

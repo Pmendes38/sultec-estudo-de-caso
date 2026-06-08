@@ -1,42 +1,49 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/animations'
 
 const services = [
   {
     id: 1,
+    slug: 'solucoes-tecnologicas',
     title: 'Soluções Tecnológicas',
     desc: 'Tecnologia de ponta aplicada para impulsionar resultados.',
     img: '/sultec/cards/solucoes-tecnologicas.jpg',
   },
   {
     id: 2,
+    slug: 'servicos-tecnicos',
     title: 'Serviços Técnicos',
     desc: 'Execução técnica com qualidade, segurança e conformidade.',
     img: '/sultec/cards/servicos-tecnicos.jpg',
   },
   {
     id: 3,
+    slug: 'projetos-corporativos',
     title: 'Projetos Corporativos',
     desc: 'Projetos personalizados para empresas de todos os portes.',
     img: '/sultec/cards/projetos-corporativos.jpg',
   },
   {
     id: 4,
+    slug: 'infraestrutura',
     title: 'Infraestrutura',
     desc: 'Soluções robustas em rede, cabeamento e instalações.',
     img: '/sultec/cards/infraestrutura.jpg',
   },
   {
     id: 5,
+    slug: 'manutencao',
     title: 'Manutenção',
     desc: 'Planos de manutenção preventiva e corretiva especializados.',
     img: '/sultec/cards/manutencao.jpg',
   },
   {
     id: 6,
+    slug: 'suporte',
     title: 'Suporte Especializado',
     desc: 'Atendimento ágil com equipe técnica altamente qualificada.',
     img: '/sultec/cards/suporte-especializado.jpg',
@@ -104,7 +111,7 @@ export function Services() {
           viewport={viewportOnce}
         >
           <motion.p variants={fadeUp} className="font-sora text-[#F35901] text-[15px] tracking-[-0.04em] uppercase">
-            Nossos Serviços
+            Nossas Soluções
           </motion.p>
           <motion.h2
             variants={fadeUp}
@@ -130,7 +137,9 @@ export function Services() {
           viewport={viewportOnce}
         >
           {services.map((s) => (
-            <ServiceCard key={s.id} service={s} />
+            <Link key={s.id} href={`/servicos/${s.slug}`} className="block">
+              <ServiceCard service={s} />
+            </Link>
           ))}
         </motion.div>
 

@@ -164,15 +164,17 @@ export default function CaseDetailPage({ params }: { params: { slug: string } })
             </svg>
             Voltar para projetos
           </Link>
-          <Link
-            href="/contato"
+          <a
+            href="https://wa.me/5500000000000"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 font-sora text-white text-[15px] bg-[#F35901] rounded-[14px] px-8 py-[16px] hover:bg-[#d94e00] transition-colors"
           >
             Solicitar orçamento
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </Link>
+          </a>
         </div>
       </section>
     </div>

@@ -262,7 +262,9 @@ export function FlukeCertification() {
                 className="flex flex-wrap items-center gap-3"
               >
                 <motion.a
-                  href="#contato"
+                  href="https://wa.me/5500000000000"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={buttonHover}
                   whileTap={buttonTap}
                   className="inline-flex items-center gap-3 bg-[#F35901] rounded-[14px] px-7 py-[14px] font-sora text-white text-[15px] hover:bg-[#d14d01] transition-colors"
@@ -286,7 +288,7 @@ export function FlukeCertification() {
                 </motion.a>
 
                 <motion.a
-                  href="#sobre-certificacao"
+                  href="/certificacao"
                   whileHover={buttonHover}
                   whileTap={buttonTap}
                   className="inline-flex items-center gap-3 border-[3px] border-[#F35901] rounded-[14px] px-7 py-[12px] font-sora text-white text-[15px] hover:bg-[#F35901]/10 transition-colors"

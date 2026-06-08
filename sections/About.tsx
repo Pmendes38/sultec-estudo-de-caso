@@ -112,7 +112,7 @@ export function About() {
                 </motion.p>
 
                 <motion.a
-                  href="#sobre"
+                  href="/sobre"
                   variants={fadeUp}
                   whileHover={buttonHover}
                   whileTap={buttonTap}
