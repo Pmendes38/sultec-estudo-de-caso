@@ -123,9 +123,9 @@ export function Footer() {
           <motion.div variants={fadeUp}>
             <FooterCol title="Endereço">
               <p className="font-sora text-[#898A89] text-[14px] leading-[1.4]">
-                R. Tomé de Sousa, 113<br />Bela Vista, Chapecó – SC
+                Avenida Antônio Sachett, N° 151 D<br />Desbravador, Chapecó – SC
               </p>
-              <p className="font-sora text-[#898A89] text-[14px]">CEP 89804-070</p>
+              <p className="font-sora text-[#898A89] text-[14px]">CEP 89811-396</p>
             </FooterCol>
           </motion.div>
         </motion.div>

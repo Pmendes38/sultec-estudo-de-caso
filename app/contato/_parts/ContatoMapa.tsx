@@ -46,7 +46,7 @@ export function ContatoMapa() {
               </svg>
             </span>
             <p className="font-sora text-white text-[15px] tracking-[-0.02em]">
-              R. Tomé de Sousa, 113 — Bela Vista, Chapecó/SC
+              Avenida Antônio Sachett, N° 151 D — Desbravador, Chapecó/SC
             </p>
             <p className="font-sora text-muted text-[12px] uppercase tracking-[0.1em]">
               Mapa em breve

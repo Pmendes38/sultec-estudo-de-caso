@@ -56,7 +56,7 @@ export function ContatoInfo() {
         <Divider />
         <InfoRow
           title="Endereço"
-          value="R. Tomé de Sousa, 113 — Bela Vista, Chapecó/SC, CEP 89804-070"
+          value="Avenida Antônio Sachett, N° 151 D — Desbravador, Chapecó/SC, CEP 89811-396"
           icon={
             <svg viewBox="0 0 24 24" {...ICON}>
               <path d="M12 22s7-7.58 7-13a7 7 0 1 0-14 0c0 5.42 7 13 7 13z" />
