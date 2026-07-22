@@ -141,14 +141,25 @@ export function Footer() {
           <p className="font-sora text-[#898A89] text-[13px]">
             © 2026 Sultec Soluções Tecnológicas. Todos os direitos reservados.
           </p>
-          <div className="flex gap-6 items-center">
-            <a href="#" className="font-sora text-[#898A89] text-[13px] hover:text-white transition-colors">
+          <div className="flex gap-6 items-center flex-wrap">
+            <a
+              href="/politica-de-privacidade"
+              className="font-sora text-[#898A89] text-[13px] hover:text-white transition-colors"
+            >
               Política de Privacidade
             </a>
             <span className="text-[#898A89]">|</span>
-            <a href="#" className="font-sora text-[#898A89] text-[13px] hover:text-white transition-colors">
-              Termos de Uso
-            </a>
+            <button
+              type="button"
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.dispatchEvent(new Event('sultec:open-cookie-preferences'))
+                }
+              }}
+              className="font-sora text-[#898A89] text-[13px] hover:text-white transition-colors"
+            >
+              Cookies
+            </button>
           </div>
         </motion.div>
       </div>
