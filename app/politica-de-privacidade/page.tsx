@@ -7,8 +7,28 @@ export const metadata: Metadata = {
     'Informações sobre coleta, uso e proteção de dados pessoais no site e nas campanhas da Sultec Soluções Tecnológicas.',
 }
 
-const POLICY_VERSION = 'v1_2026-07'
+const POLICY_VERSION = 'v1_2026-07-22'
 const POLICY_DATE = '22 de julho de 2026'
+
+const COMPANY = {
+  razaoSocial: 'Sultec Solucoes Tecnologicas LTDA',
+  nomeFantasia: 'Sultec Solucoes Tecnologicas',
+  cnpjFormatado: '57.904.423/0001-53',
+  cnpjNumeros: '57904423000153',
+  dataAbertura: '30/10/2024',
+  porte: 'Micro Empresa',
+  naturezaJuridica: 'Sociedade Empresária Limitada',
+  opcaoMei: 'Não',
+  opcaoSimples: 'Sim',
+  dataOpcaoSimples: '30/10/2024',
+  capitalSocial: 'R$ 400.000,00',
+  tipo: 'Matriz',
+  situacao: 'Ativa',
+  dataSituacaoCadastral: '30/10/2024',
+  endereco:
+    'Avenida Antônio Sachett, N° 151 D — Desbravador, Chapecó/SC, CEP 89811-396',
+  email: 'contato@example.com',
+} as const
 
 export default function PoliticaPrivacidadePage() {
   return (
@@ -24,7 +44,7 @@ export default function PoliticaPrivacidadePage() {
           </div>
 
           <p className="font-sora text-[12px] uppercase tracking-[0.12em] text-[#F35901] mb-4">
-            Sultec Soluções Tecnológicas
+            {COMPANY.nomeFantasia}
           </p>
           <h1 className="font-roboto font-bold text-white text-[32px] lg:text-[40px] tracking-[-0.04em] leading-[1.15]">
             Política de Privacidade
@@ -36,29 +56,44 @@ export default function PoliticaPrivacidadePage() {
           <div className="mt-10 space-y-8 font-sora text-[#ABADAB] text-[15px] leading-[1.7]">
             <Section title="1. Quem somos">
               <p>
-                Esta política descreve como a <strong className="text-white">Sultec</strong> (nome
-                comercial: Sultec Soluções Tecnológicas) trata dados pessoais no site institucional
-                e em campanhas de materiais técnicos, como o Checklist de Homologação de Fornecedores.
+                Esta política descreve como a{' '}
+                <strong className="text-white">{COMPANY.razaoSocial}</strong> (CNPJ{' '}
+                {COMPANY.cnpjFormatado}), nome fantasia{' '}
+                <strong className="text-white">{COMPANY.nomeFantasia}</strong>, trata dados pessoais
+                no site institucional e em campanhas de materiais técnicos, como o Checklist de
+                Homologação de Fornecedores.
               </p>
-              <p className="mt-3">
-                Contato comercial já publicado no site:{' '}
+
+              <dl className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-[14px]">
+                <InfoItem label="Razão social" value={COMPANY.razaoSocial} />
+                <InfoItem label="Nome fantasia" value={COMPANY.nomeFantasia} />
+                <InfoItem label="CNPJ" value={`${COMPANY.cnpjFormatado} (${COMPANY.cnpjNumeros})`} />
+                <InfoItem label="Data de abertura" value={COMPANY.dataAbertura} />
+                <InfoItem label="Porte" value={COMPANY.porte} />
+                <InfoItem label="Natureza jurídica" value={COMPANY.naturezaJuridica} />
+                <InfoItem label="Opção pelo MEI" value={COMPANY.opcaoMei} />
+                <InfoItem label="Opção pelo Simples" value={`${COMPANY.opcaoSimples} (desde ${COMPANY.dataOpcaoSimples})`} />
+                <InfoItem label="Capital social" value={COMPANY.capitalSocial} />
+                <InfoItem label="Tipo" value={COMPANY.tipo} />
+                <InfoItem label="Situação cadastral" value={`${COMPANY.situacao} (desde ${COMPANY.dataSituacaoCadastral})`} />
+              </dl>
+
+              <p className="mt-5">
+                Contato:{' '}
                 <a
-                  href="mailto:contato@example.com"
+                  href={`mailto:${COMPANY.email}`}
                   className="text-white underline underline-offset-2 hover:text-[#F35901]"
                 >
-                  contato@example.com
+                  {COMPANY.email}
                 </a>
                 .
               </p>
-              <p className="mt-3">
-                Endereço operacional publicado no site: Avenida Antônio Sachett, N° 151 D —
-                Desbravador, Chapecó/SC, CEP 89811-396.
-              </p>
-              {/* TODO_DADO_JURIDICO: razão social completa, CNPJ e eventual encarregado (DPO) não constam no repositório. */}
+              <p className="mt-3">Endereço: {COMPANY.endereco}.</p>
+              {/* TODO_DADO_JURIDICO: identificação formal do encarregado de dados (DPO), se houver. */}
               <p className="mt-3 text-[#898A89] text-[13px] border border-[#1c1d1e] rounded-xl px-4 py-3">
-                Pendência jurídica: razão social completa, CNPJ e identificação do encarregado de
-                dados (quando houver) devem ser inseridos pela Sultec antes de considerar esta
-                política definitiva para produção.
+                Solicitações relacionadas à LGPD podem ser enviadas ao e-mail acima. Caso a Sultec
+                designe formalmente um encarregado de dados (DPO), essa identificação será
+                acrescentada nesta política.
               </p>
             </Section>
 
@@ -163,13 +198,13 @@ export default function PoliticaPrivacidadePage() {
               <p className="mt-3">
                 Canal para solicitações:{' '}
                 <a
-                  href="mailto:contato@example.com"
+                  href={`mailto:${COMPANY.email}`}
                   className="text-white underline underline-offset-2 hover:text-[#F35901]"
                 >
-                  contato@example.com
-                </a>
-                {' '}
-                (assunto sugerido: “LGPD — solicitação de titular”).
+                  {COMPANY.email}
+                </a>{' '}
+                (assunto sugerido: “LGPD — solicitação de titular”), em nome de {COMPANY.razaoSocial},
+                CNPJ {COMPANY.cnpjFormatado}.
               </p>
             </Section>
 
@@ -194,5 +229,14 @@ function Section({ title, children }: { title: string; children: React.ReactNode
       </h2>
       {children}
     </section>
+  )
+}
+
+function InfoItem({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <dt className="font-sora text-[#666867] text-[12px] uppercase tracking-[0.04em]">{label}</dt>
+      <dd className="font-sora text-white text-[14px] mt-0.5">{value}</dd>
+    </div>
   )
 }

@@ -99,5 +99,8 @@ Header `X-Robots-Tag: noindex, nofollow` apenas neste arquivo.
 
 ## Política de Privacidade
 
-Página: `/politica-de-privacidade`  
-Contém marcações `TODO_DADO_JURIDICO` para CNPJ, razão social completa e DPO — bloquear produção jurídica até preenchimento pela Sultec.
+Página: `/politica-de-privacidade`
+
+Dados cadastrais publicados: razão social **Sultec Solucoes Tecnologicas LTDA**, CNPJ **57.904.423/0001-53**.
+
+Pendências opcionais: identificação formal de DPO (se houver) e prazo específico de retenção.
