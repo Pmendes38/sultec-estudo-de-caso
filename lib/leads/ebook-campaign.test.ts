@@ -44,7 +44,7 @@ function baseLead(overrides: Record<string, unknown> = {}) {
     utm_term: 'cabeamento',
     fbclid: 'fb.abc',
     paginaOrigem:
-      'https://sultec.com.br/materiais/checklist-homologacao?utm_source=linkedin&utm_medium=organic_social&utm_campaign=ebook_homologacao_fornecedores&utm_content=arte_01',
+      'https://sultectecnologia.com.br/materiais/checklist-homologacao?utm_source=linkedin&utm_medium=organic_social&utm_campaign=ebook_homologacao_fornecedores&utm_content=arte_01',
     referrer: 'https://www.linkedin.com/',
     eventId: 'evt_test_1',
     submissionId: 'sub_test_1',

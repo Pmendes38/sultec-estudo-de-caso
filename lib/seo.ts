@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
 
-/** Domínio canônico usado nos metadados (Open Graph já apontava para este host). */
-export const SITE_URL = 'https://sultec.com.br'
+/** Domínio canônico indexado (Search Console / SERP). */
+export const SITE_URL = 'https://sultec.example'
 
-export const SITE_NAME = 'Sultec Soluções Tecnológicas'
+/** Nome exibido no Google (acima da URL). */
+export const SITE_NAME = 'Sultec Tecnologia'
 
 export const ORG = {
   legalName: 'Sultec Solucoes Tecnologicas LTDA',
-  tradeName: 'Sultec Solucoes Tecnologicas',
+  tradeName: 'Sultec Tecnologia',
   cnpj: '57.904.423/0001-53',
   email: 'contato@example.com',
   phone: '+5549999650736',
@@ -89,12 +90,13 @@ export function buildPageMetadata({
 /** Mapa editorial SEO — uma keyword principal por URL indexável. */
 export const PAGE_SEO = {
   home: {
-    title: 'Infraestrutura de Redes Corporativas em Chapecó | Sultec',
+    title: 'Infraestrutura de TI e Cabeamento Estruturado | Sultec',
     description:
-      'Empresa de infraestrutura de TI em Chapecó e no Oeste de SC: cabeamento estruturado, certificação Fluke DSX, fibra óptica, CPD e projetos para indústrias e empresas.',
+      'Projetos B2B de cabeamento estruturado, fibra óptica, Data Centers e certificação Fluke para indústrias e empresas em Chapecó e região Sul.',
     path: '/',
     keywords: [
-      'infraestrutura de redes corporativas',
+      'infraestrutura de TI',
+      'cabeamento estruturado',
       'empresa de infraestrutura de TI',
       'cabeamento estruturado Chapecó',
       'infraestrutura tecnológica B2B',

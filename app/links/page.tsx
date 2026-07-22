@@ -124,7 +124,7 @@ export default function LinksPage() {
           Sultec Soluções Tecnológicas
         </h1>
         <p className="font-sora text-[#ABADAB] text-[14px] leading-[1.5] text-center mt-2 mb-9 max-w-[340px]">
-          Tecnologia, estrutura e excelência operacional. Escolha por onde quer falar com a gente.
+          Infraestrutura de TI e cabeamento estruturado. Escolha por onde quer falar com a gente.
         </p>
 
         {/* Links */}

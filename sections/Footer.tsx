@@ -75,7 +75,7 @@ export function Footer() {
             </div>
 
             <p className="font-sora text-[#ABADAB] text-[14px] leading-[1.5] tracking-[-0.02em] max-w-[280px]">
-              Tecnologia, estrutura e excelência operacional para impulsionar resultados e transformar realidades.
+              Infraestrutura de TI e cabeamento estruturado para indústrias e empresas em Chapecó e região Sul.
             </p>
 
             <div className="flex items-center gap-2.5">

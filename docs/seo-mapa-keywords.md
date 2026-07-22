@@ -4,7 +4,7 @@ Documento de referência para keywords principais (uma por URL indexável).
 
 | Página | Keyword principal |
 |---|---|
-| `/` | infraestrutura de redes corporativas |
+| `/` | infraestrutura de TI / cabeamento estruturado |
 | `/servicos` | soluções de conectividade empresarial |
 | `/servicos/cabeamento-estruturado` | cabeamento estruturado para empresas |
 | `/servicos/certificacao` | certificação Fluke DSX |
@@ -23,7 +23,7 @@ Documento de referência para keywords principais (uma por URL indexável).
 
 ## Domínio canônico
 
-Metadados usam `https://sultec.com.br`. E-mails comerciais usam `@sultec.example`. Validar redirects entre hosts na infraestrutura DNS/Vercel.
+Metadados usam `https://sultec.example` (domínio indexado no Google). Nome do site: **Sultec Tecnologia**. Se `sultec.com.br` existir, manter redirect 301 para o canônico.
 
 ## Conteúdo ainda recomendado (não criado nesta etapa)
 
