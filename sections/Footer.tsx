@@ -23,10 +23,25 @@ const serviceLinks = [
 ]
 
 const socialLinks = [
-  { label: 'LinkedIn', href: '#', icon: '/sultec/icons/linkedin.svg' },
-  { label: 'Instagram', href: '#', icon: '/sultec/icons/instagram.svg' },
-  { label: 'YouTube', href: '#', icon: '/sultec/icons/youtube.svg' },
-  { label: 'Email', href: 'mailto:contato@example.com', icon: '/sultec/icons/email.svg' },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/sultec-tecnologia/',
+    icon: '/sultec/icons/linkedin.svg',
+    external: true,
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/sultecsolucoestecnologicas/',
+    icon: '/sultec/icons/instagram.svg',
+    external: true,
+  },
+  { label: 'YouTube', href: '#', icon: '/sultec/icons/youtube.svg', external: false },
+  {
+    label: 'Email',
+    href: 'mailto:contato@example.com',
+    icon: '/sultec/icons/email.svg',
+    external: false,
+  },
 ]
 
 export function Footer() {
@@ -69,6 +84,9 @@ export function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
+                  {...(s.external
+                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                    : {})}
                   whileHover={{ y: -3, scale: 1.08 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}

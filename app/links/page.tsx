@@ -18,6 +18,7 @@ const LINKS = {
   whatsapp: 'https://wa.me/5500000000000',
   site: '/',
   linkedin: 'https://www.linkedin.com/company/sultec-tecnologia/',
+  instagram: 'https://www.instagram.com/sultecsolucoestecnologicas/',
   email: 'mailto:contato@example.com',
 }
 
@@ -58,14 +59,25 @@ const items: LinkItem[] = [
   },
   {
     label: 'LinkedIn',
-    sub: LINKS.linkedin ? 'Siga a Sultec' : 'Em breve',
-    href: LINKS.linkedin || '#',
+    sub: 'Siga a Sultec',
+    href: LINKS.linkedin,
     variant: 'outline',
-    external: !!LINKS.linkedin,
-    disabled: !LINKS.linkedin,
+    external: true,
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
         <path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21H17.6v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Instagram',
+    sub: '@sultecsolucoestecnologicas',
+    href: LINKS.instagram,
+    variant: 'outline',
+    external: true,
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
+        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zm5.25-3.75a1.05 1.05 0 1 1-1.05 1.05 1.05 1.05 0 0 1 1.05-1.05z" />
       </svg>
     ),
   },
