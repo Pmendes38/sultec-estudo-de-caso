@@ -59,8 +59,8 @@ export function Hero() {
               willChange: 'transform, opacity',
             }}
           >
-            <span className="block">Infraestrutura de redes</span>
-            <span className="block text-[#F35901]">corporativas em Chapecó.</span>
+            <span className="block">Tecnologia, estrutura e</span>
+            <span className="block text-[#F35901]">excelência operacional.</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -74,8 +74,8 @@ export function Hero() {
               willChange: 'transform, opacity',
             }}
           >
-            Cabeamento estruturado, certificação Fluke DSX, fibra óptica e projetos de TI para
-            indústrias e empresas no Oeste de Santa Catarina.
+            Soluções tecnológicas e serviços especializados para empresas que exigem qualidade,
+            segurança e alto desempenho.
           </motion.p>
 
           {/* Buttons */}
