@@ -1,11 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { buildPageMetadata, PAGE_SEO } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Política de Privacidade — Sultec',
-  description:
-    'Informações sobre coleta, uso e proteção de dados pessoais no site e nas campanhas da Sultec Soluções Tecnológicas.',
-}
+export const metadata: Metadata = buildPageMetadata(PAGE_SEO.politica)
 
 const POLICY_VERSION = 'v1_2026-07-22'
 const POLICY_DATE = '22 de julho de 2026'

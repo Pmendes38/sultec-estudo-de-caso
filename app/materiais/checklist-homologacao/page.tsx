@@ -1,21 +1,9 @@
 import type { Metadata } from 'next'
 import { CaptureForm } from './_parts/CaptureForm'
 import { CaptureTracking } from './_parts/CaptureTracking'
+import { buildPageMetadata, PAGE_SEO } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Checklist de Homologação de Fornecedores — Sultec',
-  description:
-    'Avalie escopo, capacidade técnica, certificação, documentação, prazo e suporte antes de contratar. Material gratuito da Sultec.',
-  openGraph: {
-    title: 'Checklist de Homologação Técnica de Fornecedores de Cabeamento Estruturado',
-    description:
-      'Avalie escopo, capacidade técnica, certificação, documentação, prazo e suporte antes de contratar.',
-    url: 'https://sultec.com.br/materiais/checklist-homologacao',
-    siteName: 'Sultec',
-    locale: 'pt_BR',
-    type: 'website',
-  },
-}
+export const metadata: Metadata = buildPageMetadata(PAGE_SEO.checklist)
 
 const HIGHLIGHTS = [
   'Oito critérios para avaliar fornecedores.',

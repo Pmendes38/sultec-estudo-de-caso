@@ -6,12 +6,9 @@ import { SobreDiferenciais } from './_parts/SobreDiferenciais'
 import { SobreMarcas } from './_parts/SobreMarcas'
 import { SobreLideranca } from './_parts/SobreLideranca'
 import { SobreCTA } from './_parts/SobreCTA'
+import { buildPageMetadata, PAGE_SEO } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Sobre — Sultec Soluções Tecnológicas',
-  description:
-    'Quem é a Sultec: empresa de Chapecó/SC especializada em cabeamento estruturado e infraestrutura de redes B2B, com precisão técnica, prazos cumpridos e entrega completa.',
-}
+export const metadata: Metadata = buildPageMetadata(PAGE_SEO.sobre)
 
 export default function SobrePage() {
   return (

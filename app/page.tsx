@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import {
   Hero,
   About,
@@ -8,10 +9,13 @@ import {
   Clients,
   Atuacao,
 } from '@/sections'
+import { buildPageMetadata, PAGE_SEO } from '@/lib/seo'
+
+export const metadata: Metadata = buildPageMetadata(PAGE_SEO.home)
 
 export default function Home() {
   return (
-    <main className="bg-[#070808] text-white overflow-x-hidden">
+    <div className="bg-[#070808] text-white overflow-x-hidden">
       <Hero />
       <About />
       <Services />
@@ -20,6 +24,6 @@ export default function Home() {
       <Clients />
       <Atuacao />
       <CTA />
-    </main>
+    </div>
   )
 }

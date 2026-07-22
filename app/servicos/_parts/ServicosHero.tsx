@@ -35,17 +35,16 @@ export function ServicosHero() {
               letterSpacing: '-0.02em',
             }}
           >
-            <span className="block">Uma única empresa.</span>
-            <span className="block text-[#F35901]">Toda a infraestrutura.</span>
+            <span className="block">Soluções de conectividade</span>
+            <span className="block text-[#F35901]">empresarial.</span>
           </motion.h1>
 
           <motion.p
             variants={heroItem}
             className="font-sora text-muted text-[16px] lg:text-[18px] leading-[1.6] max-w-[680px]"
           >
-            Projeto, material e execução sob uma única responsabilidade — do levantamento
-            técnico à entrega certificada com laudo Fluke DSX. Sem terceirizar a obra,
-            sem repassar o problema.
+            Projeto, execução e certificação de infraestrutura de redes sob uma única
+            responsabilidade — do levantamento técnico ao laudo Fluke DSX.
           </motion.p>
         </motion.div>
       </div>

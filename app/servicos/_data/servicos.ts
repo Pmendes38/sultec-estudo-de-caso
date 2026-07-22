@@ -1,9 +1,5 @@
-// ─────────────────────────────────────────────────────────────────────────────
 // Conteúdo das páginas individuais de soluções/serviços.
-// Cobre os 12 cards do site (home + /servicos), deduplicando os equivalentes
-// (Projetos Corporativos, Manutenção e Suporte aparecem nos dois lugares e
-// apontam para a mesma página). Resultado: 9 páginas únicas.
-// ─────────────────────────────────────────────────────────────────────────────
+// 9 páginas únicas (home + /servicos compartilham alguns slugs).
 
 export type Servico = {
   slug: string
@@ -12,16 +8,21 @@ export type Servico = {
   summary: string
   intro: string
   inclui: string[]
+  /** Bloco adicional para SEO on-page (opcional). */
+  detalhe?: string
 }
 
 export const servicos: Servico[] = [
   {
     slug: 'solucoes-tecnologicas',
     title: 'Soluções Tecnológicas',
-    eyebrow: 'Solução',
-    summary: 'Tecnologia de ponta aplicada para impulsionar os resultados do seu negócio.',
+    eyebrow: 'Conectividade',
+    summary:
+      'Integração de infraestrutura de TI: redes, Wi-Fi corporativo e sistemas em um projeto coerente com a operação.',
     intro:
-      'Reunimos as melhores tecnologias de conectividade, redes e segurança eletrônica em soluções sob medida para a sua operação. Da escolha dos equipamentos à integração final, entregamos um ecossistema que conversa entre si e cresce junto com a empresa.',
+      'A integração de infraestrutura de TI reúne roteamento, switching, Wi-Fi corporativo e segurança eletrônica em um projeto alinhado à operação. O foco é modernização e expansão de rede empresarial com equipamentos dimensionados e integração entre sistemas.',
+    detalhe:
+      'Indicada para empresas que precisam unificar conectividade, telefonia e segurança sem perder rastreabilidade técnica. Cada entrega inclui dimensionamento, implantação e documentação.',
     inclui: [
       'Roteamento, switching e Wi-Fi corporativo de alto desempenho',
       'Integração de redes, telefonia e segurança eletrônica',
@@ -33,10 +34,13 @@ export const servicos: Servico[] = [
   {
     slug: 'servicos-tecnicos',
     title: 'Serviços Técnicos',
-    eyebrow: 'Solução',
-    summary: 'Execução técnica em campo com qualidade, segurança e conformidade.',
+    eyebrow: 'Execução',
+    summary:
+      'Instalação de cabeamento estruturado, lançamento e fusão de fibra óptica com identificação e testes em campo.',
     intro:
-      'Equipe própria e qualificada para executar em campo o que foi projetado — com padrão de acabamento, segurança e conformidade às normas. Cada serviço é entregue testado, identificado e documentado.',
+      'Equipe própria para executar em campo o projeto de rede: instalação de cabeamento estruturado, racks, pontos de rede, lançamento e fusão de fibra óptica. Cada trecho é identificado, testado e entregue com documentação as built.',
+    detalhe:
+      'A execução segue o padrão de identificação de pontos de rede e conformidade com normas ABNT e TIA, reduzindo retrabalho e facilitando manutenção futura.',
     inclui: [
       'Instalação de cabeamento, racks e pontos de rede',
       'Lançamento e fusão de fibra óptica',
@@ -48,10 +52,13 @@ export const servicos: Servico[] = [
   {
     slug: 'projetos-corporativos',
     title: 'Projetos Corporativos',
-    eyebrow: 'Solução',
-    summary: 'Projetos de infraestrutura sob medida para empresas de todos os portes.',
+    eyebrow: 'Projeto',
+    summary:
+      'Projeto de rede corporativa com levantamento técnico, escopo fechado e acompanhamento da execução.',
     intro:
-      'Planejamento de infraestrutura para indústrias, bancos, cooperativas e operações que não podem parar. Levantamos o cenário, dimensionamos a solução e entregamos um projeto executável — com escopo, prazo e materiais fechados.',
+      'Planejamos infraestrutura de rede para indústrias, bancos, cooperativas e operações contínuas. O projeto de cabeamento estruturado e de infraestrutura de TI sai com escopo, prazo e materiais definidos — sem aditivos surpresa.',
+    detalhe:
+      'Do levantamento no local ao cronograma de implantação, a Sultec estrutura um projeto executável para implantação de infraestrutura de rede em ambientes B2B.',
     inclui: [
       'Levantamento técnico e visita ao local',
       'Projeto executivo de redes, elétrica e infraestrutura',
@@ -63,10 +70,13 @@ export const servicos: Servico[] = [
   {
     slug: 'infraestrutura',
     title: 'Infraestrutura',
-    eyebrow: 'Solução',
-    summary: 'Soluções robustas em rede, cabeamento e instalações.',
+    eyebrow: 'Base física',
+    summary:
+      'Infraestrutura de TI para empresas: cabeamento, fibra óptica, racks, elétrica e CFTV corporativo.',
     intro:
-      'Toda a base física que sustenta a operação: cabeamento estruturado, fibra óptica, eletrocalhas, racks e energia. Infraestrutura dimensionada para o presente e preparada para a expansão.',
+      'Base física da operação: cabeamento estruturado, backbone de fibra óptica, eletrocalhas, racks, energia e pontos de CFTV. Infraestrutura elétrica e conectividade dimensionadas para o presente e preparadas para expansão.',
+    detalhe:
+      'Atende indústrias e empresas que precisam unificar infraestrutura elétrica estabilizada, conectividade e segurança eletrônica em um único projeto de campo.',
     inclui: [
       'Cabeamento estruturado e fibra óptica',
       'Eletrocalhas, leitos e encaminhamento',
@@ -78,10 +88,11 @@ export const servicos: Servico[] = [
   {
     slug: 'manutencao',
     title: 'Manutenção',
-    eyebrow: 'Solução',
-    summary: 'Planos de manutenção preventiva e corretiva especializados.',
+    eyebrow: 'Continuidade',
+    summary:
+      'Manutenção preventiva e corretiva de infraestrutura de rede, com diagnóstico e histórico documentado.',
     intro:
-      'Contratos de manutenção para manter a infraestrutura instalada sempre disponível. Inspeções periódicas, ajustes finos e correção ágil de falhas, com histórico documentado de cada atendimento.',
+      'Planos de manutenção para manter cabeamento, racks e ativos disponíveis. Inclui inspeções periódicas, diagnóstico de cabeamento estruturado e correção de falhas com histórico de cada atendimento.',
     inclui: [
       'Manutenção preventiva programada',
       'Manutenção corretiva com prioridade',
@@ -93,10 +104,11 @@ export const servicos: Servico[] = [
   {
     slug: 'suporte',
     title: 'Suporte Especializado',
-    eyebrow: 'Solução',
-    summary: 'Atendimento técnico ágil, com equipe qualificada e SLA definido.',
+    eyebrow: 'Atendimento',
+    summary:
+      'Suporte técnico para infraestrutura de TI com SLA definido e atendimento em campo.',
     intro:
-      'Suporte técnico com SLA acordado e plantão para operações de missão crítica. Zero chamado sem resposta — cada solicitação é atendida e acompanhada até a solução.',
+      'Suporte técnico com SLA acordado para redes corporativas e infraestrutura de TI. Diagnóstico remoto, atendimento em campo e acompanhamento do chamado até a solução — inclusive para operações de missão crítica.',
     inclui: [
       'Atendimento com SLA definido em contrato',
       'Plantão para operações de missão crítica',
@@ -108,10 +120,13 @@ export const servicos: Servico[] = [
   {
     slug: 'cabeamento-estruturado',
     title: 'Cabeamento Estruturado',
-    eyebrow: 'Solução',
-    summary: 'Projeto e execução de redes lógicas e elétricas com certificação Fluke DSX.',
+    eyebrow: 'Rede lógica',
+    summary:
+      'Projeto e instalação de cabeamento estruturado Cat6/Cat6A com certificação Fluke DSX para empresas.',
     intro:
-      'Cabeamento estruturado para ambientes corporativos, industriais e de missão crítica — projetado, executado, identificado e certificado ponto a ponto com o Fluke DSX, um dos certificadores mais avançados do mercado.',
+      'Cabeamento estruturado para empresas, indústrias e ambientes de missão crítica: projetado, executado, identificado e certificado ponto a ponto com Fluke DSX. Adequado a Cat6 e Cat6A, com conformidade ANSI/TIA-568 e ABNT NBR 14565.',
+    detalhe:
+      'Em Chapecó e no Oeste de Santa Catarina, a Sultec entrega implantação de cabeamento estruturado com laudo por ponto, organização de racks e documentação pronta para auditoria.',
     inclui: [
       'Projeto e execução de redes lógicas e elétricas',
       'Cabeamento metálico (Cat 6 / 6A) e fibra óptica',
@@ -123,10 +138,13 @@ export const servicos: Servico[] = [
   {
     slug: 'data-center',
     title: 'Data Center',
-    eyebrow: 'Solução',
-    summary: 'Montagem, organização e documentação de salas técnicas e CPDs.',
+    eyebrow: 'Ambiente crítico',
+    summary:
+      'Montagem de CPD e data center com racks, energia, organização e documentação técnica.',
     intro:
-      'Estruturação de salas técnicas e CPDs — racks, climatização, energia, organização e identificação completas. Ambientes críticos montados com padrão e totalmente documentados.',
+      'Estruturação de salas técnicas, CPD e data center: instalação de racks de rede, organização, distribuição de energia, cabeamento e mapeamento. Ambientes críticos montados com padrão e documentação completa.',
+    detalhe:
+      'Do rack ao laudo Fluke da estrutura, o objetivo é uma sala técnica de TI organizada, rastreável e preparada para expansão.',
     inclui: [
       'Montagem e organização de racks e CPD',
       'Distribuição de energia e climatização',
@@ -138,10 +156,13 @@ export const servicos: Servico[] = [
   {
     slug: 'certificacao',
     title: 'Certificação de Rede',
-    eyebrow: 'Solução',
-    summary: 'Laudos técnicos auditáveis com Fluke DSX, documentados ponto a ponto.',
+    eyebrow: 'Laudo técnico',
+    summary:
+      'Certificação Fluke DSX de cabeamento e rede com laudos digitais auditáveis ponto a ponto.',
     intro:
-      'Testamos e certificamos cada ponto da sua rede com o Fluke DSX, gerando laudos digitais auditáveis e rastreáveis. A garantia de que a infraestrutura entregue atende às normas e ao padrão exigido por grandes operações.',
+      'Certificamos cada ponto com Fluke DSX (incluindo cenários DSX-8000), gerando relatório e laudo de certificação de rede rastreáveis. Cobre teste de link permanente e canal, com conformidade ANSI/TIA-568 e NBR 14565.',
+    detalhe:
+      'Indicado para obras novas, modernização de rede corporativa e validação de infraestrutura existente antes de expansões críticas.',
     inclui: [
       'Certificação ponto a ponto com Fluke DSX',
       'Laudos digitais auditáveis e rastreáveis',

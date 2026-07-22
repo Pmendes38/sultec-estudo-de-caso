@@ -31,7 +31,7 @@ export function Hero() {
       <motion.div className="absolute inset-0" style={{ y: bgY, willChange: 'transform' }}>
         <Image
           src="/sultec/bg-home2.jpg"
-          alt=""
+          alt="Ambiente de infraestrutura de redes corporativas — Sultec em Chapecó"
           fill
           priority
           quality={92}
@@ -59,8 +59,8 @@ export function Hero() {
               willChange: 'transform, opacity',
             }}
           >
-            <span className="block">Tecnologia, estrutura e</span>
-            <span className="block text-[#F35901]">excelência operacional.</span>
+            <span className="block">Infraestrutura de redes</span>
+            <span className="block text-[#F35901]">corporativas em Chapecó.</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -74,7 +74,8 @@ export function Hero() {
               willChange: 'transform, opacity',
             }}
           >
-            Soluções tecnológicas e serviços especializados para empresas que exigem qualidade, segurança e alto desempenho.
+            Cabeamento estruturado, certificação Fluke DSX, fibra óptica e projetos de TI para
+            indústrias e empresas no Oeste de Santa Catarina.
           </motion.p>
 
           {/* Buttons */}

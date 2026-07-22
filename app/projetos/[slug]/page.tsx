@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import { JsonLd } from '@/components/JsonLd'
+import { breadcrumbJsonLd, buildPageMetadata } from '@/lib/seo'
 import { cases, getCaseBySlug } from '../_data/cases'
 import { CaseGallery } from './CaseGallery'
 
@@ -11,11 +13,18 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const project = getCaseBySlug(params.slug)
-  if (!project) return { title: 'Projeto — Sultec' }
-  return {
-    title: `${project.title} — Sultec Soluções Tecnológicas`,
-    description: project.summary,
-  }
+  if (!project) return { title: { absolute: 'Projeto | Sultec' } }
+  return buildPageMetadata({
+    title: `${project.title} | Case de Infraestrutura — Sultec`,
+    description: `${project.summary} Local: ${project.location}. Cliente: ${project.client}.`,
+    path: `/projetos/${project.slug}`,
+    keywords: [
+      'projeto de infraestrutura de TI para indústria',
+      'cabeamento estruturado para indústrias',
+      project.category,
+    ],
+    ogImage: project.coverImage || undefined,
+  })
 }
 
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
@@ -33,6 +42,13 @@ export default function CaseDetailPage({ params }: { params: { slug: string } })
 
   return (
     <div className="bg-[#070808] text-white min-h-screen">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Início', path: '/' },
+          { name: 'Projetos', path: '/projetos' },
+          { name: project.title, path: `/projetos/${project.slug}` },
+        ])}
+      />
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="pt-[120px] lg:pt-[140px] pb-10 border-b border-[#F35901]/20 relative overflow-hidden">
         <div
@@ -44,13 +60,16 @@ export default function CaseDetailPage({ params }: { params: { slug: string } })
         />
         <div className="max-w-[1100px] mx-auto px-5 sm:px-8 lg:px-14 relative">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 font-sora text-[13px] text-[#898A89] mb-8 flex-wrap">
+          <nav
+            aria-label="Breadcrumb"
+            className="flex items-center gap-2 font-sora text-[13px] text-[#898A89] mb-8 flex-wrap"
+          >
             <Link href="/" className="hover:text-white transition-colors">Início</Link>
             <span className="text-[#333]">/</span>
             <Link href="/projetos" className="hover:text-white transition-colors">Projetos</Link>
             <span className="text-[#333]">/</span>
             <span className="text-[#F35901]">{project.title}</span>
-          </div>
+          </nav>
 
           <span className="font-sora text-[11px] uppercase tracking-wider bg-[#F35901] text-white px-2.5 py-1 rounded-[6px] leading-none">
             {project.category}

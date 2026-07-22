@@ -1,15 +1,10 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { buildPageMetadata, PAGE_SEO } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Sultec — Links',
-  description: 'Fale com a Sultec Soluções Tecnológicas: WhatsApp, site e redes sociais.',
-  openGraph: {
-    title: 'Sultec — Links',
-    description: 'Fale com a Sultec: WhatsApp, site e redes sociais.',
-    type: 'website',
-    locale: 'pt_BR',
-  },
+  ...buildPageMetadata(PAGE_SEO.links),
+  robots: { index: false, follow: false },
 }
 
 // ─── Configuração dos links ───────────────────────────────────────────────────

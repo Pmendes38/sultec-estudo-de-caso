@@ -1,13 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { JsonLd } from '@/components/JsonLd'
+import { breadcrumbJsonLd, buildPageMetadata, PAGE_SEO } from '@/lib/seo'
 
 const WHATSAPP_URL = 'https://wa.me/5500000000000'
 
-export const metadata: Metadata = {
-  title: 'Certificação — Sultec Soluções Tecnológicas',
-  description:
-    'Certificação Fluke Networks (DSX), parceria Furukawa e soluções FS. Cada ponto entregue pela Sultec é testado e documentado, com laudos auditáveis e conformidade às normas.',
-}
+export const metadata: Metadata = buildPageMetadata(PAGE_SEO.certificacao)
 
 type Certificacao = {
   id: string
@@ -64,6 +62,12 @@ const certificacoes: Certificacao[] = [
 export default function CertificacaoPage() {
   return (
     <div className="bg-[#070808] text-white min-h-screen">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Início', path: '/' },
+          { name: 'Certificação', path: '/certificacao' },
+        ])}
+      />
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="pt-[120px] lg:pt-[150px] pb-12 border-b border-[#F35901]/20 relative overflow-hidden">
         <div
@@ -72,25 +76,35 @@ export default function CertificacaoPage() {
           style={{ background: 'radial-gradient(circle, rgba(243,89,1,0.10) 0%, transparent 60%)' }}
         />
         <div className="max-w-[1000px] mx-auto px-5 sm:px-8 lg:px-14 relative">
-          <div className="flex items-center gap-2 font-sora text-[13px] text-[#898A89] mb-8 flex-wrap">
+          <nav
+            aria-label="Breadcrumb"
+            className="flex items-center gap-2 font-sora text-[13px] text-[#898A89] mb-8 flex-wrap"
+          >
             <Link href="/" className="hover:text-white transition-colors">Início</Link>
             <span className="text-[#333]">/</span>
             <span className="text-[#F35901]">Certificação</span>
-          </div>
+          </nav>
 
           <p className="font-sora text-[#F35901] text-[14px] tracking-[0.05em] uppercase mb-4">
-            Qualidade comprovada
+            Fluke Networks · Furukawa · FS
           </p>
           <h1
             className="font-roboto font-bold text-white"
             style={{ fontSize: 'clamp(2rem, 4.5vw, 56px)', lineHeight: '1.04', letterSpacing: '-0.04em' }}
           >
-            Certificação que grandes operações exigem.
+            Certificação Fluke DSX e padrões de rede
           </h1>
           <p className="font-sora text-[#ABADAB] text-[17px] lg:text-[19px] leading-[1.6] mt-5 max-w-[720px]">
-            O Fluke é o nosso principal diferencial: cada ponto entregue é testado, documentado
-            e auditável. Somado às parcerias Furukawa e FS, garantimos infraestrutura no padrão
-            técnico de quem não pode falhar.
+            Cada ponto entregue é testado e documentado com Fluke DSX-8000, com laudos auditáveis
+            e conformidade às normas ANSI/TIA-568 e NBR 14565. Parcerias Furukawa e FS complementam
+            o padrão óptico da infraestrutura.
+          </p>
+          <p className="mt-6 font-sora text-[14px] text-[#898A89]">
+            Precisa do serviço comercial de certificação?{' '}
+            <Link href="/servicos/certificacao" className="text-[#F35901] hover:underline">
+              Ver certificação Fluke DSX de cabeamento
+            </Link>
+            .
           </p>
         </div>
       </section>

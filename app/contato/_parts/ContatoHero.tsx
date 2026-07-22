@@ -35,16 +35,16 @@ export function ContatoHero() {
               letterSpacing: '-0.02em',
             }}
           >
-            <span className="block">Vamos</span>
-            <span className="block text-[#F35901]">conversar.</span>
+            <span className="block">Orçamento de cabeamento</span>
+            <span className="block text-[#F35901]">e infraestrutura em Chapecó.</span>
           </motion.h1>
 
           <motion.p
             variants={heroItem}
             className="font-sora text-muted text-[16px] lg:text-[18px] leading-[1.6] max-w-[640px]"
           >
-            Conte o cenário, o porte da operação e o prazo. Respondemos com proposta
-            técnica completa — projeto, material e execução.
+            Conte o cenário, o porte da operação e o prazo. Respondemos com proposta técnica —
+            projeto, material e execução para redes corporativas no Oeste de SC.
           </motion.p>
         </motion.div>
       </div>
