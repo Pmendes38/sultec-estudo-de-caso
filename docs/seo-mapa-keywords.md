@@ -18,7 +18,7 @@ Documento de referência para keywords principais (uma por URL indexável).
 | `/servicos/suporte` | suporte técnico para infraestrutura de TI |
 | `/sobre` | empresa de cabeamento estruturado Chapecó |
 | `/contato` | orçamento de cabeamento estruturado |
-| `/projetos` | projetos de infraestrutura de rede |
+| `/cases` | cases de infraestrutura de rede |
 | `/materiais/checklist-homologacao` | checklist para homologar fornecedor de rede |
 
 ## Domínio canônico

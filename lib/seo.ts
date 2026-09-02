@@ -148,11 +148,11 @@ export const PAGE_SEO = {
       'contato infraestrutura de TI',
     ],
   },
-  projetos: {
-    title: 'Projetos e Cases de Infraestrutura de Rede | Sultec',
+  cases: {
+    title: 'Cases de Infraestrutura de Rede | Sultec',
     description:
       'Cases e obras de cabeamento estruturado, certificação e infraestrutura de TI executados pela Sultec para indústrias e operações corporativas.',
-    path: '/projetos',
+    path: '/cases',
     keywords: [
       'projeto de infraestrutura de TI para indústria',
       'cabeamento estruturado para indústrias',

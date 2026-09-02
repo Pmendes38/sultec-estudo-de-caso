@@ -36,7 +36,7 @@ sultec-website/
 │   ├── Hero.tsx                # Hero com background + stats
 │   ├── About.tsx               # Sobre + 4 stats cards
 │   ├── Services.tsx            # Grid 3x2 (6 serviços)
-│   ├── Portfolio.tsx           # 3 projetos + pagination
+│   ├── Portfolio.tsx           # 3 cases + pagination
 │   ├── Differentials.tsx       # 5 diferenciais em linha
 │   ├── Clients.tsx             # 6 logos + depoimento
 │   ├── CTA.tsx                 # Call-to-action final
@@ -81,7 +81,7 @@ Acesse: `http://localhost:3000`
 | **Hero** | Background industrial + "TECNOLOGIA, ESTRUTURA E" + "EXCELÊNCIA OPERACIONAL." (laranja) + 2 CTAs + Stats bar |
 | **About** | Label + Título + 4 stat cards (+12 Anos, +350 Projetos, +180 Clientes, +25 Estados) + Placeholder imagem |
 | **Services** | 6 cards em grid 3x2: Soluções Tech, Serviços Técnicos, Projetos Corp, Infraestrutura, Manutenção, Suporte |
-| **Portfolio** | 3 projetos com imagens + Pagination dots + Botão "Ver todos →" |
+| **Portfolio** | 3 cases com imagens + Pagination dots + Botão "Ver todos →" |
 | **Differentials** | 5 ícones em linha: Qualidade, Tecnologia, Equipe, Agilidade, Excelência |
 | **Clients** | 6 logos (Ambev, Nestlé, Bradesco, GPS, Vale, WEG) + Depoimento |
 | **CTA** | Título "VAMOS CONVERSAR..." + 2 botões (Orçamento, WhatsApp) |
