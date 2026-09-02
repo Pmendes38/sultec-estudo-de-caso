@@ -26,6 +26,20 @@ const nextConfig = {
       },
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: '/projetos',
+        destination: '/cases',
+        permanent: true,
+      },
+      {
+        source: '/projetos/:slug*',
+        destination: '/cases/:slug*',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig
