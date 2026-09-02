@@ -37,7 +37,7 @@ export function CaseGallery({
           >
             <Image
               src={img}
-              alt={`${title} — foto ${i + 1}`}
+              alt={`${title}: foto ${i + 1}`}
               fill
               sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
               className="object-cover group-hover:scale-105 transition-transform duration-500"

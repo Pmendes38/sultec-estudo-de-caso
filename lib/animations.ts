@@ -1,6 +1,6 @@
 import type { Variants, Transition } from 'framer-motion'
 
-// Easings — natural, never mechanical
+// Easings: natural, never mechanical
 export const easeOut = [0.22, 1, 0.36, 1] as const
 export const easeInOut = [0.65, 0, 0.35, 1] as const
 export const easeSmooth = [0.16, 1, 0.3, 1] as const

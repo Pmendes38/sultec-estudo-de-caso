@@ -526,7 +526,7 @@ function Field({
             <span className="sr-only">(obrigatório)</span>
           </>
         ) : hint ? (
-          <span className="text-[#666867]"> — {hint}</span>
+          <span className="text-[#666867]"> · {hint}</span>
         ) : null}
       </label>
       {children}

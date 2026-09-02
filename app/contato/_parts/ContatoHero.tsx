@@ -43,7 +43,7 @@ export function ContatoHero() {
             variants={heroItem}
             className="font-sora text-muted text-[16px] lg:text-[18px] leading-[1.6] max-w-[640px]"
           >
-            Conte o cenário, o porte da operação e o prazo. Respondemos com proposta técnica —
+            Conte o cenário, o porte da operação e o prazo. Respondemos com proposta técnica.
             projeto, material e execução para redes corporativas no Oeste de SC.
           </motion.p>
         </motion.div>

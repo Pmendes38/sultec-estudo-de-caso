@@ -53,7 +53,7 @@ export function SobreHero() {
           >
             Somos uma empresa de cabeamento estruturado e infraestrutura de redes B2B sediada
             em Chapecó/SC. Atendemos indústrias, bancos, cooperativas e operações que não
-            podem parar — com projeto, material e execução em uma única entrega certificada.
+            podem parar. Projeto, material e execução em uma única entrega certificada.
           </motion.p>
         </motion.div>
       </div>

@@ -99,7 +99,7 @@ export function ContatoForm() {
         </motion.button>
         {status === 'sent' && (
           <p role="status" className="font-sora text-[14px] text-[#F35901]">
-            Mensagem registrada — em breve nosso time entra em contato.
+            Mensagem registrada. Em breve nosso time entra em contato.
           </p>
         )}
       </motion.div>

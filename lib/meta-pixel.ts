@@ -1,6 +1,6 @@
 /**
  * Helpers de analytics via dataLayer (GTM).
- * Origem única no navegador — não chama fbq diretamente para evitar duplicidade
+ * Origem única no navegador. Não chama fbq diretamente para evitar duplicidade
  * com tags configuradas no contêiner GTM.
  */
 
@@ -35,7 +35,7 @@ export function trackViewContent(params: {
   })
 }
 
-/** Conversão Lead — somente após e-mail aceito pelo Resend + consentimento de marketing. */
+/** Conversão Lead, somente após e-mail aceito pelo Resend + consentimento de marketing. */
 export function trackLead(params: {
   content_name: string
   content_category: string
@@ -59,7 +59,7 @@ export function trackEbookAccess(params: { content_name: string }) {
   })
 }
 
-/** Download do PDF — uma vez por clique real. */
+/** Download do PDF, uma vez por clique real. */
 export function trackEbookDownload(params: { content_name: string }) {
   if (!canTrackMarketing()) return
   pushDataLayer({

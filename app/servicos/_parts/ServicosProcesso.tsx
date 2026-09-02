@@ -14,7 +14,7 @@ const steps: Step[] = [
   {
     n: '02',
     title: 'Projeto',
-    body: 'Proposta detalhada com escopo, materiais, prazo e investimento — tudo na mesa antes de assinar.',
+    body: 'Proposta detalhada com escopo, materiais, prazo e investimento. Tudo na mesa antes de assinar.',
   },
   {
     n: '03',

@@ -84,7 +84,7 @@ function ServiceCard({ service }: { service: typeof services[0] }) {
           </p>
         </div>
 
-        {/* + Button — micro rotation on group hover */}
+        {/* + Button: micro rotation on group hover */}
         <motion.div
           className="flex-shrink-0 w-[52px] h-[52px] border-[3px] border-[#F35901] rounded-[5px] flex items-center justify-center group-hover:bg-[#F35901]/20 transition-colors"
           whileHover={{ rotate: 90 }}
@@ -102,7 +102,7 @@ export function Services() {
     <section id="servicos" className="bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
       <div className="max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14">
 
-        {/* Header — fade up on scroll */}
+        {/* Header: fade up on scroll */}
         <motion.div
           className="flex flex-col gap-3 mb-12"
           variants={staggerContainer}
@@ -128,7 +128,7 @@ export function Services() {
           </motion.h2>
         </motion.div>
 
-        {/* Grid 3x2 — staggered card reveal */}
+        {/* Grid 3x2: staggered card reveal */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
           variants={staggerContainer}

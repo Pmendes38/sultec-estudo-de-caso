@@ -7,10 +7,10 @@ export const EBOOK_PDF_PATH =
 export const EBOOK_PDF_FILENAME =
   'checklist-homologacao-fornecedores-cabeamento-sultec.pdf'
 export const EBOOK_ACCESS_STORAGE_KEY = 'sultec_ebook_homologacao_access'
-export const EBOOK_ORIGIN_LABEL = 'E-book — Homologação de Fornecedores'
+export const EBOOK_ORIGIN_LABEL = 'E-book: Homologação de Fornecedores'
 export const EBOOK_CAPTURE_PATH = '/materiais/checklist-homologacao'
 
-/** Textos exibidos no formulário — devem corresponder à versão registrada no servidor. */
+/** Textos exibidos no formulário. Devem corresponder à versão registrada no servidor. */
 export const EBOOK_AUTH_TEXT_MATERIAL =
   'Li a Política de Privacidade e autorizo o tratamento dos meus dados para disponibilização do material solicitado.'
 export const EBOOK_AUTH_TEXT_COMMERCIAL =
@@ -47,7 +47,7 @@ export type EbookLeadPayload = {
   telefone?: string
   autorizacaoMaterial: boolean
   autorizacaoComercial: boolean
-  /** Honeypot — deve permanecer vazio */
+  /** Honeypot. Deve permanecer vazio */
   website?: string
   utm_source?: string
   utm_medium?: string

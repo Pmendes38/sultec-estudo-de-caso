@@ -47,14 +47,14 @@ const socialLinks = [
 export function Footer() {
   const pathname = usePathname()
 
-  // Página de links (linktree) é standalone — sem o rodapé do site.
+  // Página de links (linktree) é standalone, sem o rodapé do site.
   if (pathname === '/links') return null
 
   return (
     <footer className="bg-[#070808]">
       <div className="max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 py-14 lg:py-16">
 
-        {/* Main grid — staggered column reveal */}
+        {/* Main grid: staggered column reveal */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[300px_1fr_1fr_1fr_1fr] gap-10 xl:gap-14 mb-12"
           variants={staggerContainer}
@@ -132,7 +132,7 @@ export function Footer() {
                 contato@example.com
               </a>
               <p className="font-sora text-[#898A89] text-[14px] leading-[1.4]">
-                Segunda a Sexta<br />08:00 – 18:00
+                Segunda a Sexta<br />08:00 às 18:00
               </p>
             </FooterCol>
           </motion.div>
@@ -141,14 +141,14 @@ export function Footer() {
           <motion.div variants={fadeUp}>
             <FooterCol title="Endereço">
               <p className="font-sora text-[#898A89] text-[14px] leading-[1.4]">
-                Avenida Antônio Sachett, N° 151 D<br />Desbravador, Chapecó – SC
+                Avenida Antônio Sachett, N° 151 D<br />Desbravador, Chapecó, SC
               </p>
               <p className="font-sora text-[#898A89] text-[14px]">CEP 89811-396</p>
             </FooterCol>
           </motion.div>
         </motion.div>
 
-        {/* Bottom bar — gentle fade */}
+        {/* Bottom bar: gentle fade */}
         <motion.div
           className="border-t border-[#1c1d1e] pt-7 flex flex-col md:flex-row md:items-center justify-between gap-4"
           initial={{ opacity: 0 }}

@@ -33,13 +33,13 @@ const ENCUBATORIO = '/sultec/cases/encubatorio-soledade'
 export const cases: CaseStudy[] = [
   {
     slug: 'vibra-incubatorio-soledade',
-    title: 'Incubatório Vibra — Soledade/RS',
+    title: 'Incubatório Vibra: Soledade/RS',
     client: 'Vibra Agroindustrial S/A',
     category: 'Obra Industrial',
     location: 'Soledade, Rio Grande do Sul',
     year: '2024',
     summary:
-      'Mais de 8.000 m² de construção com cabeamento estruturado, CFTV, Wi-Fi, CPD e RACKs certificados via Fluke — infraestrutura entregue antes do prazo crítico de chegada das máquinas importadas.',
+      'Mais de 8.000 m² de construção com cabeamento estruturado, CFTV, Wi-Fi, CPD e RACKs certificados via Fluke. Infraestrutura entregue antes do prazo crítico de chegada das máquinas importadas.',
     coverImage: `${ENCUBATORIO}/conclusao.jpg`,
     scope: [
       'Mais de 8.000 m² de construção.',
@@ -54,13 +54,13 @@ export const cases: CaseStudy[] = [
       'A Sultec entregou a infraestrutura adiantada em relação ao cronograma, com cabeamento, CPD e RACKs totalmente certificados via Fluke. Quando os técnicos estrangeiros chegaram, encontraram o ambiente pronto e validado, permitindo a instalação imediata das máquinas sem interrupções.',
     result:
       'Entrega dentro do prazo crítico, com certificação de qualidade, em obra de infraestrutura de grande porte. O cliente voltou a contratar a Sultec para um novo projeto em 2026.',
-    // 008.jpg removida (placa de carro parcialmente legível) — galeria usa 001..007.
+    // 008.jpg removida (placa de carro parcialmente legível). Galeria usa 001..007.
     gallery: Array.from({ length: 7 }, (_, i) =>
       `${ENCUBATORIO}/${String(i + 1).padStart(3, '0')}.jpg`
     ),
   },
   // NOTA: os cases "Frigorífico Vibra (Itapejara/PR)" e "CICOOB" foram removidos
-  // por enquanto — sem documentação/fotos disponíveis. Reinserir quando o cliente
+  // por enquanto, sem documentação/fotos disponíveis. Reinserir quando o cliente
   // enviar o material.
 ]
 
@@ -71,7 +71,7 @@ export function getCaseBySlug(slug: string): CaseStudy | undefined {
 // ─────────────────────────────────────────────────────────────────────────────
 // Galeria Técnica
 // Reúne num só lugar as imagens de "cabeamento estruturado" e "infraestrutura
-// de redes" — mostra qualidade de execução (racks, cabeamento e acabamento)
+// de redes". Mostra qualidade de execução (racks, cabeamento e acabamento)
 // sem identificar cliente.
 //
 // Exclusões propositais:
@@ -89,12 +89,12 @@ const INFRA = '/sultec/cases/infraestrutura-redes'
 export const galeriaTecnicaCover = `${INFRA}/003.jpg`
 
 export const galeriaTecnica: string[] = [
-  // Capa — cabos azuis
+  // Capa: cabos azuis
   `${INFRA}/003.jpg`,
   `${INFRA}/002.jpg`,
   `${INFRA}/001.jpg`,
   `${INFRA}/004.jpg`,
-  // Cabeamento estruturado industrial (003 removida — logo de concorrente)
+  // Cabeamento estruturado industrial (003 removida, logo de concorrente)
   ...['001', '002', '004', '005', '006', '007', '008', '009', '010',
     '011', '012', '013', '014', '015', '016', '017', '018', '019', '020',
   ].map((n) => `${CABEAMENTO}/${n}.jpg`),

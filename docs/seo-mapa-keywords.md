@@ -1,4 +1,4 @@
-# SEO — mapa editorial Sultec
+# SEO: mapa editorial Sultec
 
 Documento de referência para keywords principais (uma por URL indexável).
 

@@ -99,7 +99,7 @@ export function Lightbox({ images, title, category, initialIndex, onClose }: Lig
           >
             <Image
               src={images[idx]}
-              alt={`${title} — foto ${idx + 1}`}
+              alt={`${title}: foto ${idx + 1}`}
               fill
               sizes="100vw"
               className="object-contain"

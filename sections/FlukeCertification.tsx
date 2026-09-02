@@ -63,7 +63,7 @@ const certifications: Certification[] = [
     titleLineTwo: 'Conectividade óptica de',
     titleAccent: 'alto desempenho.',
     description:
-      'Trabalhamos com soluções FS para infraestrutura óptica e de conectividade — fibra, transceivers e componentes de rede com alta disponibilidade e excelente relação custo-benefício, dimensionados para projetos de qualquer porte.',
+                'Trabalhamos com soluções FS para infraestrutura óptica e de conectividade: fibra, transceivers e componentes de rede com alta disponibilidade e excelente relação custo-benefício, dimensionados para projetos de qualquer porte.',
     benefits: [
       'Portfólio óptico completo: fibra, transceivers e acessórios de rede',
       'Alta disponibilidade e custo-benefício para projetos de qualquer porte',
@@ -113,7 +113,7 @@ export function FlukeCertification() {
           />
 
           <div className="relative grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-14 items-center p-8 lg:p-14 min-h-[640px]">
-            {/* LEFT — selector + content */}
+            {/* LEFT: selector + content */}
             <motion.div
               className="flex flex-col gap-7 max-w-xl"
               variants={staggerContainer}
@@ -298,7 +298,7 @@ export function FlukeCertification() {
               </motion.div>
             </motion.div>
 
-            {/* RIGHT — floating PASS badge over the device image */}
+            {/* RIGHT: floating PASS badge over the device image */}
             <motion.div
               className="relative hidden lg:block min-h-[520px]"
               variants={slideLeft}

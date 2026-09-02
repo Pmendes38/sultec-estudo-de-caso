@@ -276,7 +276,7 @@ export function buildChecklistLeadEmailText(
 ): string {
   const campaign = CAMPAIGNS[lead.campanha]
   const lines = [
-    `NOVO LEAD — ${campaign.title.toUpperCase()}`,
+    `NOVO LEAD: ${campaign.title.toUpperCase()}`,
     '',
     'DADOS DO CONTATO',
     '',

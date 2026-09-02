@@ -23,7 +23,7 @@ const COMPANY = {
   situacao: 'Ativa',
   dataSituacaoCadastral: '30/10/2024',
   endereco:
-    'Avenida Antônio Sachett, N° 151 D — Desbravador, Chapecó/SC, CEP 89811-396',
+    'Avenida Antônio Sachett, N° 151 D, Desbravador, Chapecó/SC, CEP 89811-396',
   email: 'contato@example.com',
 } as const
 
@@ -158,15 +158,15 @@ export default function PoliticaPrivacidadePage() {
               <p>Classificamos cookies e tecnologias semelhantes em:</p>
               <ul className="list-disc pl-5 space-y-2 mt-3">
                 <li>
-                  <strong className="text-white">Necessários</strong> — funcionamento do site e
+                  <strong className="text-white">Necessários</strong>: funcionamento do site e
                   registro da preferência de consentimento.
                 </li>
                 <li>
-                  <strong className="text-white">Analytics</strong> — medição de uso, somente com
+                  <strong className="text-white">Analytics</strong>: medição de uso, somente com
                   autorização.
                 </li>
                 <li>
-                  <strong className="text-white">Marketing</strong> — campanhas e publicidade,
+                  <strong className="text-white">Marketing</strong>: campanhas e publicidade,
                   somente com autorização.
                 </li>
               </ul>
@@ -200,7 +200,7 @@ export default function PoliticaPrivacidadePage() {
                 >
                   {COMPANY.email}
                 </a>{' '}
-                (assunto sugerido: “LGPD — solicitação de titular”), em nome de {COMPANY.razaoSocial},
+                (assunto sugerido: “LGPD: solicitação de titular”), em nome de {COMPANY.razaoSocial},
                 CNPJ {COMPANY.cnpjFormatado}.
               </p>
             </Section>

@@ -6,7 +6,10 @@ import { fadeUp, staggerContainer, slideLeft, viewportOnce } from '@/lib/animati
 const milestones = [
   { value: 'R$ 1,3 mi', label: 'em obra entregue no primeiro grande projeto' },
   { value: '3 meses', label: 'de execução, dentro do prazo combinado' },
-  { value: '100%', label: 'do crescimento vem por indicação direta' },
+  {
+    headline: 'Confiança que se constrói na execução.',
+    label: 'Projetos bem entregues se transformam em relações duradouras, novas demandas e indicações.',
+  },
 ]
 
 export function SobreHistoria() {
@@ -42,15 +45,13 @@ export function SobreHistoria() {
             <motion.p variants={fadeUp} className="font-sora text-muted text-[16px] leading-[1.65]">
               A Sultec nasceu em Chapecó/SC há pouco mais de um ano e meio com uma proposta
               clara: entregar infraestrutura de redes sem improviso, sem retrabalho e com
-              prazo previsível. O primeiro grande projeto — uma obra industrial de
-              <span className="text-white"> R$ 1,3 milhão</span> — foi concluído em apenas
+              prazo previsível. O primeiro grande projeto, uma obra industrial de
+              <span className="text-white"> R$ 1,3 milhão</span>, foi concluído em apenas
               três meses, dentro do escopo, sem aditivos.
             </motion.p>
             <motion.p variants={fadeUp} className="font-sora text-muted text-[16px] leading-[1.65]">
-              Desde então, todo o crescimento da operação aconteceu por
-              <span className="text-white"> indicação direta</span> de clientes — o sinal
-              mais honesto de que a entrega técnica está alinhada com a expectativa
-              comercial.
+              A confiança dos clientes nasce da consistência da entrega técnica: escopo claro,
+              execução cuidadosa e compromisso com o resultado combinado.
             </motion.p>
           </motion.div>
 
@@ -63,12 +64,18 @@ export function SobreHistoria() {
           >
             {milestones.map((m) => (
               <div
-                key={m.value}
+                key={'value' in m ? m.value : m.headline}
                 className="bg-dark-700 border border-[#1c1d1e] rounded-2xl p-6 lg:p-8"
               >
-                <p className="font-roboto font-bold text-[#F35901] text-[40px] lg:text-[48px] leading-none tracking-[-0.04em]">
-                  {m.value}
-                </p>
+                {'value' in m ? (
+                  <p className="font-roboto font-bold text-[#F35901] text-[40px] lg:text-[48px] leading-none tracking-[-0.04em]">
+                    {m.value}
+                  </p>
+                ) : (
+                  <p className="font-roboto font-bold text-[#F35901] text-[26px] lg:text-[32px] leading-[1.05] tracking-[-0.04em]">
+                    {m.headline}
+                  </p>
+                )}
                 <p className="font-sora text-muted text-[14px] leading-[1.5] mt-3">
                   {m.label}
                 </p>

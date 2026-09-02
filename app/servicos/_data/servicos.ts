@@ -56,7 +56,7 @@ export const servicos: Servico[] = [
     summary:
       'Projeto de rede corporativa com levantamento técnico, escopo fechado e acompanhamento da execução.',
     intro:
-      'Planejamos infraestrutura de rede para indústrias, bancos, cooperativas e operações contínuas. O projeto de cabeamento estruturado e de infraestrutura de TI sai com escopo, prazo e materiais definidos — sem aditivos surpresa.',
+      'Planejamos infraestrutura de rede para indústrias, bancos, cooperativas e operações contínuas. O projeto de cabeamento estruturado e de infraestrutura de TI sai com escopo, prazo e materiais definidos, sem aditivos surpresa.',
     detalhe:
       'Do levantamento no local ao cronograma de implantação, a Sultec estrutura um projeto executável para implantação de infraestrutura de rede em ambientes B2B.',
     inclui: [
@@ -108,7 +108,7 @@ export const servicos: Servico[] = [
     summary:
       'Suporte técnico para infraestrutura de TI com SLA definido e atendimento em campo.',
     intro:
-      'Suporte técnico com SLA acordado para redes corporativas e infraestrutura de TI. Diagnóstico remoto, atendimento em campo e acompanhamento do chamado até a solução — inclusive para operações de missão crítica.',
+      'Suporte técnico com SLA acordado para redes corporativas e infraestrutura de TI. Diagnóstico remoto, atendimento em campo e acompanhamento do chamado até a solução, inclusive para operações de missão crítica.',
     inclui: [
       'Atendimento com SLA definido em contrato',
       'Plantão para operações de missão crítica',

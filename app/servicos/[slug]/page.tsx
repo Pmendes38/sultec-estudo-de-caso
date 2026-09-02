@@ -31,7 +31,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   }
 
   return buildPageMetadata({
-    title: `${servico.title} — Sultec`,
+    title: `${servico.title}: Sultec`,
     description: servico.summary,
     path: `/servicos/${servico.slug}`,
   })

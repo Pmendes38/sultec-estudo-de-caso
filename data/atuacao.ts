@@ -1,7 +1,7 @@
 // Wrapper tipado dos dados de atuação da Sultec.
 // Fonte de verdade: data/atuacao.json (editável à mão).
 // Coordenadas: data/atuacao-coords.json (geradas uma única vez por
-// scripts/geocode-atuacao.mjs — nenhuma chamada de geocoding em runtime).
+// scripts/geocode-atuacao.mjs. Nenhuma chamada de geocoding em runtime.
 import raw from './atuacao.json'
 import coordsRaw from './atuacao-coords.json'
 
@@ -14,9 +14,9 @@ export type Municipio = {
   municipio: string
   uf: UF
   unidades: number
-  /** Uso interno — só exibido se `showClientNames` estiver ativo. */
+  /** Uso interno. Só exibido se `showClientNames` estiver ativo. */
   clientes: ClienteUnidades[]
-  /** Marcado quando a cidade ainda não foi confirmada — não plotar. */
+  /** Marcado quando a cidade ainda não foi confirmada. Não plotar. */
   pendente?: boolean
   obs?: string
 }
@@ -35,11 +35,11 @@ export const municipiosGeo: MunicipioGeo[] = municipios
   .filter((m) => !m.pendente && coords[coordKey(m)])
   .map((m) => ({ ...m, ...coords[coordKey(m)] }))
 
-/** UFs de atuação — destaque sutil no mapa. */
+/** UFs de atuação. Destaque sutil no mapa. */
 export const ufsAtuacao: UF[] = ['SC', 'PR', 'RS']
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Totais de autoridade (prova social) — DERIVADOS da lista (fonte única).
+// Totais de autoridade (prova social). DERIVADOS da lista (fonte única).
 // Conta todos os municípios de atuação, inclusive o pendente (Itapejara), pois
 // é atuação real (só a coordenada está a confirmar). Hoje resulta em:
 //   estados: 3 · municípios: 31 · unidades: 54
@@ -53,6 +53,6 @@ export const totais = {
 }
 
 // Flag de privacidade/compliance.
-// Default FALSE — nomes de clientes NÃO aparecem nos pinos/tooltips.
+// Default FALSE. Nomes de clientes NÃO aparecem nos pinos/tooltips.
 // Ativar somente quando a autorização de uso de marca for confirmada.
 export const showClientNames = false

@@ -77,13 +77,13 @@ export function SobreLideranca() {
             <motion.p variants={fadeUp} className="font-sora text-muted text-[16px] leading-[1.65]">
               Naiguel lidera a operação comercial da Sultec desde o primeiro dia. É quem
               senta com o cliente no levantamento técnico, defende o escopo no contrato e
-              garante que o que foi vendido chegue executado em campo — sem ruído entre
+              garante que o que foi vendido chegue executado em campo, sem ruído entre
               comercial e técnico.
             </motion.p>
             <motion.p variants={fadeUp} className="font-sora text-muted text-[16px] leading-[1.65]">
-              Acompanha pessoalmente as obras de maior complexidade e atende cada
-              indicação como se fosse a primeira. É essa proximidade que sustenta o
-              crescimento 100% orgânico da empresa.
+              Acompanha pessoalmente as obras de maior complexidade e trata cada nova
+              demanda com a mesma proximidade. É assim que a confiança se constrói na
+              execução e se transforma em relações duradouras, novas demandas e indicações.
             </motion.p>
           </motion.div>
         </div>

@@ -87,7 +87,7 @@ export function buildPageMetadata({
   }
 }
 
-/** Mapa editorial SEO — uma keyword principal por URL indexável. */
+/** Mapa editorial SEO: uma keyword principal por URL indexável. */
 export const PAGE_SEO = {
   home: {
     title: 'Infraestrutura de TI e Cabeamento Estruturado | Sultec',
@@ -138,7 +138,7 @@ export const PAGE_SEO = {
     ],
   },
   contato: {
-    title: 'Contato | Orçamento de Cabeamento e Redes — Sultec Chapecó',
+    title: 'Contato | Orçamento de Cabeamento e Redes: Sultec Chapecó',
     description:
       'Fale com a Sultec em Chapecó/SC: WhatsApp, e-mail e visita técnica para projeto de cabeamento estruturado, certificação Fluke e infraestrutura de rede.',
     path: '/contato',

@@ -43,13 +43,13 @@ export function CTA() {
           }}
         />
 
-        {/* Content block — flex row with S/glow on left, text+buttons on right.
+        {/* Content block: flex row with S/glow on left, text+buttons on right.
             The S/glow IS a real flex child (not absolute), so it always sits
-            INLINE with the text — no drift, no positioning math. */}
+            INLINE with the text. No drift, no positioning math. */}
         <div className="relative z-20 pt-4 lg:pt-6">
           <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
 
-            {/* LEFT — S/glow as a real flex child on lg+. Hidden on mobile. */}
+            {/* LEFT: S/glow as a real flex child on lg+. Hidden on mobile. */}
             <motion.div
               aria-hidden
               className="hidden lg:flex lg:w-[44%] flex-shrink-0 relative items-center justify-center pointer-events-none lg:h-[520px] xl:h-[600px] 2xl:h-[680px]"
@@ -60,7 +60,7 @@ export function CTA() {
                 willChange: 'transform',
               }}
             >
-              {/* Pattern lines — centered via flexbox */}
+              {/* Pattern lines: centered via flexbox */}
               <motion.div
                 className="absolute z-[5] lg:w-[640px] lg:h-[540px] xl:w-[740px] xl:h-[620px] 2xl:w-[840px] 2xl:h-[700px]"
                 initial={{ opacity: 0 }}
@@ -77,7 +77,7 @@ export function CTA() {
                 />
               </motion.div>
 
-              {/* S asset — centered via flexbox */}
+              {/* S asset: centered via flexbox */}
               <motion.div
                 className="relative z-10 lg:w-[380px] lg:h-[440px] xl:w-[460px] xl:h-[520px] 2xl:w-[540px] 2xl:h-[620px]"
                 style={{ y: sParallax, willChange: 'transform' }}
@@ -96,7 +96,7 @@ export function CTA() {
               </motion.div>
             </motion.div>
 
-            {/* RIGHT — text + buttons. Stack on lg-3xl, side-by-side on 3xl+ */}
+            {/* RIGHT: text + buttons. Stack on lg-3xl, side-by-side on 3xl+ */}
             <div className="flex flex-col 3xl:flex-row 3xl:items-center 3xl:justify-between gap-8 3xl:gap-12 flex-1">
 
               {/* Heading + subtitle */}
@@ -134,7 +134,7 @@ export function CTA() {
                 </motion.p>
               </motion.div>
 
-              {/* CTA Buttons — stacked vertical column. Below 3xl: under the text.
+              {/* CTA Buttons: stacked vertical column. Below 3xl: under the text.
                   On 3xl+: fixed-width column to the right of the text */}
               <motion.div
                 className="flex flex-col gap-4 w-full max-w-[380px] 3xl:w-[380px] 3xl:flex-shrink-0"

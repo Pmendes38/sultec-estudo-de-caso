@@ -27,11 +27,11 @@ export function Hero() {
       className="relative w-full overflow-hidden bg-[#070808] border-b border-[#F35901]/30"
       style={{ paddingTop: '100px' }}
     >
-      {/* Background image — parallax */}
+      {/* Background image: parallax */}
       <motion.div className="absolute inset-0" style={{ y: bgY, willChange: 'transform' }}>
         <Image
           src="/sultec/bg-home2.jpg"
-          alt="Ambiente de infraestrutura de redes corporativas — Sultec em Chapecó"
+          alt="Ambiente de infraestrutura de redes corporativas: Sultec em Chapecó"
           fill
           priority
           quality={92}
@@ -48,7 +48,7 @@ export function Hero() {
           initial="hidden"
           animate="visible"
         >
-          {/* Heading — Titulo 1 */}
+          {/* Heading: Titulo 1 */}
           <motion.h1
             variants={heroItem}
             className="font-roboto-condensed font-bold uppercase text-white"

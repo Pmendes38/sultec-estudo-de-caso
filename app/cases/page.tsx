@@ -127,7 +127,7 @@ function GaleriaTecnica({ onOpen }: { onOpen: (index: number) => void }) {
   return (
     <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
       <motion.p variants={fadeUp} className="font-sora text-[#666867] text-[15px] leading-relaxed max-w-[700px] mb-10">
-        Qualidade de execução em campo — racks, cabeamento, organização e acabamento.
+        Qualidade de execução em campo: racks, cabeamento, organização e acabamento.
         Imagens técnicas de diferentes cases, sem identificação de cliente.
       </motion.p>
 
@@ -143,7 +143,7 @@ function GaleriaTecnica({ onOpen }: { onOpen: (index: number) => void }) {
           >
             <Image
               src={img}
-              alt={`Galeria técnica — foto ${i + 1}`}
+              alt={`Galeria técnica: foto ${i + 1}`}
               width={500}
               height={500}
               sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
@@ -203,7 +203,7 @@ export default function CasesPage() {
             </motion.h1>
 
             <motion.p variants={fadeUp} className="font-sora text-[#898A89] text-[16px] leading-relaxed max-w-[560px]">
-              Cases reais de infraestrutura, redes e segurança eletrônica — cada projeto
+              Cases reais de infraestrutura, redes e segurança eletrônica. Cada projeto
               com planejamento técnico, materiais de alto padrão e execução certificada.
             </motion.p>
           </motion.div>

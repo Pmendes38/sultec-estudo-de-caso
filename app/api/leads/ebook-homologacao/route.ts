@@ -13,7 +13,7 @@ type RateEntry = { count: number; resetAt: number }
 /**
  * Rate limit e idempotência em memória do processo.
  * Em serverless (Vercel) isso NÃO é compartilhado entre instâncias nem persistente
- * após cold start — proteção básica por IP/instância, não distribuída.
+ * após cold start. Proteção básica por IP/instância, não distribuída.
  */
 const rateMap = new Map<string, RateEntry>()
 const seenSubmissions = new Map<string, number>()
@@ -44,7 +44,7 @@ function checkRateLimit(ip: string, now: number): boolean {
   return true
 }
 
-/** Meta Conversions API opcional — falha não bloqueia o lead por e-mail. */
+/** Meta Conversions API opcional. Falha não bloqueia o lead por e-mail. */
 async function sendMetaCapi(
   lead: {
     email: string
@@ -145,7 +145,7 @@ export async function POST(req: NextRequest) {
 
   const lead = validated.data
 
-  // Honeypot: resposta silenciosa SEM emailAccepted — frontend não libera material
+  // Honeypot: resposta silenciosa SEM emailAccepted. Frontend não libera material
   if (lead.website) {
     return NextResponse.json({ ok: true, emailAccepted: false, duplicate: false })
   }

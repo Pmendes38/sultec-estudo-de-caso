@@ -44,7 +44,7 @@ export function ServicosHero() {
             className="font-sora text-muted text-[16px] lg:text-[18px] leading-[1.6] max-w-[680px]"
           >
             Projeto, execução e certificação de infraestrutura de redes sob uma única
-            responsabilidade — do levantamento técnico ao laudo Fluke DSX.
+            responsabilidade, do levantamento técnico ao laudo Fluke DSX.
           </motion.p>
         </motion.div>
       </div>

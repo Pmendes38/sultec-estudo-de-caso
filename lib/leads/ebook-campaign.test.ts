@@ -1,7 +1,7 @@
 /**
  * Testes da campanha Checklist Homologação.
  * Executar: npm test
- * Usa mock do Resend — não constitui envio real.
+ * Usa mock do Resend. Não constitui envio real.
  */
 
 import assert from 'node:assert/strict'
@@ -125,7 +125,7 @@ describe('montagem de e-mail', () => {
     if (!result.ok) return
     assert.equal(
       buildLeadEmailSubject(result.data),
-      '[Novo lead | E-book] Empresa Exemplo — João da Silva',
+      '[Novo lead | E-book] Empresa Exemplo: João da Silva',
     )
   })
 
@@ -243,7 +243,7 @@ describe('envio Resend (mock)', () => {
     assert.deepEqual(capturedBody!.to, ['comercial@sultectecnologia.com.br'])
     assert.equal(capturedBody!.reply_to, 'joao@empresa.com.br')
     assert.equal(capturedBody!.from, 'Sultec Tecnologia <formularios@sultectecnologia.com.br>')
-    assert.equal(capturedBody!.subject, '[Novo lead | E-book] Empresa Exemplo — João da Silva')
+    assert.equal(capturedBody!.subject, '[Novo lead | E-book] Empresa Exemplo: João da Silva')
     assert.ok(String(capturedBody!.text).includes('UTM source: linkedin'))
     assert.ok(String(capturedBody!.html).includes('NOVO LEAD'))
     assert.ok(authHeader.includes('re_test_key'))

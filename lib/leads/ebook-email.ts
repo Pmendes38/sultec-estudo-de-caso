@@ -41,12 +41,12 @@ export function escapeHtml(value: string): string {
 export function buildLeadEmailSubject(lead: EbookLeadRecord): string {
   const empresa = sanitizeHeaderValue(lead.empresa)
   const nome = sanitizeHeaderValue(lead.nome)
-  return `[Novo lead | E-book] ${empresa} — ${nome}`
+  return `[Novo lead | E-book] ${empresa}: ${nome}`
 }
 
 export function buildLeadEmailText(lead: EbookLeadRecord): string {
   const lines: string[] = [
-    'NOVO LEAD — CHECKLIST DE HOMOLOGAÇÃO',
+    'NOVO LEAD: CHECKLIST DE HOMOLOGAÇÃO',
     '',
     'DADOS DO CONTATO',
     '',
@@ -121,7 +121,7 @@ export function buildLeadEmailHtml(lead: EbookLeadRecord): string {
             <td style="background:#0B0B0B;padding:20px 24px;">
               <p style="margin:0;color:#FF5A1F;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Sultec</p>
               <h1 style="margin:8px 0 0;color:#ffffff;font-size:20px;font-weight:700;">
-                NOVO LEAD — CHECKLIST DE HOMOLOGAÇÃO
+                NOVO LEAD: CHECKLIST DE HOMOLOGAÇÃO
               </h1>
             </td>
           </tr>

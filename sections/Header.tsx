@@ -19,7 +19,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
 
-  // Página de links (linktree) é standalone — sem o menu do site.
+  // Página de links (linktree) é standalone, sem o menu do site.
   if (pathname === '/links') return null
 
   const isActive = (href: string) =>
@@ -50,7 +50,7 @@ export function Header() {
             />
           </Link>
 
-          {/* Desktop Navigation — animated active underline */}
+          {/* Desktop Navigation: animated active underline */}
           <nav className="hidden lg:flex items-center gap-9 xl:gap-12" aria-label="Navegação principal">
             {navItems.map((item) => {
               const active = isActive(item.href)
@@ -108,7 +108,7 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile Menu — animated open/close */}
+        {/* Mobile Menu: animated open/close */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.nav

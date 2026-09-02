@@ -17,7 +17,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        // Apenas o PDF desta campanha — não afeta outros arquivos públicos
+        // Apenas o PDF desta campanha. Não afeta outros arquivos públicos
         source: '/materiais/checklist-homologacao-fornecedores-cabeamento-sultec.pdf',
         headers: [
           { key: 'X-Robots-Tag', value: 'noindex, nofollow' },

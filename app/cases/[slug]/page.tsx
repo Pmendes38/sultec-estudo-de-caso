@@ -15,7 +15,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const project = getCaseBySlug(params.slug)
   if (!project) return { title: { absolute: 'Case | Sultec' } }
   return buildPageMetadata({
-    title: `${project.title} | Case de Infraestrutura — Sultec`,
+    title: `${project.title} | Case de Infraestrutura: Sultec`,
     description: `${project.summary} Local: ${project.location}. Cliente: ${project.client}.`,
     path: `/cases/${project.slug}`,
     keywords: [

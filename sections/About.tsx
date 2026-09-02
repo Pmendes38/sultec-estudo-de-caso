@@ -57,7 +57,7 @@ export function About() {
         {/* Outer rounded card */}
         <div className="relative bg-gradient-to-br from-[#0a0b0c] via-[#0d0e10] to-[#0a0b0c] border border-[#1c1d1e] rounded-[40px] lg:rounded-[60px] p-8 lg:p-14 overflow-hidden">
 
-          {/* Subtle decorative orange glow — parallax */}
+          {/* Subtle decorative orange glow: parallax */}
           <motion.div
             className="absolute -right-40 top-0 w-[600px] h-[600px] rounded-full pointer-events-none"
             style={{
@@ -68,11 +68,11 @@ export function About() {
           />
 
           {/*
-            Conteúdo da seção — vídeo removido temporariamente.
+            Conteúdo da seção. Vídeo removido temporariamente.
             O texto é redistribuído para preencher o card de forma coesa
             (título à esquerda, descrição + CTA à direita, diferenciais em
             largura total). O player de vídeo continua preservado como asset
-            no bloco comentado logo abaixo — reativar quando o vídeo existir.
+            no bloco comentado logo abaixo. Reativar quando o vídeo existir.
           */}
           <div className="relative flex flex-col gap-10 lg:gap-14 mb-12">
 
@@ -84,7 +84,7 @@ export function About() {
               whileInView="visible"
               viewport={viewportOnce}
             >
-              {/* Heading — Titulo 2: Roboto Bold ~64/60 LS -7% */}
+                  {/* Heading: Titulo 2, Roboto Bold ~64/60 LS -7% */}
               <motion.h2
                 variants={fadeUp}
                 className="font-roboto font-bold text-white"
@@ -126,7 +126,7 @@ export function About() {
               </div>
             </motion.div>
 
-            {/* 3 Diferenciais — largura total */}
+                  {/* 3 Diferenciais: largura total */}
             <motion.div
               className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-10 pt-8 border-t border-white/5"
               variants={staggerContainer}
@@ -152,7 +152,7 @@ export function About() {
 
           {/*
             ─────────────────────────────────────────────────────────────────
-            ASSET PRESERVADO — player de vídeo da seção "Sobre".
+            ASSET PRESERVADO: player de vídeo da seção "Sobre".
             O vídeo ainda não está disponível. Para reativar:
               1. Descomente este bloco.
               2. Volte o container acima para o grid de 2 colunas

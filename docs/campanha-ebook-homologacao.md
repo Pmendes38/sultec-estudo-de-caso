@@ -21,7 +21,7 @@ Webhook **não** substitui o e-mail nesta versão.
 2. Adicionar e verificar o domínio da Sultec (ex.: `sultec.example`)
 3. Inserir os registros DNS indicados pelo Resend
 4. Aguardar status **Verified**
-5. Criar API Key com permissão de envio (manual — não criar por script)
+5. Criar API Key com permissão de envio (manual, não criar por script)
 6. **Não** salvar a chave no Git
 
 ## Variáveis na Vercel (Production)
@@ -33,7 +33,7 @@ LEADS_FROM_EMAIL=contato@example.com
 LEADS_FROM_NAME=Sultec Tecnologia
 ```
 
-Opcionais (CAPI — não bloqueiam o e-mail):
+Opcionais (CAPI, não bloqueiam o e-mail):
 
 ```
 META_PIXEL_ID=
@@ -74,7 +74,7 @@ O código impede o carregamento do GTM sem analytics/marketing. Ainda assim, con
 ### Testes
 
 1. GTM Preview na landing e no fluxo de formulário
-2. Meta Test Events — um Lead após 200 da API
+2. Meta Test Events: um Lead após 200 da API
 3. Network: verificar ausência de `facebook.com/tr` duplicado no mesmo gesto
 
 ## Rate limit e idempotência

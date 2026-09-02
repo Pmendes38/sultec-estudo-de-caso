@@ -32,7 +32,7 @@ const services: Service[] = [
   {
     id: 'data-center',
     title: 'Data Center',
-    body: 'Montagem, organização e documentação de salas técnicas — racks, climatização, energia, identificação e mapeamento completos.',
+    body: 'Montagem, organização e documentação de salas técnicas: racks, climatização, energia, identificação e mapeamento completos.',
     icon: (
       <svg viewBox="0 0 24 24" {...ICON}>
         <rect x="4" y="3" width="16" height="18" rx="2" />
@@ -68,7 +68,7 @@ const services: Service[] = [
   {
     id: 'manutencao',
     title: 'Manutenção Preventiva',
-    body: 'Contratos de manutenção para infraestrutura instalada — inspeções periódicas, ajustes finos e prevenção de falhas.',
+    body: 'Contratos de manutenção para infraestrutura instalada: inspeções periódicas, ajustes finos e prevenção de falhas.',
     icon: (
       <svg viewBox="0 0 24 24" {...ICON}>
         <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6 2 2 6-6a4 4 0 0 0 5.4-5.4l-2.4 2.4-2-2 2.4-2.4z" />
@@ -78,7 +78,7 @@ const services: Service[] = [
   {
     id: 'suporte',
     title: 'Suporte 24h',
-    body: 'Atendimento técnico com SLA definido — zero chamados sem resposta, plantão para operações de missão crítica.',
+    body: 'Atendimento técnico com SLA definido, zero chamados sem resposta e plantão para operações de missão crítica.',
     icon: (
       <svg viewBox="0 0 24 24" {...ICON}>
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" />

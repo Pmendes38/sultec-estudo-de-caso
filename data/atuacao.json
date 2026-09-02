@@ -2,7 +2,7 @@
   { "municipio": "Castro", "uf": "PR", "unidades": 1, "clientes": [{ "nome": "Aurora", "unidades": 1 }] },
   { "municipio": "Mandaguari", "uf": "PR", "unidades": 2, "clientes": [{ "nome": "Aurora", "unidades": 2 }] },
   { "municipio": "Pato Branco", "uf": "PR", "unidades": 1, "clientes": [{ "nome": "Vibra", "unidades": 1 }] },
-  { "municipio": "Itapejara d'Oeste", "uf": "PR", "unidades": 1, "clientes": [{ "nome": "Vibra", "unidades": 1 }], "pendente": true, "obs": "A confirmar — Rodovia PR-493, km 32, zona rural. Provavelmente Itapejara d'Oeste. Não plotar até confirmação." },
+  { "municipio": "Itapejara d'Oeste", "uf": "PR", "unidades": 1, "clientes": [{ "nome": "Vibra", "unidades": 1 }], "pendente": true, "obs": "A confirmar: Rodovia PR-493, km 32, zona rural. Provavelmente Itapejara d'Oeste. Não plotar até confirmação." },
 
   { "municipio": "Soledade", "uf": "RS", "unidades": 1, "clientes": [{ "nome": "Vibra", "unidades": 1 }] },
 

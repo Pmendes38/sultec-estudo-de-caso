@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { EbookAccess } from './_parts/EbookAccess'
 
 export const metadata: Metadata = {
-  title: 'Material liberado — Checklist de Homologação | Sultec',
+  title: 'Material liberado: Checklist de Homologação | Sultec',
   description:
     'Acesse e baixe o Checklist de Homologação Técnica de Fornecedores de Cabeamento Estruturado da Sultec.',
   robots: {

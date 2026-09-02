@@ -19,7 +19,7 @@ const UA = 'SultecSiteGeocode/1.0 (https://sultec.example; contato@example.com)'
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 const key = (m) => `${m.municipio}__${m.uf}`
 
-// Caixa de contorno aproximada do Brasil — sanity check pós-geocoding.
+// Caixa de contorno aproximada do Brasil. Sanity check pós-geocoding.
 const BR_BOUNDS = { latMin: -34.5, latMax: 5.5, lonMin: -74.5, lonMax: -34 }
 
 async function geocode(municipio, uf) {
@@ -83,9 +83,9 @@ async function main() {
 
   console.log('\n──────── resumo ────────')
   console.log(`geocodificados: ${Object.keys(coords).length}`)
-  console.log(`pendentes (não plotar): ${pending.length ? pending.join(', ') : '—'}`)
-  console.log(`falhas: ${failed.length ? failed.join(', ') : '—'}`)
-  console.log(`fora dos limites do BR (revisar): ${outOfBounds.length ? outOfBounds.join(' | ') : '—'}`)
+  console.log(`pendentes (não plotar): ${pending.length ? pending.join(', ') : '-'}`)
+  console.log(`falhas: ${failed.length ? failed.join(', ') : '-'}`)
+  console.log(`fora dos limites do BR (revisar): ${outOfBounds.length ? outOfBounds.join(' | ') : '-'}`)
   if (failed.length) process.exitCode = 1
 }
 

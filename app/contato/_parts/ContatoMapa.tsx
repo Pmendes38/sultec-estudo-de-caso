@@ -26,7 +26,7 @@ export function ContatoMapa() {
               letterSpacing: '-0.04em',
             }}
           >
-            Chapecó/SC — pronto para visita técnica.
+            Chapecó/SC, pronto para visita técnica.
           </motion.h2>
         </motion.div>
 
@@ -46,7 +46,7 @@ export function ContatoMapa() {
               </svg>
             </span>
             <p className="font-sora text-white text-[15px] tracking-[-0.02em]">
-              Avenida Antônio Sachett, N° 151 D — Desbravador, Chapecó/SC
+              Avenida Antônio Sachett, N° 151 D, Desbravador, Chapecó/SC
             </p>
             <p className="font-sora text-muted text-[12px] uppercase tracking-[0.1em]">
               Mapa em breve

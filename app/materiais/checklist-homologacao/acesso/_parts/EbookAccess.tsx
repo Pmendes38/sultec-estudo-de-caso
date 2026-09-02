@@ -104,7 +104,7 @@ export function EbookAccess() {
         <div className="mt-8 border border-[#1c1d1e] rounded-2xl overflow-hidden bg-[#0d0d0d]">
           {!iframeFailed ? (
             <iframe
-              title="Checklist de Homologação Técnica de Fornecedores — PDF"
+              title="Checklist de Homologação Técnica de Fornecedores: PDF"
               src={`${EBOOK_PDF_PATH}#view=FitH`}
               className="w-full h-[70vh] min-h-[420px] bg-white"
               onError={() => setIframeFailed(true)}

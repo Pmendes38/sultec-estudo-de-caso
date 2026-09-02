@@ -22,7 +22,7 @@ const testimonials = [
   {
     quote: 'A Sultec é nossa parceira estratégica em diversos projetos. Excelência, comprometimento e entrega de verdade.',
     author: 'Carlos Mendes',
-    role: 'Gerente de TI – Industria',
+    role: 'Gerente de TI, Industria',
   },
   {
     quote: 'Excelência técnica, prazo cumprido e suporte que faz a diferença. Recomendo a Sultec sem reservas.',
@@ -52,7 +52,7 @@ export function Clients() {
     >
       <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14">
 
-        {/* TOP CONTENT — heading/testimonial + marquee logos on the right */}
+        {/* TOP CONTENT: heading/testimonial + marquee logos on the right */}
         <div className="grid lg:grid-cols-[540px_1fr] gap-12 xl:gap-16 items-center">
 
           {/* Left: Heading + Testimonial card */}
@@ -82,7 +82,7 @@ export function Clients() {
               </motion.h2>
             </div>
 
-            {/* Testimonial card — animated quote crossfade */}
+        {/* Testimonial card: animated quote crossfade */}
             <motion.div
               variants={fadeUp}
               className="bg-[#0d0e10] border border-[#1c1d1e] rounded-[14px] p-7 flex flex-col gap-5 max-w-[420px]"
@@ -154,7 +154,7 @@ export function Clients() {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT — auto-scrolling marquee of logos */}
+        {/* RIGHT: auto-scrolling marquee of logos */}
           <motion.div
             className="relative overflow-hidden mt-8 lg:mt-0"
             initial={{ opacity: 0 }}
@@ -188,7 +188,7 @@ export function Clients() {
           </motion.div>
         </div>
 
-        {/* DIVIDER — orange step-line: animated draw effect */}
+        {/* DIVIDER: orange step-line, animated draw effect */}
         <motion.div
           className="relative mt-8 lg:mt-10 h-[24px]"
           initial={{ opacity: 0 }}

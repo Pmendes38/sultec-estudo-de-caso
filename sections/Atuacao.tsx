@@ -61,7 +61,7 @@ export function Atuacao() {
   const wrapRef = useRef<HTMLDivElement>(null)
   const [hover, setHover] = useState<Hover | null>(null)
 
-  // Mapa do Brasil inteiro — center/scale calculados (d3 fitExtent) para o país
+  // Mapa do Brasil inteiro. Center/scale calculados (d3 fitExtent) para o país
   // caber no quadro 800×620. Os pinos ficam concentrados no Sul (oeste de SC),
   // reforçando onde a Sultec atua dentro do alcance nacional.
   const projectionConfig = { center: [-54.4, -15.1] as [number, number], scale: 790 }

@@ -50,7 +50,7 @@ const certificacoes: Certificacao[] = [
     eyebrow: 'FS · Infraestrutura Óptica',
     titulo: 'Soluções FS',
     descricao:
-      'Trabalhamos com soluções FS para infraestrutura óptica e de conectividade — fibra, transceivers e componentes de rede com alta disponibilidade e excelente relação custo-benefício, dimensionados para projetos de qualquer porte.',
+      'Trabalhamos com soluções FS para infraestrutura óptica e de conectividade: fibra, transceivers e componentes de rede com alta disponibilidade e excelente relação custo-benefício, dimensionados para projetos de qualquer porte.',
     beneficios: [
       'Portfólio óptico completo: fibra, transceivers e acessórios de rede',
       'Alta disponibilidade e custo-benefício para projetos de qualquer porte',

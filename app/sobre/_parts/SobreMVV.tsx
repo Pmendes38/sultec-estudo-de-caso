@@ -14,7 +14,7 @@ const pillars: Pillar[] = [
   {
     label: 'Missão',
     title: 'Infraestrutura com previsibilidade.',
-    body: 'Entregar projetos de cabeamento estruturado e redes com excelência técnica, prazo cumprido e previsibilidade total — projeto, material e execução em uma única responsabilidade.',
+    body: 'Entregar projetos de cabeamento estruturado e redes com excelência técnica, prazo cumprido e previsibilidade total: projeto, material e execução em uma única responsabilidade.',
   },
   {
     label: 'Visão',

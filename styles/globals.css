@@ -23,7 +23,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar — subtle dark to blend with the theme */
+/* Scrollbar: subtle dark to blend with the theme */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -68,7 +68,7 @@ textarea {
   transition: all 0.3s ease;
 }
 
-/* Focus Styles — only on keyboard navigation, subtle */
+/* Focus Styles: only on keyboard navigation, subtle */
 button:focus-visible,
 a:focus-visible {
   outline: 2px solid rgba(243, 89, 1, 0.7);

@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         url: '/sultec/bg-home2.jpg',
         width: 1200,
         height: 630,
-        alt: 'Sultec — infraestrutura de TI e cabeamento estruturado',
+        alt: 'Sultec: infraestrutura de TI e cabeamento estruturado',
       },
     ],
   },

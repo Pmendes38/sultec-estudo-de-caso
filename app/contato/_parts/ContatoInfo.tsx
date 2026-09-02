@@ -21,7 +21,7 @@ export function ContatoInfo() {
       whileInView="visible"
       viewport={viewportOnce}
     >
-      {/* WhatsApp — primary action */}
+      {/* WhatsApp: primary action */}
       <motion.div variants={fadeUp} whileHover={buttonHover} whileTap={buttonTap}>
         <a
           href="https://wa.me/5500000000000"
@@ -56,7 +56,7 @@ export function ContatoInfo() {
         <Divider />
         <InfoRow
           title="Endereço"
-          value="Avenida Antônio Sachett, N° 151 D — Desbravador, Chapecó/SC, CEP 89811-396"
+          value="Avenida Antônio Sachett, N° 151 D, Desbravador, Chapecó/SC, CEP 89811-396"
           icon={
             <svg viewBox="0 0 24 24" {...ICON}>
               <path d="M12 22s7-7.58 7-13a7 7 0 1 0-14 0c0 5.42 7 13 7 13z" />
@@ -67,7 +67,7 @@ export function ContatoInfo() {
         <Divider />
         <InfoRow
           title="Horário"
-          value="Segunda a Sexta — 08:00 às 18:00"
+          value="Segunda a Sexta, 08:00 às 18:00"
           icon={
             <svg viewBox="0 0 24 24" {...ICON}>
               <circle cx="12" cy="12" r="9" />
