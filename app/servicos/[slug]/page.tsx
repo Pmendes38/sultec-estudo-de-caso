@@ -155,10 +155,10 @@ export default function ServicoPage({ params }: { params: { slug: string } }) {
                 Ver certificação Fluke
               </Link>
               <Link
-                href="/projetos"
+                href="/cases"
                 className="font-sora text-[13px] text-[#ABADAB] hover:text-[#F35901] underline underline-offset-2"
               >
-                Ver projetos executados
+                Ver cases
               </Link>
               <Link
                 href="/contato"

@@ -103,7 +103,7 @@ export function Portfolio() {
                 willChange: 'transform, opacity',
               }}
             >
-              <span className="block lg:whitespace-nowrap">Projetos Que Refletem</span>
+              <span className="block lg:whitespace-nowrap">Cases Que Refletem</span>
               <span className="block lg:whitespace-nowrap">Nossa Excelência</span>
             </motion.h2>
           </div>
@@ -112,10 +112,10 @@ export function Portfolio() {
             variants={fadeUp}
             whileHover={buttonHover}
             whileTap={buttonTap}
-            href="/projetos"
+            href="/cases"
             className="self-start lg:self-auto inline-flex items-center gap-3 font-sora text-white text-[15px] border-[3px] border-[#F35901] rounded-[14px] px-7 py-[14px] hover:bg-[#F35901]/10 transition-colors"
           >
-            Ver todos os projetos
+            Ver todos os cases
             <motion.svg width="14" height="14" viewBox="0 0 14 14" fill="none" whileHover={{ x: 3 }}>
               <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </motion.svg>
@@ -131,7 +131,7 @@ export function Portfolio() {
           viewport={viewportOnce}
         >
           {projects.map((p) => (
-            <Link key={p.title} href="/projetos" className="block">
+            <Link key={p.title} href="/cases" className="block">
               <ProjectCard project={p} />
             </Link>
           ))}
