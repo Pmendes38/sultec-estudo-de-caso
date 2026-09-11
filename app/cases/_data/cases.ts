@@ -54,8 +54,8 @@ export const cases: CaseStudy[] = [
       'A Sultec entregou a infraestrutura adiantada em relação ao cronograma, com cabeamento, CPD e RACKs totalmente certificados via Fluke. Quando os técnicos estrangeiros chegaram, encontraram o ambiente pronto e validado, permitindo a instalação imediata das máquinas sem interrupções.',
     result:
       'Entrega dentro do prazo crítico, com certificação de qualidade, em obra de infraestrutura de grande porte. O cliente voltou a contratar a Sultec para um novo projeto em 2026.',
-    // 008.jpg removida (placa de carro parcialmente legível) — galeria usa 001..007.
-    gallery: Array.from({ length: 7 }, (_, i) =>
+    // Galeria do projeto: imagens 001..010.
+    gallery: Array.from({ length: 10 }, (_, i) =>
       `${ENCUBATORIO}/${String(i + 1).padStart(3, '0')}.jpg`
     ),
   },
