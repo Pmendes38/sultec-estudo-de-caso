@@ -70,7 +70,7 @@ export function SobreLideranca() {
                 Naiguel Sabini
               </h3>
               <p className="font-sora text-[#F35901] text-[16px] mt-2 tracking-[-0.02em]">
-                Sócio-fundador e Diretor
+                Diretor Técnico e CEO
               </p>
             </motion.div>
 
