@@ -9,11 +9,13 @@ import { Lightbox } from '../_parts/Lightbox'
 export function CaseGallery({
   images,
   videos = [],
+  videoLayout = 'landscape',
   title,
   category,
 }: {
   images: string[]
   videos?: string[]
+  videoLayout?: 'landscape' | 'portrait'
   title: string
   category?: string
 }) {
@@ -32,7 +34,11 @@ export function CaseGallery({
     <>
       {videos.length > 0 && (
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"
+          className={`grid gap-4 mb-6 ${
+            videoLayout === 'portrait'
+              ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+              : 'grid-cols-1 md:grid-cols-2'
+          }`}
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -42,7 +48,11 @@ export function CaseGallery({
             <motion.div
               key={video}
               variants={fadeUp}
-              className="relative aspect-video overflow-hidden rounded-[10px] border-2 border-[#1c1d1e] bg-black"
+              className={`relative overflow-hidden rounded-[10px] border-2 border-[#1c1d1e] bg-black ${
+                videoLayout === 'portrait'
+                  ? 'aspect-[9/16] w-full max-w-[360px] justify-self-center'
+                  : 'aspect-video'
+              }`}
             >
               <video
                 ref={(element) => {

@@ -165,7 +165,13 @@ export default function CaseDetailPage({ params }: { params: { slug: string } })
                 </p>
               </div>
             ) : (
-              <CaseGallery images={project.gallery} videos={project.videos} title={project.title} category={project.category} />
+              <CaseGallery
+                images={project.gallery}
+                videos={project.videos}
+                videoLayout={project.videoLayout}
+                title={project.title}
+                category={project.category}
+              />
             )}
           </div>
         </div>

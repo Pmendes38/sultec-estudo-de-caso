@@ -25,6 +25,8 @@ export type CaseStudy = {
   gallery: string[]
   /** Registros em vídeo do projeto. */
   videos?: string[]
+  /** Formato visual dos vídeos na galeria. */
+  videoLayout?: 'landscape' | 'portrait'
   /** Quando true, a galeria de fotos ainda será enviada pelo cliente. */
   galleryPending?: boolean
   galleryNote?: string
@@ -92,6 +94,7 @@ export const cases: CaseStudy[] = [
       `${UNO_CHAPECO}/video-02.mp4`,
       `${UNO_CHAPECO}/video-03.mp4`,
     ],
+    videoLayout: 'portrait',
   },
   // NOTA: os cases "Frigorífico Vibra (Itapejara/PR)" e "CICOOB" foram removidos
   // por enquanto — sem documentação/fotos disponíveis. Reinserir quando o cliente
