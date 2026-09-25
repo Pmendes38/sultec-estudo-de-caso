@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/animations'
@@ -18,6 +18,13 @@ export function CaseGallery({
   category?: string
 }) {
   const [index, setIndex] = useState<number | null>(null)
+  const videoRefs = useRef<Array<HTMLVideoElement | null>>([])
+
+  const handleVideoPlay = (activeIndex: number) => {
+    videoRefs.current.forEach((video, index) => {
+      if (video && index !== activeIndex && !video.paused) video.pause()
+    })
+  }
 
   if (images.length === 0 && videos.length === 0) return null
 
@@ -38,10 +45,14 @@ export function CaseGallery({
               className="relative aspect-video overflow-hidden rounded-[10px] border-2 border-[#1c1d1e] bg-black"
             >
               <video
+                ref={(element) => {
+                  videoRefs.current[i] = element
+                }}
                 src={video}
                 controls
                 playsInline
-                preload="metadata"
+                preload="none"
+                onPlay={() => handleVideoPlay(i)}
                 className="h-full w-full object-contain"
                 aria-label={`${title} — vídeo ${i + 1}`}
               />
