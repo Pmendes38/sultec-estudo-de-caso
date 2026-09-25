@@ -23,12 +23,15 @@ export type CaseStudy = {
   narrative?: string
   /** Fotos do case para a galeria/lightbox. */
   gallery: string[]
+  /** Registros em vídeo do projeto. */
+  videos?: string[]
   /** Quando true, a galeria de fotos ainda será enviada pelo cliente. */
   galleryPending?: boolean
   galleryNote?: string
 }
 
 const ENCUBATORIO = '/sultec/cases/encubatorio-soledade'
+const UNO_CHAPECO = '/sultec/cases/uno-chapeco'
 
 export const cases: CaseStudy[] = [
   {
@@ -58,6 +61,37 @@ export const cases: CaseStudy[] = [
     gallery: Array.from({ length: 10 }, (_, i) =>
       `${ENCUBATORIO}/${String(i + 1).padStart(3, '0')}.jpg`
     ),
+  },
+  {
+    slug: 'uno-chapeco-infraestrutura-rede',
+    title: 'UNO Chapecó: Infraestrutura de Rede',
+    client: 'UNO Chapecó',
+    category: 'Infraestrutura de Rede',
+    location: 'Chapecó, Santa Catarina',
+    year: '2026',
+    summary:
+      'Infraestrutura de conectividade com organização de rack, terminação e conexão de pontos, adequação do cabeamento e testes de conectividade em campo.',
+    coverImage: `${UNO_CHAPECO}/capa.webp`,
+    scope: [
+      'Organização e intervenção no rack de telecomunicações.',
+      'Terminação e conexão de pontos de rede.',
+      'Adequação e organização do cabeamento e patch cords.',
+      'Instalação e adequação da infraestrutura física de rede.',
+      'Conexão de equipamentos de rede.',
+      'Testes de conectividade em campo.',
+    ],
+    challenge:
+      'Estruturar e organizar a infraestrutura física de rede dos ambientes atendidos, mantendo clareza de identificação e confiabilidade para a operação e para futuras manutenções.',
+    solution:
+      'A Sultec atuou na infraestrutura existente, organizando o rack e o cabeamento, realizando terminações e conexões, adequando a infraestrutura física e validando os pontos em campo.',
+    result:
+      'A infraestrutura ficou mais organizada, funcional e preparada para manutenção e expansão, com os pontos atendidos verificados em campo.',
+    gallery: [],
+    videos: [
+      `${UNO_CHAPECO}/video-01.mp4`,
+      `${UNO_CHAPECO}/video-02.mp4`,
+      `${UNO_CHAPECO}/video-03.mp4`,
+    ],
   },
   // NOTA: os cases "Frigorífico Vibra (Itapejara/PR)" e "CICOOB" foram removidos
   // por enquanto — sem documentação/fotos disponíveis. Reinserir quando o cliente
