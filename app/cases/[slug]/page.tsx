@@ -144,6 +144,28 @@ export default function CaseDetailPage({ params }: { params: { slug: string } })
             {project.result && <Block title="O resultado">{project.result}</Block>}
           </div>
 
+          {project.sections && project.sections.length > 0 && (
+            <div className="flex flex-col gap-10 max-w-[860px]">
+              {project.sections.map((section) => (
+                <article key={section.title} className="flex flex-col gap-4">
+                  <h2 className="font-sora text-[#F35901] text-[13px] uppercase tracking-[0.16em]">
+                    {section.title}
+                  </h2>
+                  <div className="flex flex-col gap-4">
+                    {section.paragraphs.map((paragraph) => (
+                      <p
+                        key={paragraph}
+                        className="font-sora text-[#ABADAB] text-[16px] lg:text-[17px] leading-[1.75]"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
+
           {project.narrative && (
             <div className="border-l-2 border-[#F35901] pl-6 max-w-[820px]">
               <p className="font-sora text-[#ABADAB] text-[16px] leading-[1.7] italic">
