@@ -38,9 +38,9 @@ const config: Config = {
         muted: '#ABADAB',
       },
       fontFamily: {
-        sora: ["'Sora'", 'sans-serif'],
-        roboto: ["'Roboto'", 'sans-serif'],
-        'roboto-condensed': ["'Roboto Condensed'", 'sans-serif'],
+        sora: ['var(--font-sora)', 'sans-serif'],
+        roboto: ['var(--font-roboto)', 'sans-serif'],
+        'roboto-condensed': ['var(--font-roboto-condensed)', 'sans-serif'],
       },
       animation: {
         'fade-up': 'fadeUp 0.6s ease-out',
