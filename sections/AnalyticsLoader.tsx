@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Script from 'next/script'
-import { Analytics } from '@vercel/analytics/next'
+import dynamic from 'next/dynamic'
 import {
   allowsAnalytics,
   allowsGtm,
@@ -11,6 +11,11 @@ import {
   type CookieConsentState,
 } from '@/lib/cookie-consent'
 import { pushDataLayer } from '@/lib/meta-pixel'
+
+const VercelAnalytics = dynamic(
+  () => import('@vercel/analytics/next').then((mod) => mod.Analytics),
+  { ssr: false }
+)
 
 export const GTM_ID = 'GTM-TSGBLTXP'
 
@@ -50,7 +55,7 @@ export function AnalyticsLoader() {
   return (
     <>
       {allowsAnalytics(consent) ? (
-        <Analytics
+        <VercelAnalytics
           beforeSend={(event) => {
             if (!allowsAnalytics(readConsent())) return null
             // Não medir páginas de acesso a material / APIs
