@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   fadeUp,
@@ -86,14 +87,16 @@ export function FlukeCertification() {
     >
       <div className="max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14">
         {/* Outer rounded card with embedded Fluke device background */}
-        <div
-          className="relative overflow-hidden rounded-[40px] lg:rounded-[60px] border border-[#1c1d1e]"
-          style={{
-            backgroundImage: "url('/images/fluke-bg.jpg')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
+        <div className="relative overflow-hidden rounded-[40px] lg:rounded-[60px] border border-[#1c1d1e]">
+          <Image
+            src="/images/fluke-bg.jpg"
+            alt=""
+            fill
+            sizes="(max-width: 768px) calc(100vw - 40px), 1400px"
+            quality={62}
+            className="object-cover object-center"
+            aria-hidden="true"
+          />
           {/* Readability gradient */}
           <div
             className="absolute inset-0 pointer-events-none"
@@ -138,7 +141,7 @@ export function FlukeCertification() {
                       aria-selected={isActive}
                       aria-label={cert.eyebrow}
                       onClick={() => setActiveId(cert.id)}
-                      className="group flex items-center gap-2 focus:outline-none"
+                      className="group flex h-11 w-11 items-center justify-center focus:outline-none"
                     >
                       <span
                         className={`relative flex h-3 w-3 items-center justify-center rounded-full transition-all duration-300 ${
