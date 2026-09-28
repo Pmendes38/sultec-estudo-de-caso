@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export function CTA() {
   return (
-    <section id="contato" className="relative z-0 bg-[#070808] pt-0 pb-12 lg:pb-0 lg:-mt-[90px] overflow-hidden">
+    <section id="contato" className="defer-render relative z-0 bg-[#070808] pt-0 pb-12 lg:pb-0 lg:-mt-[90px] overflow-hidden">
       <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14 lg:-translate-x-[150px]">
         <div aria-hidden className="absolute right-0 top-0 w-[280px] lg:w-[340px] h-[120px] lg:h-[160px] pointer-events-none hidden lg:block" style={{ backgroundImage: 'radial-gradient(circle, #F35901 1.5px, transparent 1.5px)', backgroundSize: '20px 20px', opacity: 0.7, maskImage: 'linear-gradient(to bottom left, black 30%, transparent 80%)', WebkitMaskImage: 'linear-gradient(to bottom left, black 30%, transparent 80%)' }} />
 
