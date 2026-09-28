@@ -55,7 +55,7 @@ export function ServicosCTA() {
                 href="https://wa.me/5500000000000"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 font-sora text-white text-[15px] bg-[#F35901] hover:bg-orange-600 rounded-[14px] px-8 py-[16px] transition-colors"
+                className="inline-flex items-center gap-3 font-sora text-white text-[15px] bg-[#C84700] hover:bg-orange-600 rounded-[14px] px-8 py-[16px] transition-colors"
               >
                 Solicitar orçamento
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
