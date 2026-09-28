@@ -24,7 +24,7 @@ function announceConsent(state: CookieConsentState) {
 
 export function CookieConsent() {
   const formId = useId()
-  const [view, setView] = useState<View>('hidden')
+  const [view, setView] = useState<View>('banner')
   const [analytics, setAnalytics] = useState(false)
   const [marketing, setMarketing] = useState(false)
 
@@ -142,21 +142,21 @@ export function CookieConsent() {
               <button
                 type="button"
                 onClick={() => persist(true, true)}
-                className="inline-flex justify-center items-center font-sora text-[14px] text-white bg-[#F35901] hover:bg-orange-600 rounded-[12px] px-5 py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F35901]"
+                className="inline-flex justify-center items-center font-sora text-[14px] text-white bg-[#C84700] hover:bg-[#A83D01] rounded-[12px] px-5 py-3 min-h-11 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F35901]"
               >
                 Aceitar todos
               </button>
               <button
                 type="button"
                 onClick={() => persist(false, false)}
-                className="inline-flex justify-center items-center font-sora text-[14px] text-white border border-[#2a2b2c] hover:border-[#F35901] rounded-[12px] px-5 py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F35901]"
+                className="inline-flex justify-center items-center font-sora text-[14px] text-white border border-[#2a2b2c] hover:border-[#F35901] rounded-[12px] px-5 py-3 min-h-11 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F35901]"
               >
                 Rejeitar não essenciais
               </button>
               <button
                 type="button"
                 onClick={() => setView('preferences')}
-                className="inline-flex justify-center items-center font-sora text-[14px] text-[#ABADAB] hover:text-white rounded-[12px] px-5 py-3 underline underline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F35901]"
+                className="inline-flex justify-center items-center font-sora text-[14px] text-[#ABADAB] hover:text-white rounded-[12px] px-5 py-3 min-h-11 underline underline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F35901]"
               >
                 Personalizar
               </button>
@@ -166,21 +166,21 @@ export function CookieConsent() {
               <button
                 type="button"
                 onClick={() => persist(analytics, marketing)}
-                className="inline-flex justify-center items-center font-sora text-[14px] text-white bg-[#F35901] hover:bg-orange-600 rounded-[12px] px-5 py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F35901]"
+                className="inline-flex justify-center items-center font-sora text-[14px] text-white bg-[#C84700] hover:bg-[#A83D01] rounded-[12px] px-5 py-3 min-h-11 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F35901]"
               >
                 Salvar preferências
               </button>
               <button
                 type="button"
                 onClick={() => persist(true, true)}
-                className="inline-flex justify-center items-center font-sora text-[14px] text-white border border-[#2a2b2c] hover:border-[#F35901] rounded-[12px] px-5 py-3"
+                className="inline-flex justify-center items-center font-sora text-[14px] text-white border border-[#2a2b2c] hover:border-[#F35901] rounded-[12px] px-5 py-3 min-h-11"
               >
                 Aceitar todos
               </button>
               <button
                 type="button"
                 onClick={() => setView('banner')}
-                className="inline-flex justify-center items-center font-sora text-[14px] text-[#ABADAB] hover:text-white rounded-[12px] px-5 py-3"
+                className="inline-flex justify-center items-center font-sora text-[14px] text-[#ABADAB] hover:text-white rounded-[12px] px-5 py-3 min-h-11"
               >
                 Voltar
               </button>
