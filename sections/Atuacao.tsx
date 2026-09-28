@@ -55,7 +55,7 @@ export function Atuacao() {
   }, [loadMap])
 
   return (
-    <section id="atuacao" className="relative bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
+    <section id="atuacao" className="defer-render relative bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
       <div className="max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14">
         <div className="flex flex-col gap-3 mb-10 lg:mb-12 max-w-[820px]">
           <p className="font-sora text-[#F35901] text-[15px] tracking-[-0.04em] uppercase">
