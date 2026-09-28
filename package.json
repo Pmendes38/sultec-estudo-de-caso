@@ -8,11 +8,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "tsx --test lib/leads/ebook-campaign.test.ts",
+    "test": "tsx --test lib/leads/ebook-campaign.test.ts lib/leads/whatsapp-tracking.test.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
+    "@vercel/functions": "^3.9.9",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "framer-motion": "^10.16.16",
@@ -32,6 +33,7 @@
     "png-to-ico": "^3.0.2",
     "postcss": "^8.4.32",
     "sharp": "^0.34.5",
+    "tsx": "^4.23.15",
     "typescript": "^5.3.3"
   }
 }
