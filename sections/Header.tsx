@@ -35,7 +35,8 @@ export function Header() {
               src="/sultec/logo/logo.png"
               alt="Sultec"
               fill
-              priority
+              loading="eager"
+              quality={65}
               sizes="(max-width: 1023px) 91px, 113px"
               className="object-contain object-left"
             />
