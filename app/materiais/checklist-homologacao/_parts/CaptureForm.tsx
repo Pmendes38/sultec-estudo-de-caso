@@ -477,7 +477,7 @@ export function CaptureForm() {
       <button
         type="submit"
         disabled={sending}
-        className="inline-flex items-center justify-center gap-3 font-sora text-white text-[15px] bg-[#F35901] hover:bg-orange-600 disabled:opacity-60 disabled:cursor-not-allowed rounded-[14px] px-8 py-[14px] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F35901]"
+        className="inline-flex items-center justify-center gap-3 font-sora text-white text-[15px] bg-[#C84700] hover:bg-orange-600 disabled:opacity-60 disabled:cursor-not-allowed rounded-[14px] px-8 py-[14px] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F35901]"
       >
         {sending ? 'Enviando...' : 'Acessar o checklist'}
         {!sending && (
