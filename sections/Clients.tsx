@@ -28,7 +28,7 @@ export function Clients() {
   const t = testimonials[active]
 
   return (
-    <section id="diferenciais" className="relative z-10 bg-[#070808] pt-20 lg:pt-24 pb-0">
+    <section id="diferenciais" className="defer-render relative z-10 bg-[#070808] pt-20 lg:pt-24 pb-0">
       <div className="relative max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14">
         <div className="grid lg:grid-cols-[540px_1fr] gap-12 xl:gap-16 items-center">
           <div className="flex flex-col gap-7">
