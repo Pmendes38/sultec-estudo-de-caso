@@ -132,7 +132,7 @@ export function FlukeCertification() {
 
             <div className="relative hidden lg:block min-h-[520px]">
               <div className="absolute top-2 right-0">
-                <div className="flex items-center gap-2 px-5 py-3 rounded-[12px] bg-emerald-500" style={{ boxShadow: '0 0 30px rgba(16,185,129,0.45)' }}>
+                <div className="flex items-center gap-2 px-5 py-3 rounded-[12px] bg-emerald-700" style={{ boxShadow: '0 0 30px rgba(4,120,87,0.45)' }}>
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9.2L7.5 12.5L14 5.5" stroke="white" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   <span className="font-sora text-white font-bold text-[15px] tracking-wider">PASS</span>
                 </div>
