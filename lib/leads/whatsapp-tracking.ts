@@ -32,6 +32,11 @@ export const WHATSAPP_HIGHLIGHTS = {
     message:
       'Olá, vim pelo LinkedIn da Sultec, vi os cases da empresa e gostaria de conversar sobre um projeto.',
   },
+  entre_em_contato: {
+    label: 'Botão personalizado do LinkedIn',
+    message:
+      'Olá, vim pelo botão de contato da página da Sultec no LinkedIn e gostaria de conversar com a equipe.',
+  },
 } as const
 
 export type WhatsappHighlightKey = keyof typeof WHATSAPP_HIGHLIGHTS

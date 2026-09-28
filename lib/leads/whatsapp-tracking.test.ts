@@ -34,7 +34,7 @@ function record() {
 }
 
 describe('configuração dos destaques do WhatsApp', () => {
-  it('mantém exatamente os seis conteúdos suportados', () => {
+  it('mantém os destaques e o botão personalizado suportados', () => {
     assert.deepEqual(Object.keys(WHATSAPP_HIGHLIGHTS), [
       'fluke_dsx',
       'infraestrutura_completa',
@@ -42,6 +42,7 @@ describe('configuração dos destaques do WhatsApp', () => {
       'data_center',
       'redes_fibra',
       'cases',
+      'entre_em_contato',
     ])
   })
 
@@ -74,6 +75,23 @@ describe('registro do clique', () => {
     assert.equal(result.utm_content, 'fluke_dsx')
     assert.equal(result.content_label, 'Certificação Fluke DSX')
     assert.equal(result.clicked_at, '2026-09-28T15:00:00.000Z')
+  })
+
+  it('identifica separadamente o botão personalizado do LinkedIn', () => {
+    const params = new URLSearchParams({
+      utm_source: 'linkedin',
+      utm_medium: 'company_page',
+      utm_campaign: 'botao_personalizado',
+      utm_content: 'entre_em_contato',
+    })
+    const result = buildWhatsappClickRecord(params, { eventId: 'evt-cta' })
+
+    assert.equal(result.event, 'Clique para iniciar conversa')
+    assert.equal(result.utm_medium, 'company_page')
+    assert.equal(result.utm_campaign, 'botao_personalizado')
+    assert.equal(result.utm_content, 'entre_em_contato')
+    assert.equal(result.content_label, 'Botão personalizado do LinkedIn')
+    assert.match(result.whatsapp_message, /botão de contato/)
   })
 
   it('remove caracteres de controle dos parâmetros', () => {
