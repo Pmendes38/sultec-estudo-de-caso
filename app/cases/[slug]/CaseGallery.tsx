@@ -36,8 +36,12 @@ export function CaseGallery({
         <motion.div
           className={`grid gap-4 mb-6 ${
             videoLayout === 'portrait'
-              ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
-              : 'grid-cols-1 md:grid-cols-2'
+              ? videos.length === 1
+                ? 'grid-cols-1 max-w-[420px] mx-auto'
+                : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+              : videos.length === 1
+                ? 'grid-cols-1 max-w-[900px] mx-auto'
+                : 'grid-cols-1 md:grid-cols-2'
           }`}
           variants={staggerContainer}
           initial="hidden"
