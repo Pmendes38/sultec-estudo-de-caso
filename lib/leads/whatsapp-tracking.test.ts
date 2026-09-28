@@ -135,18 +135,19 @@ describe('entrega server-to-server', () => {
     )
   })
 
-  it('envia o registro ao webhook com token apenas no cabeçalho', async () => {
+  it('envia o registro ao Apps Script com token no corpo HTTPS', async () => {
     let body = ''
     const mockFetch: typeof fetch = async (_input, init) => {
       const headers = init?.headers as Record<string, string>
-      assert.equal(headers.Authorization, 'Bearer secret-token')
+      assert.equal(headers.Authorization, undefined)
       body = String(init?.body)
       return new Response(null, { status: 204 })
     }
 
     await sendWhatsappClickToWebhook(record(), mockFetch, env)
-    assert.equal(JSON.parse(body).event, 'Clique para iniciar conversa')
-    assert.equal(body.includes('secret-token'), false)
+    const payload = JSON.parse(body)
+    assert.equal(payload.event, 'Clique para iniciar conversa')
+    assert.equal(payload.token, 'secret-token')
   })
 
   it('envia notificação via Resend sem afirmar mensagem enviada', async () => {

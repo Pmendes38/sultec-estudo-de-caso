@@ -92,10 +92,11 @@ export async function sendWhatsappClickToWebhook(
   const response = await fetchImpl(config.url, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${config.token}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(record),
+    // Apps Script não disponibiliza cabeçalhos HTTP ao doPost. O token segue
+    // somente nesta comunicação HTTPS entre o servidor da Sultec e o webhook.
+    body: JSON.stringify({ ...record, token: config.token }),
     cache: 'no-store',
   })
 
