@@ -4,11 +4,11 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 const navLinks = [
-  { label: 'Início', href: '/#inicio' },
-  { label: 'Sobre', href: '/#sobre' },
-  { label: 'Soluções', href: '/#servicos' },
+  { label: 'Início', href: '/' },
+  { label: 'Sobre', href: '/sobre' },
+  { label: 'Soluções', href: '/servicos' },
   { label: 'Cases', href: '/cases' },
-  { label: 'Contato', href: '/#contato' },
+  { label: 'Contato', href: '/contato' },
 ]
 
 const serviceLinks = [
