@@ -68,16 +68,15 @@ export function CookieConsent() {
       aria-modal="true"
       aria-labelledby={`${formId}-title`}
     >
-      <div className="max-w-[720px] mx-auto bg-[#0f1012] border border-[#1c1d1e] rounded-2xl shadow-2xl p-5 sm:p-6">
+      <div className="max-w-[560px] mx-auto bg-[#0f1012] border border-[#1c1d1e] rounded-2xl shadow-2xl p-4 sm:p-5">
         <h2
           id={`${formId}-title`}
-          className="font-roboto font-bold text-white text-[18px] sm:text-[20px] tracking-[-0.02em]"
+          className="font-roboto font-bold text-white text-[16px] sm:text-[18px] tracking-[-0.02em]"
         >
           Preferências de cookies
         </h2>
-        <p className="font-sora text-[#ABADAB] text-[13px] sm:text-[14px] leading-[1.55] mt-2">
-          Usamos cookies necessários para o funcionamento do site. Cookies de analytics e marketing
-          só são ativados com a sua autorização. Consulte a{' '}
+        <p className="font-sora text-[#ABADAB] text-[12px] sm:text-[13px] leading-[1.45] mt-1.5">
+          Usamos cookies essenciais. Analytics e marketing só são ativados com sua autorização. Veja a{' '}
           <Link
             href="/politica-de-privacidade"
             className="text-white underline underline-offset-2 hover:text-[#F35901]"
@@ -136,7 +135,7 @@ export function CookieConsent() {
           </fieldset>
         )}
 
-        <div className="mt-5 flex flex-col sm:flex-row gap-2.5">
+        <div className="mt-4 flex flex-col sm:flex-row gap-2">
           {view === 'banner' ? (
             <>
               <button
