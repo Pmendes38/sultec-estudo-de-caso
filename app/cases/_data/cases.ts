@@ -129,9 +129,7 @@ export const cases: CaseStudy[] = [
       'Da passagem dos cabos ao acionamento das portas, cada etapa foi executada como parte de uma mesma infraestrutura. Conectividade, alimentação e segurança foram integradas para que o ambiente permanecesse organizado, funcional e preparado para a operação.',
     gallery: [],
     videos: [
-      `${UNO_CHAPECO}/video-01.mp4`,
-      `${UNO_CHAPECO}/video-02.mp4`,
-      `${UNO_CHAPECO}/video-03.mp4`,
+      `${UNO_CHAPECO}/uno-chapeco-case.mp4`,
     ],
     videoLayout: 'portrait',
   },
