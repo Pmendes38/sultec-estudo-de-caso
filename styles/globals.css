@@ -163,3 +163,10 @@ img {
     text-decoration: underline;
   }
 }
+
+
+/* Adia pintura/layout de seções fora da viewport sem remover o conteúdo do HTML. */
+.defer-render {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
