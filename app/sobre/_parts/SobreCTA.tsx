@@ -54,7 +54,7 @@ export function SobreCTA() {
             <motion.div whileHover={buttonHover} whileTap={buttonTap}>
               <Link
                 href="/contato"
-                className="inline-flex items-center gap-3 font-sora text-white text-[15px] bg-[#F35901] hover:bg-orange-600 rounded-[14px] px-8 py-[16px] transition-colors"
+                className="inline-flex items-center gap-3 font-sora text-white text-[15px] bg-[#C84700] hover:bg-orange-600 rounded-[14px] px-8 py-[16px] transition-colors"
               >
                 Solicitar visita técnica
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
