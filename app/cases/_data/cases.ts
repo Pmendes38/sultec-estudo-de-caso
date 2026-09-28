@@ -21,6 +21,11 @@ export type CaseStudy = {
   result?: string
   /** Texto narrativo adicional (ex.: recorrência do cliente). */
   narrative?: string
+  /** Seções editoriais para cases que exigem descrição técnica mais profunda. */
+  sections?: Array<{
+    title: string
+    paragraphs: string[]
+  }>
   /** Fotos do case para a galeria/lightbox. */
   gallery: string[]
   /** Registros em vídeo do projeto. */
@@ -66,28 +71,62 @@ export const cases: CaseStudy[] = [
   },
   {
     slug: 'uno-chapeco-infraestrutura-rede',
-    title: 'UNO Chapecó: Infraestrutura de Rede',
+    title: 'UNO Chapecó: Infraestrutura de Rede e Controle de Acesso',
     client: 'UNO Chapecó',
-    category: 'Infraestrutura de Rede',
+    category: 'Infraestrutura de TI e Controle de Acesso',
     location: 'Chapecó, Santa Catarina',
     year: '2026',
     summary:
-      'Infraestrutura de conectividade com organização de rack, terminação e conexão de pontos, adequação do cabeamento e testes de conectividade em campo.',
+      'Na UNO Chapecó, a Sultec integrou infraestrutura de rede e controle de acesso em uma mesma entrega técnica. O trabalho envolveu organização e conexão do cabeamento estruturado, adequação da infraestrutura física, implantação dos circuitos de dados e alimentação em baixa tensão para o controle de acesso, integração de sensores, botoeiras e fechaduras eletromagnéticas e validação dos enlaces trabalhados com equipamento Fluke Networks.',
     coverImage: `${UNO_CHAPECO}/capa.webp`,
     scope: [
-      'Organização e intervenção no rack de telecomunicações.',
-      'Terminação e conexão de pontos de rede.',
-      'Adequação e organização do cabeamento e patch cords.',
-      'Instalação e adequação da infraestrutura física de rede.',
-      'Conexão de equipamentos de rede.',
-      'Testes de conectividade em campo.',
+      'Organização e intervenção no rack de telecomunicações, com conexão e adequação dos enlaces atendidos.',
+      'Terminação, conexão e organização de pontos de rede e patch cords.',
+      'Execução e adequação de eletrodutos, caixas de passagem e rotas para dados e alimentação em baixa tensão.',
+      'Interligação da central do sistema de controle de acesso e distribuição de alimentação em 12 V aos componentes.',
+      'Integração de botoeiras, sensores, dispositivos de controle de acesso e fechaduras eletromagnéticas.',
+      'Integração de alimentação proveniente da rede elétrica ao conjunto da central, com bateria de respaldo para os componentes do sistema.',
+      'Testes e validação dos enlaces de cabeamento estruturado trabalhados em campo.',
+      'Utilização de equipamento Fluke Networks para verificação técnica dos pontos demonstrados durante a execução.',
     ],
     challenge:
-      'Estruturar e organizar a infraestrutura física de rede dos ambientes atendidos, mantendo clareza de identificação e confiabilidade para a operação e para futuras manutenções.',
+      'O projeto exigia tratar conectividade e segurança física como partes de uma mesma infraestrutura. Além de organizar e colocar em operação os enlaces de rede, era necessário criar rotas para dados e alimentação em baixa tensão, integrar dispositivos distribuídos nas portas e concentrar o acionamento do controle de acesso em uma arquitetura que permanecesse organizada, identificável e adequada para futuras manutenções. A execução precisava conviver com a infraestrutura existente da unidade e, ao mesmo tempo, entregar acabamento técnico e confiabilidade operacional.',
     solution:
-      'A Sultec atuou na infraestrutura existente, organizando o rack e o cabeamento, realizando terminações e conexões, adequando a infraestrutura física e validando os pontos em campo.',
+      'A Sultec executou a infraestrutura física necessária para interligar rede e controle de acesso. No rack de telecomunicações, a equipe atuou na organização, terminação e conexão dos pontos. Nos acessos, foram instalados e adequados eletrodutos, caixas de passagem e cabeamento para comunicação e alimentação em 12 V. A central do sistema passou a concentrar a alimentação e o acionamento dos dispositivos, integrando botoeiras, sensores, controladores e fechaduras eletromagnéticas. O conjunto também recebeu alimentação proveniente da rede elétrica e bateria de respaldo. Após a execução, os enlaces trabalhados foram submetidos a testes em campo com equipamento Fluke Networks para validar tecnicamente os pontos demonstrados.',
     result:
-      'A infraestrutura ficou mais organizada, funcional e preparada para manutenção e expansão, com os pontos atendidos verificados em campo.',
+      'A UNO Chapecó recebeu uma infraestrutura integrada, com rede, alimentação em baixa tensão e controle de acesso organizados dentro de uma mesma lógica de operação. Os ambientes atendidos ficaram preparados para uso e manutenção, com dispositivos de acesso interligados à central, cabeamento organizado e enlaces verificados em campo. O resultado é uma base técnica que reduz improvisos, facilita diagnóstico e manutenção e sustenta a operação cotidiana dos sistemas de conectividade e segurança.',
+    sections: [
+      {
+        title: 'Infraestrutura como base da solução',
+        paragraphs: [
+          'Antes de qualquer dispositivo entrar em operação, foi necessário construir e adequar o caminho físico por onde dados e alimentação chegariam a cada ponto. A equipe trabalhou com eletrodutos aparentes, caixas de passagem, derivações e rotas de cabeamento, mantendo os circuitos protegidos e organizados ao longo dos ambientes atendidos.',
+          'Essa etapa é determinante em projetos de infraestrutura: leitores, sensores, botoeiras, fechaduras e equipamentos de rede só operam de forma confiável quando existe uma base física coerente por trás deles. Por isso, a execução foi tratada como um sistema completo, e não como a instalação isolada de equipamentos.',
+        ],
+      },
+      {
+        title: 'Controle de acesso centralizado',
+        paragraphs: [
+          'Nos acessos atendidos, a solução foi estruturada em torno de uma central responsável por concentrar o comando e a alimentação dos componentes do sistema. A partir dela são interligados os diferentes pontos instalados nas portas, incluindo botoeiras, sensores, dispositivos de controle de acesso e fechaduras eletromagnéticas.',
+          'Na prática, a liberação de uma porta depende do funcionamento coordenado dessa cadeia. O comando recebido pelo sistema precisa chegar à central e acionar corretamente o dispositivo de travamento, enquanto sensores e botoeiras participam da lógica de operação. A infraestrutura executada pela Sultec foi responsável por criar essa comunicação entre os componentes.',
+        ],
+      },
+      {
+        title: 'Alimentação em baixa tensão e respaldo',
+        paragraphs: [
+          'Além da comunicação de dados, o projeto exigiu infraestrutura elétrica para os componentes que operam em baixa tensão. A central é alimentada a partir da rede elétrica e distribui a alimentação necessária em 12 V aos dispositivos ligados ao sistema de controle de acesso.',
+          'O conjunto também utiliza bateria de respaldo, acrescentando uma camada de continuidade à alimentação dos componentes conectados à central. Essa arquitetura evita que cada dispositivo seja tratado como um ponto independente e concentra a alimentação e o gerenciamento do sistema em uma solução tecnicamente organizada.',
+        ],
+      },
+      {
+        title: 'Cabeamento estruturado e validação em campo',
+        paragraphs: [
+          'Paralelamente ao controle de acesso, a equipe atuou no rack de telecomunicações, realizando organização, conexão e adequação dos enlaces atendidos. Um rack organizado facilita a identificação dos pontos, reduz a complexidade de futuras intervenções e cria condições mais seguras para diagnóstico e expansão da rede.',
+          'Depois da execução física, os enlaces trabalhados foram submetidos a testes com equipamento profissional Fluke Networks. Nos registros do serviço é possível observar a utilização do equipamento durante a validação e a indicação de aprovação no ponto demonstrado. A Sultec trata essa etapa como parte da entrega: a infraestrutura não termina quando o cabo é conectado; ela precisa ser verificada em campo.',
+        ],
+      },
+    ],
+    narrative:
+      'Da passagem dos cabos ao acionamento das portas, cada etapa foi executada como parte de uma mesma infraestrutura. Conectividade, alimentação e segurança foram integradas para que o ambiente permanecesse organizado, funcional e preparado para a operação.',
     gallery: [],
     videos: [
       `${UNO_CHAPECO}/video-01.mp4`,
