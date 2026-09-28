@@ -90,7 +90,7 @@ export function ContatoForm() {
           disabled={status === 'sending'}
           whileHover={buttonHover}
           whileTap={buttonTap}
-          className="inline-flex items-center justify-center gap-3 font-sora text-white text-[15px] bg-[#F35901] hover:bg-orange-600 disabled:opacity-60 rounded-[14px] px-8 py-[14px] transition-colors"
+          className="inline-flex items-center justify-center gap-3 font-sora text-white text-[15px] bg-[#C84700] hover:bg-orange-600 disabled:opacity-60 rounded-[14px] px-8 py-[14px] transition-colors"
         >
           {status === 'sending' ? 'Enviando…' : 'Enviar mensagem'}
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
