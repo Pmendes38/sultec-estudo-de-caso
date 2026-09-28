@@ -1,11 +1,34 @@
 import { ReactNode } from 'react'
 import type { Metadata, Viewport } from 'next'
+import { Roboto, Roboto_Condensed, Sora } from 'next/font/google'
 import { Header, Footer } from '@/sections'
 import { CookieConsent } from '@/sections/CookieConsent'
 import { AnalyticsLoader } from '@/sections/AnalyticsLoader'
 import { JsonLd } from '@/components/JsonLd'
 import { SITE_NAME, SITE_URL, organizationJsonLd, websiteJsonLd } from '@/lib/seo'
 import '@/styles/globals.css'
+
+const sora = Sora({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--font-sora',
+})
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['300', '400', '700'],
+  display: 'swap',
+  variable: '--font-roboto',
+  preload: false,
+})
+
+const robotoCondensed = Roboto_Condensed({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  variable: '--font-roboto-condensed',
+})
 
 export const viewport: Viewport = {
   themeColor: '#F35901',
@@ -77,7 +100,10 @@ export default function RootLayout({
   children: ReactNode
 }) {
   return (
-    <html lang="pt-BR" className="scroll-smooth">
+    <html
+      lang="pt-BR"
+      className={`scroll-smooth ${sora.variable} ${roboto.variable} ${robotoCondensed.variable}`}
+    >
       <body className="bg-dark-900 text-white antialiased">
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
