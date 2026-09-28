@@ -57,7 +57,7 @@ export function EbookAccess() {
         </p>
         <Link
           href="/materiais/checklist-homologacao"
-          className="inline-flex mt-8 items-center justify-center font-sora text-white text-[15px] bg-[#F35901] hover:bg-orange-600 rounded-[14px] px-8 py-[14px] transition-colors"
+          className="inline-flex mt-8 items-center justify-center font-sora text-white text-[15px] bg-[#C84700] hover:bg-orange-600 rounded-[14px] px-8 py-[14px] transition-colors"
         >
           Ir para o formulário
         </Link>
@@ -82,7 +82,7 @@ export function EbookAccess() {
             href={EBOOK_PDF_PATH}
             download="checklist-homologacao-fornecedores-cabeamento-sultec.pdf"
             onClick={handleDownload}
-            className="inline-flex items-center justify-center gap-2 font-sora text-white text-[15px] bg-[#F35901] hover:bg-orange-600 rounded-[14px] px-6 py-[13px] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F35901]"
+            className="inline-flex items-center justify-center gap-2 font-sora text-white text-[15px] bg-[#C84700] hover:bg-orange-600 rounded-[14px] px-6 py-[13px] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F35901]"
           >
             Baixar e-book em PDF
           </a>
@@ -166,7 +166,7 @@ export function EbookAccess() {
           </p>
           <Link
             href="/contato"
-            className="inline-flex mt-7 items-center justify-center gap-2 font-sora text-white text-[15px] bg-[#F35901] hover:bg-orange-600 rounded-[14px] px-8 py-[14px] transition-colors"
+            className="inline-flex mt-7 items-center justify-center gap-2 font-sora text-white text-[15px] bg-[#C84700] hover:bg-orange-600 rounded-[14px] px-8 py-[14px] transition-colors"
           >
             Falar com a Sultec
           </Link>
