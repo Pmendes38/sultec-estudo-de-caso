@@ -92,7 +92,7 @@ const items: LinkItem[] = [
 
 const VARIANTS: Record<LinkItem['variant'], string> = {
   whatsapp: 'bg-[#25D366] hover:bg-[#1ebd5a] text-white border-transparent',
-  primary: 'bg-[#F35901] hover:bg-[#d14d01] text-white border-transparent',
+  primary: 'bg-[#C84700] hover:bg-[#A83D01] text-white border-transparent',
   outline: 'bg-[#0d0e10] hover:bg-[#141416] text-white border-[#252526] hover:border-[#F35901]/60',
 }
 
