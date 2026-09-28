@@ -10,7 +10,6 @@ import '@/styles/globals.css'
 
 const sora = Sora({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
   display: 'swap',
   variable: '--font-sora',
 })
@@ -25,7 +24,6 @@ const roboto = Roboto({
 
 const robotoCondensed = Roboto_Condensed({
   subsets: ['latin'],
-  weight: ['400', '700'],
   display: 'swap',
   variable: '--font-roboto-condensed',
 })
