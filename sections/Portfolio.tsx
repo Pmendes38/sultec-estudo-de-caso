@@ -49,7 +49,7 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
+    <section id="portfolio" className="defer-render bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
       <div className="max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
           <div className="flex flex-col gap-3">
