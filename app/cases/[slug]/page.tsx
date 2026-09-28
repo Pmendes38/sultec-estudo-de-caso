@@ -71,7 +71,7 @@ export default function CaseDetailPage({ params }: { params: { slug: string } })
             <span className="text-[#F35901]">{project.title}</span>
           </nav>
 
-          <span className="font-sora text-[11px] uppercase tracking-wider bg-[#F35901] text-white px-2.5 py-1 rounded-[6px] leading-none">
+          <span className="font-sora text-[11px] uppercase tracking-wider bg-[#C84700] text-white px-2.5 py-1 rounded-[6px] leading-none">
             {project.category}
           </span>
 
@@ -193,7 +193,7 @@ export default function CaseDetailPage({ params }: { params: { slug: string } })
             href="https://wa.me/5500000000000"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 font-sora text-white text-[15px] bg-[#F35901] rounded-[14px] px-8 py-[16px] hover:bg-[#d94e00] transition-colors"
+            className="inline-flex items-center gap-3 font-sora text-white text-[15px] bg-[#C84700] rounded-[14px] px-8 py-[16px] hover:bg-[#d94e00] transition-colors"
           >
             Solicitar orçamento
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
