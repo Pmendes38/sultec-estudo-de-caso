@@ -65,7 +65,7 @@ export function FlukeCertification() {
   const active = certifications.find((c) => c.id === activeId) ?? certifications[0]
 
   return (
-    <section id="fluke" className="bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
+    <section id="fluke" className="defer-render bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
       <div className="max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14">
         <div className="relative overflow-hidden rounded-[40px] lg:rounded-[60px] border border-[#1c1d1e]">
           <Image src="/images/fluke-bg.jpg" alt="" fill sizes="(max-width: 768px) calc(100vw - 40px), 1400px" quality={62} className="object-cover object-center" aria-hidden="true" />
