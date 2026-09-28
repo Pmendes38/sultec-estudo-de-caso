@@ -15,7 +15,7 @@ const statsBar = [
 
 export function About() {
   return (
-    <section id="sobre" className="bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
+    <section id="sobre" className="defer-render bg-[#070808] py-20 lg:py-28 border-b border-[#F35901]/30">
       <div className="max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-14">
         <div className="relative bg-gradient-to-br from-[#0a0b0c] via-[#0d0e10] to-[#0a0b0c] border border-[#1c1d1e] rounded-[40px] lg:rounded-[60px] p-8 lg:p-14 overflow-hidden">
           <div
