@@ -86,7 +86,7 @@ export function Atuacao() {
             ) : (
               <div
                 className="w-full aspect-[800/620] rounded-[20px] border border-[#1c1d1e] bg-[#0D0D0D]"
-                aria-label="Mapa de atuação da Sultec será carregado ao se aproximar desta seção"
+                role="img" aria-label="Mapa de atuação da Sultec será carregado ao se aproximar desta seção"
               />
             )}
           </div>
