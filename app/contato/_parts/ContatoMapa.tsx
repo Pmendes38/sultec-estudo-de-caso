@@ -3,6 +3,9 @@
 import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, viewportOnce } from '@/lib/animations'
 
+const MAP_EMBED_URL =
+  'https://maps.google.com/maps?hl=pt-BR&q=Avenida%20Ant%C3%B4nio%20Sachett%2C%20151%20D%2C%20Desbravador%2C%20Chapec%C3%B3%20-%20SC%2C%2089811-396&z=16&output=embed'
+
 export function ContatoMapa() {
   return (
     <section className="bg-dark-900 py-20 lg:py-28">
@@ -36,30 +39,14 @@ export function ContatoMapa() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          // TODO: substituir por iframe real do Google Maps com a localização da Sultec
         >
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-            <span className="w-14 h-14 rounded-full bg-[#F35901]/10 text-[#F35901] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s7-7.58 7-13a7 7 0 1 0-14 0c0 5.42 7 13 7 13z" />
-                <circle cx="12" cy="9" r="2.5" />
-              </svg>
-            </span>
-            <p className="font-sora text-white text-[15px] tracking-[-0.02em]">
-              Avenida Antônio Sachett, N° 151 D — Desbravador, Chapecó/SC
-            </p>
-            <p className="font-sora text-muted text-[12px] uppercase tracking-[0.1em]">
-              Mapa em breve
-            </p>
-          </div>
-          <div
-            aria-hidden
-            className="absolute inset-0 pointer-events-none opacity-30"
-            style={{
-              backgroundImage:
-                'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
-              backgroundSize: '40px 40px',
-            }}
+          <iframe
+            src={MAP_EMBED_URL}
+            title="Mapa da Sultec em Chapecó"
+            className="absolute inset-0 h-full w-full border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
           />
         </motion.div>
       </div>
