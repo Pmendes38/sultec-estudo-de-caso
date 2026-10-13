@@ -1,14 +1,14 @@
-# Sultec — estudo de caso
+# Sultec
 
 Site institucional em Next.js, React, TypeScript e Tailwind CSS para uma empresa de soluções tecnológicas. Implementação de identidade visual, páginas de serviços e projetos, conteúdo institucional e caminhos de conversão.
 
-> Cópia pública sanitizada para avaliação técnica, separada do repositório oficial. Leia [o escopo da cópia e seu histórico](ESTUDO-DE-CASO.md).
+[Site](https://sultectecnologia.com.br/) · [Ver projeto no portfólio](https://portfolio-iota-woad-84p4egesbx.vercel.app/projetos/sultec)
 
 ## Problema e solução
 
 Organizar serviços técnicos e provas de execução em uma experiência clara, responsiva e consistente com a marca. O projeto conecta informações institucionais, casos de projetos e caminhos de contato.
 
-## O que avaliar
+## Estrutura
 
 - `app/`: páginas, rotas e tratamento de formulários no servidor.
 - `sections/` e `components/`: seções reutilizáveis e composição das páginas.
@@ -23,7 +23,7 @@ npm ci --legacy-peer-deps
 npm run dev
 ```
 
-Integrações externas são opcionais. O arquivo `.env.example` contém somente nomes de variáveis e exemplos; configure exclusivamente recursos próprios de teste. Sem esses valores, os envios operacionais não ficam habilitados.
+Integrações externas são opcionais. Configure as variáveis de `.env.example` com os serviços do seu ambiente. Sem esses valores, os envios não ficam habilitados.
 
 ## Validar
 
@@ -33,5 +33,9 @@ npm run typecheck
 npm run build
 ```
 
-O ramo `main` apresenta a versão sanitizada da linha publicada. `historico-local` conserva desenvolvimento adicional para consulta, sem condensar commits. Marcas, fotografias e vídeos pertencem aos respectivos titulares; a publicação não concede licença comercial sobre eles.
+## Histórico
+
+O ramo `main` registra a linha principal. A ramificação `historico-local` conserva desenvolvimento adicional para consulta.
+
+Marcas, fotografias e vídeos pertencem aos respectivos titulares.
 
